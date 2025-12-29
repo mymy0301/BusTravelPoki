@@ -1,0 +1,65 @@
+{
+    "JsonPackBlackFriday": [
+        {
+            "namePack": "blackfriday_ads",
+            "nameUI": "BLACK FRIDAY!",
+            "price": "0",
+            "Prizes": {
+                "MONEY": 3000
+            },
+            "Sale": 0,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "BLACK_FRIDAY"
+        },
+        {
+            "namePack": "blackfriday_01",
+            "nameUI": "BLACK FRIDAY!",
+            "price": "0.99",
+            "Prizes": {
+                "MONEY": 5000,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 90,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "BLACK_FRIDAY"
+        },
+        {
+            "namePack": "blackfriday_02",
+            "nameUI": "BLACK FRIDAY!",
+            "price": "7.99",
+            "Prizes": {
+                "MONEY": 10000,
+                "SORT": 4,
+                "SHUFFLE": 4,
+                "VIP_SLOT": 4
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "BLACK_FRIDAY"
+        },
+        {
+            "namePack": "blackfriday_03",
+            "nameUI": "BLACK FRIDAY!",
+            "price": "12.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 6,
+                "SHUFFLE": 6,
+                "VIP_SLOT": 6
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "BLACK_FRIDAY"
+        }
+    ]
+}

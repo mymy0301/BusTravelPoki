@@ -1,0 +1,149 @@
+{
+    "JsonPack": [
+        {
+            "namePack": "p_01",
+            "nameUI": "STARTER PACK",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 8000,
+                "SORT": 2,
+                "SHUFFLE": 2,
+                "VIP_SLOT": 2
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 172800,
+            "timeAutoReset": 604800,
+            "type": "IAP"
+        },
+        {
+            "namePack": "p_02",
+            "nameUI": "GREAT DEALS",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 7500,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 70,
+            "numAvaliable": 1,
+            "timeLimit": 1800,
+            "timeAutoReset": 604800,
+            "type": "IAP"
+        },
+        {
+            "namePack": "p_03",
+            "nameUI": "GREAT DEALS",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 25000,
+                "SORT": 10,
+                "SHUFFLE": 10,
+                "VIP_SLOT": 10
+            },
+            "Sale": 75,
+            "numAvaliable": 1,
+            "timeLimit": 1800,
+            "timeAutoReset": 604800,
+            "type": "IAP"
+        },
+        {
+            "namePack": "sb_01",
+            "nameUI": "SMALL BUNDLE",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 8000,
+                "SORT": 2,
+                "SHUFFLE": 2,
+                "VIP_SLOT": 2
+            },
+            "Sale": 0,
+            "numAvaliable": 99999,
+            "timeLimit": -1,
+            "timeAutoReset": 0,
+            "type": "IAP_INFINITY"
+        },
+        {
+            "namePack": "mb_01",
+            "nameUI": "MEDIUM BUNDLE",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 12500,
+                "SORT": 5,
+                "SHUFFLE": 5,
+                "VIP_SLOT": 5
+            },
+            "Sale": 0,
+            "numAvaliable": 99999,
+            "timeLimit": -1,
+            "timeAutoReset": 0,
+            "type": "IAP_INFINITY"
+        },
+        {
+            "namePack": "mb_02",
+            "nameUI": "LARGE BUNDLE",
+            "price": "29.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 10,
+                "SHUFFLE": 10,
+                "VIP_SLOT": 10
+            },
+            "Sale": 0,
+            "numAvaliable": 99999,
+            "timeLimit": -1,
+            "timeAutoReset": 0,
+            "type": "IAP_INFINITY",
+            "isBestSellerRibbon": "t"
+        },
+        {
+            "namePack": "td_01",
+            "nameUI": "Travel Deal",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 3500,
+                "SORT": 2,
+                "SHUFFLE": 2,
+                "VIP_SLOT": 2
+            },
+            "Sale": 30,
+            "numAvaliable": 1,
+            "timeLimit": 1800,
+            "timeAutoReset": 86400,
+            "type": "LOSE"
+        },
+        {
+            "namePack": "h_01",
+            "nameUI": "Hard Level Offer",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 10000,
+                "SORT": 4,
+                "SHUFFLE": 4,
+                "VIP_SLOT": 4
+            },
+            "Sale": 40,
+            "numAvaliable": 1,
+            "timeLimit": 1800,
+            "timeAutoReset": 86400,
+            "type": "LOSE"
+        },
+        {
+            "namePack": "sh_01",
+            "nameUI": "Supper Hard Level Offer",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 30000,
+                "SORT": 8,
+                "SHUFFLE": 8,
+                "VIP_SLOT": 8
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 1800,
+            "timeAutoReset": 86400,
+            "type": "LOSE"
+        }
+    ]
+}

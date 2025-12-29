@@ -1,0 +1,176 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: sprite-vs:vert
+      frag: sprite-fs:frag
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      rasterizerState:
+        cullMode: none
+      properties:
+        alphaThreshold: { value: 0.5 }
+
+        lightColor: { value: [1.0, 1.0, 0.0, 1.0], editor: {
+          type: color,
+          tooltip: "light color" }}
+        lightCenterPoint: { value: [0.2, 0.2], editor: { 
+          tooltip: "center light" }}
+        lightAngle: { value: 36.0, editor: { 
+          tooltip: "góc nghiêng của chùm tia" }}
+        lightWidth: { value: 0.2, editor: { 
+          tooltip: "width line light" }}
+        enableGradient: { value: 1.0, editor: { 
+          tooltip: "chùm tia" }}
+        cropAlpha: { value: 1.0, editor: { 
+          tooltip: "bỏ ánh sáng ở những vùng trong suốt" }}
+        enableFog: { value: 0.0, editor: { 
+          tooltip: "hiệu ứng sương mù" }}
+}%
+
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 color;
+  out vec2 uv0;
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+
+    #if USE_PIXEL_ALIGNMENT
+      pos = cc_matView * pos;
+      pos.xyz = floor(pos.xyz);
+      pos = cc_matProj * pos;
+    #else
+      pos = cc_matViewProj * pos;
+    #endif
+
+    uv0 = a_texCoord;
+    color = a_color;
+
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/internal/embedded-alpha>
+  #include <builtin/internal/alpha-test>
+
+  in vec4 color;
+
+  #if USE_TEXTURE
+    in vec2 uv0;
+    #pragma builtin(local)
+    layout(set = 2, binding = 11) uniform sampler2D cc_spriteTexture;
+  #endif
+
+  #if ENABLE_LIGHT
+    uniform Light {
+      vec4 lightColor;
+      vec2 lightCenterPoint;
+      float lightAngle;
+      float lightWidth;
+      float enableGradient;   // do không hỗ trợ bool nên hãy dùng float để định nghĩa
+      float cropAlpha;   
+      float enableFog;
+    };
+
+    /**
+    * add light color
+    */
+    vec4 addLightColor(vec4 textureColor, vec4 lightColor, vec2 lightCenterPoint, float lightAngle, float lightWidth) {
+      // trả về màu gốc nếu line width không tới đó
+      if (lightWidth <= 0.0) {
+        return textureColor;
+      }
+
+      // tính góc nghiêng 
+      float angleInRadians = radians(lightAngle);
+
+      float dis = 0.0;
+      // kiểm tra xem góc ánh sáng có phải bội số của 180 hay không
+      if (mod(lightAngle, 180.0) != 0.0) {
+        // Tính tọa độ X của điểm giao giữa phía dưới trục trung tâm của tia sáng và trục X.
+        // 1.0 - lightCenterPoint.y được chuyển sang hệ tọa độ OpenGL, 1.0 - y bên dưới cũng tương tự
+        float lightOffsetX = lightCenterPoint.x - ((1.0 - lightCenterPoint.y) / tan(angleInRadians));
+
+        // Vẽ một đoạn thẳng song song với trục X thông qua điểm hiện tại. Giả sử điểm giao của đoạn thẳng này với trục trung tâm của tia sáng là điểm D.
+        // Vậy thì D.y = uv0.y
+        // D.x = lightOffsetX + D.y / tan(angle)
+        float dx = lightOffsetX + (1.0 - uv0.y) / tan(angleInRadians);
+
+        // Khoảng cách từ điểm D đến điểm uv0 hiện tại 
+        // dis = |uv0.x - D.x|
+        float offsetDis = abs(uv0.x - dx);
+
+        // Khoảng cách vuông góc từ điểm hiện tại đến trục trung tâm của tia sáng
+        dis = sin(angleInRadians) * offsetDis;
+      } else {
+        dis = abs(uv0.y - lightCenterPoint.y);
+      }
+      
+      float a = 1.0 ;
+      // Cắt bỏ các điểm ánh sáng dựa trên khu vực trong suốt.
+      if (bool(cropAlpha)) {
+        a *= step(0.01, textureColor.a);
+      }
+
+      // Cắt bỏ các điểm uv nằm ngoài phạm vi của tia sáng (hiệu ứng sương mù).
+      if (!bool(enableFog)) {
+        a *= step(dis, lightWidth * 0.5);
+      }
+
+      // Thêm hiệu ứng dần dần trải ra từ trung tâm ra ngoài.
+      if (bool(enableGradient)) {
+        a *= 1.0 - dis / (lightWidth * 0.5);
+      }
+
+      // Tính toán giá trị màu sự lan tỏa thực tế tương ứng với các giá trị uv khác nhau trong phạm vi lan tỏa.
+      vec4 finalLightColor = lightColor * a;
+
+      // Kết hợp màu: Chồng chất màu sự lan tỏa lên màu gốc của hình ảnh.
+      //return textureColor * textureColor.a + finalLightColor;
+
+        #if ENABLE_ORIGINCOLOR
+          finalLightColor = textureColor + textureColor * a;
+        #else
+          finalLightColor = textureColor + finalLightColor;
+          finalLightColor.a = textureColor.a;
+        #endif
+
+        return finalLightColor;
+      }
+  #endif
+    
+  vec4 frag () {
+    vec4 o = vec4(1, 1, 1, 1);
+
+    #if USE_TEXTURE
+      o *= CCSampleWithAlphaSeparated(cc_spriteTexture, uv0);
+    #endif
+
+    o *= color;
+    ALPHA_TEST(o);
+
+    #if ENABLE_LIGHT
+      o = addLightColor(o, lightColor, lightCenterPoint, lightAngle, lightWidth);
+    #endif
+    
+    return o;
+  }
+}%

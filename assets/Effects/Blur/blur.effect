@@ -1,0 +1,90 @@
+CCEffect %{
+  techniques: 
+  - passes: 
+      - vert: sprite-vs:vert
+        frag: sprite-fs:frag
+        depthStencilState:
+          depthTest: false
+          depthWrite: false
+        blendState:
+          targets:
+            - blend: true
+              blendSrc: src_alpha
+              blendDst: one_minus_src_alpha
+              blendDstAlpha: one_minus_src_alpha
+        rasterizerState:
+          cullMode: none
+        properties:
+          bightness: { value: 1.0 }
+          blurAmount: { value: 0.5, range: [0.0, 1.0] }
+}%
+
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+  out vec4 color;
+  out vec2 uv0;
+ 
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+    pos = cc_matViewProj * pos;
+    uv0 = a_texCoord;
+    color = a_color;
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/internal/embedded-alpha>
+  
+  in vec4 color;
+  in vec2 uv0;
+  
+  #pragma builtin(local)
+  layout(set = 2, binding = 12) uniform sampler2D cc_spriteTexture;
+  
+  uniform Blur {
+    float bightness;
+    float blurAmount;
+  };
+
+	// 随机值
+	float rand(vec2 co) {
+		return fract(sin(dot(co.xy , vec2(12.9898, 78.233))) * 43758.5453);
+	}
+
+	// 降低亮度
+	vec4 dim(vec4 col, float factor) {
+		return vec4(col.r * factor, col.g * factor, col.b * factor, col.a);
+	}
+	  vec4 blur(vec2 uv){
+    #define repeats 16.0
+    float _blurAmount = 0.08 * blurAmount;
+    vec4 blurred = vec4(0.0);
+    
+    for(float i = 0.0; i < repeats; i ++ ) {
+      vec2 q = vec2(cos(degrees((i / repeats) * 360.0)), sin(degrees((i / repeats) * 360.0))) * (rand(vec2(i, uv.x + uv.y)) + _blurAmount);
+      vec2 uv2 = uv + (q * _blurAmount);
+      blurred += texture(cc_spriteTexture, uv).rgba / 2.0;
+      
+      q = vec2(cos(degrees((i / repeats) * 360.0)), sin(degrees((i / repeats) * 360.0))) * (rand(vec2(i + 2.0, uv.x + uv.y + 24.0)) + _blurAmount);
+      uv2 = uv + (q * _blurAmount);
+      blurred += texture(cc_spriteTexture, uv2).rgba / 2.0;
+    }
+
+		// 中和
+		blurred /= repeats;
+
+		return blurred;
+	}
+	  vec4 frag () {
+    vec4 result = blur(uv0);
+    result = dim(result, bightness);
+    return result;
+  }
+}%

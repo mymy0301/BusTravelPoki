@@ -1,0 +1,60 @@
+// you can write GLSL code directly in here
+
+#include <builtin/uniforms/cc-global>
+#include <builtin/internal/embedded-alpha>
+
+#define iResolution cc_screenSize
+#define iTime cc_time.x
+#define iTimeDelta cc_time.y
+#define iFrame cc_time.z
+
+
+// Hàm random
+float random(float seed) {
+    return fract(543.2543 * sin(dot(vec2( seed, seed ), vec2(3525.46, -54.3415))));
+}
+
+float randomUVCanOpacityOrNot(float seedTime){
+    return sin(seedTime);
+}
+
+float rand(vec2 co){
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void mainGlitch(float shake_power, float shake_rate , float shake_speed , float shake_block_size , float shake_color_rate, 
+    vec2 v_uv0,sampler2D textureInput, out vec4 fragColor) {
+
+    // shift mau sắc
+    float seed = floor(iTime * shake_speed);
+    float randomFromSeedResult = random(seed);
+    float shiftedColor = float(randomFromSeedResult < shake_rate);
+
+    // uv
+    vec2 fixed_uv = v_uv0;
+    float randomUV = random(floor(v_uv0.y * shake_block_size) / shake_block_size + iTime) * shake_power * shiftedColor;
+    fixed_uv.x += randomUV;
+
+    // pixel color
+    vec4 pixelColor = texture(textureInput, v_uv0);
+    pixelColor.r = mix(
+        pixelColor.r 
+        , texture(textureInput, fixed_uv + vec2(shake_color_rate, 0.0), 0.0).r
+        , shiftedColor
+    );
+    pixelColor.b = mix(
+        pixelColor.r 
+        , texture(textureInput, fixed_uv + vec2(-shake_color_rate, 0.0), 0.0).b
+        , shiftedColor
+    );
+
+    // random opacity
+    pixelColor.a = mix(
+        rand(fixed_uv) 
+        , texture(textureInput, fixed_uv, 0.0).a
+        , shiftedColor
+    );
+
+    fragColor = pixelColor;
+}
+

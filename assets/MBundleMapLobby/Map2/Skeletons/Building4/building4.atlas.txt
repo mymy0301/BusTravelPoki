@@ -1,0 +1,27 @@
+
+building4.png
+size: 156,80
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+den1
+  rotate: true
+  xy: 2, 2
+  size: 76, 85
+  orig: 76, 85
+  offset: 0, 0
+  index: -1
+den2
+  rotate: true
+  xy: 89, 51
+  size: 27, 64
+  orig: 27, 64
+  offset: 0, 0
+  index: -1
+glow
+  rotate: true
+  xy: 89, 4
+  size: 45, 43
+  orig: 45, 43
+  offset: 0, 0
+  index: -1

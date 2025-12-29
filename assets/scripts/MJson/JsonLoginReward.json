@@ -1,0 +1,48 @@
+{
+    "LOGIN_REWARD": [
+        {
+            "MONEY": 500
+        },
+        {
+            "SHUFFLE": 1
+        },
+        {
+            "MONEY": 500
+        },
+        {
+            "VIP_SLOT": 1
+        },
+        {
+            "MONEY": 500
+        },
+        {
+            "SORT": 1
+        },
+        {
+            "MONEY": 500,
+            "SORT": 1,
+            "SHUFFLE": 1
+        }
+    ],
+    "PROGRESS_LOGIN_REWARD": [
+        {
+            "progress": 8,
+            "MONEY": 1000
+        },
+        {
+            "progress": 15,
+            "SHUFFLE": 1,
+            "SORT": 1
+        },
+        {
+            "progress": 22,
+            "MONEY": 1200
+        },
+        {
+            "progress": 30,
+            "SHUFFLE": 1,
+            "SORT": 1,
+            "VIP_SLOT": 1
+        }
+    ]
+}

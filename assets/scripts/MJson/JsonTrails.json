@@ -1,0 +1,51 @@
+{
+    "TRAILS": [
+        {
+            "Id": "0",
+            "Name": "NONE",
+            "RequireEachProgress": []
+        },
+        {
+            "Id": "1",
+            "Name": "BASIC_TRAIL_GRAY",
+            "RequireEachProgress": [
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Name": "BASIC_TRAIL_BLACK",
+            "RequireEachProgress": [
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                },
+                {
+                    "MONEY": 5000
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "SPIN": [
+        {
+            "RATE": 0.12,
+            "SORT": 1
+        },
+        {
+            "RATE": 0.12,
+            "SHUFFLE": 1
+        },
+        {
+            "RATE": 0.35,
+            "MONEY": 400
+        },
+        {
+            "RATE": 0,
+            "MONEY": 200
+        },
+        {
+            "RATE": 0.12,
+            "VIP_SLOT": 1
+        },
+        {
+            "RATE": 0.03,
+            "SHUFFLE": 2
+        },
+        {
+            "RATE": 0.25,
+            "MONEY": 500
+        }
+    ],
+    "SPECIAL_SLOT": [
+        {
+            "RATE": 0.01,
+            "MONEY": 10000
+        },
+        {
+            "RATE": 0.01,
+            "VIP_SLOT": 10
+        },
+        {
+            "RATE": 0.01,
+            "TICKET": 10
+        }
+    ],
+    "PROGRESS_SPIN": [
+        {
+            "progress": 5,
+            "MONEY": 500
+        },
+        {
+            "progress": 10,
+            "SORT": 1
+        },
+        {
+            "progress": 15,
+            "MONEY": 1000
+        },
+        {
+            "progress": 20,
+            "SHUFFLE": 2
+        },
+        {
+            "progress": 30,
+            "VIP_SLOT": 3
+        }
+    ]
+}

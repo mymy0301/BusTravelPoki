@@ -1,0 +1,1330 @@
+{
+    "Map1": {
+        "title": "New York",
+        "colorUp": "378BCF",
+        "colorDown": "78DEF5",
+        "listConstructors": [
+            {
+                "title": "Empire State Building",
+                "index": 1,
+                "pos": {
+                    "x": 764.874,
+                    "y": 305.706,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 143.998,
+                    "y": -242.968,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 4.779,
+                    "y": -225.569,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 0,
+                            "y": -241.996,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "scaleWhenZoom": 2,
+                "timeWaitBetweenTopAndBottom": 0.825,
+                "maxBrickToUnlock": 60,
+                "listSubConstructors": [],
+                "siblingIndex": 1,
+                "typePrepareBuild": 0,
+                "MONEY": 200
+            },
+            {
+                "title": "Golden Gate Bridge",
+                "index": 2,
+                "pos": {
+                    "x": -60.016,
+                    "y": -178.737,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": -6.231,
+                    "y": -45.394,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 4.779,
+                    "y": -39.832,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 326.894,
+                            "y": -135.47,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "timeWaitBetweenTopAndBottom": 0,
+                "maxBrickToUnlock": 100,
+                "listSubConstructors": [
+                    {
+                        "index": 1,
+                        "pos": {
+                            "x": 218.818,
+                            "y": 62.637,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        },
+                        "namePrefab": "pf_boat_map_1",
+                        "locateParent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "siblingIndex": 3,
+                "typePrepareBuild": 1,
+                "posDefaultForBox": {
+                    "x": 0,
+                    "y": 100,
+                    "z": 0
+                },
+                "MONEY": 400
+            },
+            {
+                "title": "Times Square",
+                "index": 3,
+                "pos": {
+                    "x": -580.136,
+                    "y": 326.644,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 14.878,
+                    "y": -212.074,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 16.374,
+                    "y": -170.904,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 28.962,
+                            "y": -208.461,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "timeWaitBetweenTopAndBottom": 0.825,
+                "maxBrickToUnlock": 180,
+                "listSubConstructors": [
+                    {
+                        "index": 1,
+                        "pos": {
+                            "x": 0.855,
+                            "y": -295.307,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        },
+                        "namePrefab": "pf_car_hot_dog",
+                        "locateParent": "bottom"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "siblingIndex": 5,
+                "typePrepareBuild": 0,
+                "MONEY": 600
+            },
+            {
+                "title": "Statue of Liberty",
+                "index": 4,
+                "pos": {
+                    "x": 220.414,
+                    "y": 339.586,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 4.342,
+                    "y": -96.749,
+                    "z": 0
+                },
+                "scalePrepareBuild": {
+                    "x": 0.65,
+                    "y": 0.65,
+                    "z": 0.65
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 4.25,
+                            "y": -166.074,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "timeWaitBetweenTopAndBottom": 0,
+                "maxBrickToUnlock": 260,
+                "listSubConstructors": [
+                    {
+                        "index": 1,
+                        "pos": {
+                            "x": -43.731,
+                            "y": 123.492,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        },
+                        "namePrefab": "pf_pillar_Liberty"
+                    }
+                ],
+                "canPlayAnimIdle": false,
+                "canPlayAnimOpen": false,
+                "siblingIndex": 4,
+                "typePrepareBuild": 2,
+                "MONEY": 800
+            },
+            {
+                "title": "The White House",
+                "index": 5,
+                "pos": {
+                    "x": -35.313,
+                    "y": 569.393,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 60.729,
+                    "y": -109.541,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 20.433,
+                    "y": -67.584,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 19.623,
+                            "y": -106.516,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.66,
+                            "y": 1.66,
+                            "z": 1.66
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "timeWaitBetweenTopAndBottom": 0.825,
+                "maxBrickToUnlock": 400,
+                "listSubConstructors": [],
+                "siblingIndex": 2,
+                "typePrepareBuild": 0,
+                "MONEY": 1000
+            }
+        ],
+        "listSubsMap": [
+            {
+                "name": "pf_boat_map_1",
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "pos": {
+                    "x": 404.222,
+                    "y": 429.832,
+                    "z": 0
+                },
+                "dataCustom": "thuyen_3"
+            },
+            {
+                "name": "pf_boat_map_1",
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "pos": {
+                    "x": 472.201,
+                    "y": 393.315,
+                    "z": 0
+                },
+                "dataCustom": "thuyen_3"
+            },
+            {
+                "name": "pf_boat_map_1",
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "pos": {
+                    "x": -322.74,
+                    "y": -268.319,
+                    "z": 0
+                },
+                "dataCustom": "thuyen_3"
+            },
+            {
+                "name": "pf_pillar_Liberty",
+                "scale": {
+                    "x": 1.18,
+                    "y": 1.18,
+                    "z": 1
+                },
+                "pos": {
+                    "x": 226.5,
+                    "y": 143.00,
+                    "z": 0
+                },
+                "dataCustom": "building4_song"
+            },
+            {
+                "name": "pf_pillar_Liberty",
+                "scale": {
+                    "x": 1.18,
+                    "y": 1.18,
+                    "z": 1
+                },
+                "pos": {
+                    "x": 226.5,
+                    "y": 143.00,
+                    "z": 0
+                },
+                "dataCustom": "building4"
+            },
+            {
+                "name": "pf_base_building3",
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "pos": {
+                    "x": -564.973,
+                    "y": 114.428,
+                    "z": 0
+                }
+            }
+        ],
+        "SORT": 1,
+        "SHUFFLE": 1,
+        "VIP_SLOT": 1
+    },
+    "Map2": {
+        "title": "Paris",
+        "colorUp": "378BCF",
+        "colorDown": "78DEF5",
+        "listConstructors": [
+            {
+                "title": "Grand Louvre",
+                "index": 1,
+                "pos": {
+                    "x": 765.374,
+                    "y": 136.303,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 48.839,
+                    "y": -84.726,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 20.433,
+                    "y": -67.584,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -96.224,
+                            "y": -66.884,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "maxBrickToUnlock": 100,
+                "listSubConstructors": [],
+                "siblingIndex": 1,
+                "typePrepareBuild": 0,
+                "MONEY": 200
+            },
+            {
+                "title": "Tuileries Ferris Wheel",
+                "index": 2,
+                "pos": {
+                    "x": 126.753,
+                    "y": -185.54,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 84.795,
+                    "y": -161.132,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 24.48,
+                    "y": -129.93,
+                    "z": 0
+                },
+                "scaleVisual": {
+                    "x": 1.3,
+                    "y": 1.3,
+                    "z": 1.3
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -101.425,
+                            "y": -19.58,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "maxBrickToUnlock": 120,
+                "listSubConstructors": [],
+                "siblingIndex": 5,
+                "typePrepareBuild": 2,
+                "MONEY": 400
+            },
+            {
+                "title": "Immaculate Conception Cathedral Basilica",
+                "index": 3,
+                "pos": {
+                    "x": -803.972,
+                    "y": 171.557,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 155.192,
+                    "y": -161.132,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 0,
+                    "y": -72.689,
+                    "z": 0
+                },
+                "scaleVisual": {
+                    "x": 1.3,
+                    "y": 1.3,
+                    "z": 1.3
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 250.974,
+                            "y": -47.172,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    },
+                    {
+                        "pos": {
+                            "x": 250.974,
+                            "y": -47.172,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "maxBrickToUnlock": 220,
+                "listSubConstructors": [],
+                "siblingIndex": 3,
+                "typePrepareBuild": 2,
+                "MONEY": 600
+            },
+            {
+                "title": "The Eiffel Tower",
+                "index": 4,
+                "pos": {
+                    "x": 1.169,
+                    "y": 305.365,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 103.486,
+                    "y": -133.141,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 0,
+                    "y": -105.863,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 10.48,
+                            "y": -106.179,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "maxBrickToUnlock": 300,
+                "listSubConstructors": [
+                    {
+                        "index": 1,
+                        "pos": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        },
+                        "namePrefab": "pf_hand_rail",
+                        "locateParent": "bottom",
+                        "isShowFromStart": true
+                    }
+                ],
+                "siblingIndex": 2,
+                "typePrepareBuild": 0,
+                "MONEY": 800
+            },
+            {
+                "title": "Arc de Triomphe",
+                "index": 5,
+                "pos": {
+                    "x": 147.414,
+                    "y": 593.183,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 119.059,
+                    "y": -123.799,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 6.269,
+                    "y": -78.438,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -53.181,
+                            "y": -197.657,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "maxBrickToUnlock": 450,
+                "listSubConstructors": [],
+                "siblingIndex": 4,
+                "typePrepareBuild": 0,
+                "MONEY": 1000
+            }
+        ],
+        "listSubsMap": [
+            {
+                "name": "pf_boat_map_2",
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "pos": {
+                    "x": 530.376,
+                    "y": 184.761,
+                    "z": 0
+                },
+                "dataCustom": "map2_thuyen"
+            }
+        ],
+        "SORT": 2,
+        "SHUFFLE": 2,
+        "VIP_SLOT": 2
+    },
+    "Map3": {
+        "title": "New Zealand",
+        "colorUp": "378BCF",
+        "colorDown": "78DEF5",
+        "posMap": {
+            "x": 1.476,
+            "y": 0,
+            "z": 0
+        },
+        "listConstructors": [
+            {
+                "title": "Christchurch Cathedral",
+                "index": 1,
+                "pos": {
+                    "x": 704.113,
+                    "y": 347.844,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 128.179,
+                    "y": -316.175,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -17.598,
+                    "y": -200.378,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -17.217,
+                            "y": -315.868,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2,
+                "maxBrickToUnlock": 120,
+                "listSubConstructors": [],
+                "siblingIndex": 4,
+                "typePrepareBuild": 0,
+                "MONEY": 200
+            },
+            {
+                "title": "Dunedin Railway Station",
+                "index": 2,
+                "pos": {
+                    "x": 23.595,
+                    "y": -145.568,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 208.796,
+                    "y": -240.727,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -60.28,
+                    "y": -227.627,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -38.799,
+                            "y": -249.496,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    },
+                    {
+                        "pos": {
+                            "x": -38.799,
+                            "y": -249.496,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "maxBrickToUnlock": 150,
+                "listSubConstructors": [
+                    {
+                        "index": 1,
+                        "pos": {
+                            "x": 2.193,
+                            "y": -219.004,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        },
+                        "namePrefab": "floor_building2",
+                        "locateParent": "top",
+                        "isShowFromStart": true
+                    }
+                ],
+                "siblingIndex": 5,
+                "typePrepareBuild": 2,
+                "MONEY": 400
+            },
+            {
+                "title": "Auckland Sky Tower",
+                "index": 3,
+                "pos": {
+                    "x": -711.555,
+                    "y": 436.336,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 232.313,
+                    "y": -418.941,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 1.169,
+                    "y": -348.187,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -8.123,
+                            "y": -390.388,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    },
+                    {
+                        "pos": {
+                            "x": -8.123,
+                            "y": -390.388,
+                            "z": 0
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "scaleWhenZoom": 2.3,
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 40,
+                    "z": 0
+                },
+                "maxBrickToUnlock": 250,
+                "listSubConstructors": [],
+                "siblingIndex": 3,
+                "typePrepareBuild": 2,
+                "MONEY": 600
+            },
+            {
+                "title": "Beehive",
+                "index": 4,
+                "pos": {
+                    "x": -24.855,
+                    "y": 277.037,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 114.304,
+                    "y": -187.017,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 0,
+                    "y": -157.582,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 9.023,
+                            "y": -171.247,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 20,
+                    "z": 0
+                },
+                "maxBrickToUnlock": 350,
+                "listSubConstructors": [],
+                "siblingIndex": 2,
+                "typePrepareBuild": 0,
+                "MONEY": 800
+            },
+            {
+                "title": "Aoraki / Mount Cook",
+                "index": 5,
+                "pos": {
+                    "x": -66.332,
+                    "y": 671.293,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 68.27,
+                    "y": -78.438,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 21.259,
+                            "y": -245.8,
+                            "z": 0
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "maxBrickToUnlock": 450,
+                "listSubConstructors": [],
+                "siblingIndex": 1,
+                "typePrepareBuild": 0,
+                "MONEY": 1000
+            }
+        ],
+        "listSubsMap": [],
+        "SORT": 2,
+        "SHUFFLE": 2,
+        "VIP_SLOT": 2
+    },
+    "Map4": {
+        "title": "Gemany",
+        "colorUp": "378BCF",
+        "colorDown": "78DEF5",
+        "posMap": {
+            "x": 0.476,
+            "y": 2,
+            "z": 0
+        },
+        "listConstructors": [
+            {
+                "title": "The Branderburg Gate",
+                "index": 1,
+                "pos": {
+                    "x": 741.165,
+                    "y": 285.212,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 55.805,
+                    "y": -99.129,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -32.381,
+                    "y": -98.517,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -47.274,
+                            "y": -118.674,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "bottom"
+                    },
+                    {
+                        "pos": {
+                            "x": -47.274,
+                            "y": -120.674,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2,
+                "maxBrickToUnlock": 120,
+                "listSubConstructors": [],
+                "siblingIndex": 4,
+                "typePrepareBuild": 0,
+                "MONEY": 200
+            },
+            {
+                "title": "Elbphilharmonie Hamburg",
+                "index": 2,
+                "pos": {
+                    "x": 94.8,
+                    "y": -154.3,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 141.303,
+                    "y": -64.797,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -32.381,
+                    "y": -98.517,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -3.391,
+                            "y": -50,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "maxBrickToUnlock": 150,
+                "listSubConstructors": [],
+                "siblingIndex": 5,
+                "typePrepareBuild": 2,
+                "MONEY": 400
+            },
+            {
+                "title": "Berliner Fernsehturm",
+                "index": 3,
+                "pos": {
+                    "x": -783.336,
+                    "y": 290.104,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 158.274,
+                    "y": -218.256,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 6.088,
+                    "y": -202.812,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 56.651,
+                            "y": -246.254,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "bottom"
+                    },
+                    {
+                        "pos": {
+                            "x": 56.651,
+                            "y": -246.254,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2.3,
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 40,
+                    "z": 0
+                },
+                "maxBrickToUnlock": 250,
+                "listSubConstructors": [],
+                "siblingIndex": 3,
+                "typePrepareBuild": 2,
+                "MONEY": 600
+            },
+            {
+                "title": "Reichstag Building",
+                "index": 4,
+                "pos": {
+                    "x": -458.137,
+                    "y": 298.604,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 123.934,
+                    "y": -27.474,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 55.326,
+                    "y": -64.388,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 34.102,
+                            "y": -92.815,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "bottom"
+                    },
+                    {
+                        "pos": {
+                            "x": 36.228,
+                            "y": -92.106,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 20,
+                    "z": 0
+                },
+                "maxBrickToUnlock": 350,
+                "listSubConstructors": [],
+                "siblingIndex": 2,
+                "typePrepareBuild": 0,
+                "MONEY": 800
+            },
+            {
+                "title": "Neuschwanstein Castle",
+                "index": 5,
+                "pos": {
+                    "x": 67.906,
+                    "y": 692.895,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 104.742,
+                    "y": -174.875,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 17.172,
+                    "y": -178.851,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 38.102,
+                            "y": -124.815,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "bottom"
+                    },
+                    {
+                        "pos": {
+                            "x": 38.102,
+                            "y": -124.815,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.68,
+                            "y": 0.68,
+                            "z": 0.68
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "maxBrickToUnlock": 450,
+                "listSubConstructors": [],
+                "siblingIndex": 1,
+                "typePrepareBuild": 0,
+                "MONEY": 1000
+            }
+        ],
+        "listSubsMap": [],
+        "SORT": 2,
+        "SHUFFLE": 2,
+        "VIP_SLOT": 2
+    },
+    "Map5": {
+        "title": "Australia",
+        "colorUp": "378BCF",
+        "colorDown": "78DEF5",
+        "posMap": {
+            "x": -1,
+            "y": 0.5,
+            "z": 0
+        },
+        "listConstructors": [
+            {
+                "title": "Flinders Street Station",
+                "index": 1,
+                "pos": {
+                    "x": 682.283,
+                    "y": 251.31,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 33.125,
+                    "y": -129.742,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -22.142,
+                    "y": -99.112,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -27.893,
+                            "y": -69.356,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "top"
+                    },
+                    {
+                        "pos": {
+                            "x": -33.38,
+                            "y": -71.971,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2,
+                "maxBrickToUnlock": 120,
+                "listSubConstructors": [],
+                "siblingIndex": 4,
+                "typePrepareBuild": 0,
+                "MONEY": 200
+            },
+            {
+                "title": "Sydney Harbour Bridge",
+                "index": 2,
+                "pos": {
+                    "x": 119.466,
+                    "y": -201.589,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 26.899,
+                    "y": -33.189,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": 12.471,
+                    "y": -21.234,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -194.505,
+                            "y": 250.683,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "scaleWhenZoom": 2.5,
+                "maxBrickToUnlock": 150,
+                "listSubConstructors": [],
+                "siblingIndex": 5,
+                "typePrepareBuild": 1,
+                "MONEY": 400
+            },
+            {
+                "title": "Sydney Tower",
+                "index": 3,
+                "pos": {
+                    "x": -409.09,
+                    "y": 29.872,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 316.554,
+                    "y": -211.438,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -1.837,
+                    "y": -229.892,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": 299.714,
+                            "y": -280.379,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "scaleWhenZoom": 2.3,
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 40,
+                    "z": 0
+                },
+                "maxBrickToUnlock": 250,
+                "listSubConstructors": [],
+                "siblingIndex": 3,
+                "typePrepareBuild": 2,
+                "MONEY": 600
+            },
+            {
+                "title": "Queensland Number One",
+                "index": 4,
+                "pos": {
+                    "x": -682.296,
+                    "y": 355.909,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 268.557,
+                    "y": -173.611,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -16.803,
+                    "y": -194.969,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -74.015,
+                            "y": -229.577,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "top"
+                    }
+                ],
+                "distanceWhenZoom": {
+                    "x": 0,
+                    "y": 20,
+                    "z": 0
+                },
+                "scaleWhenZoom": 2,
+                "maxBrickToUnlock": 350,
+                "listSubConstructors": [],
+                "siblingIndex": 2,
+                "typePrepareBuild": 0,
+                "MONEY": 800
+            },
+            {
+                "title": "Sydney Opera House",
+                "index": 5,
+                "pos": {
+                    "x": 37.203,
+                    "y": 605.328,
+                    "z": 0
+                },
+                "posShadow": {
+                    "x": 83.213,
+                    "y": -122.141,
+                    "z": 0
+                },
+                "posPrepareBuild": {
+                    "x": -29.76,
+                    "y": -74.465,
+                    "z": 0
+                },
+                "listSupSke": [
+                    {
+                        "pos": {
+                            "x": -40.03,
+                            "y": -43.917,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "top"
+                    },
+                    {
+                        "pos": {
+                            "x": -39.893,
+                            "y": -42.356,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.11,
+                            "y": 1.11,
+                            "z": 1.11
+                        },
+                        "parent": "bottom"
+                    }
+                ],
+                "maxBrickToUnlock": 9999,
+                "listSubConstructors": [],
+                "siblingIndex": 1,
+                "typePrepareBuild": 0,
+                "MONEY": 1000
+            }
+        ],
+        "listSubsMap": [],
+        "SORT": 2,
+        "SHUFFLE": 2,
+        "VIP_SLOT": 2
+    }
+}

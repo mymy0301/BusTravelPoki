@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.Material",
+  "_name": "",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "ab5f05a0-6741-4cc1-ab97-0e628de73635",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "USE_TEXTURE": true
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "patternTexture": {
+        "__uuid__": "de4ddc41-bf34-472a-bf02-482a6e86d250@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "sizePattern": {
+        "__type__": "cc.Vec2",
+        "x": 35,
+        "y": 22
+      },
+      "sizeTexture": {
+        "__type__": "cc.Vec2",
+        "x": 4000,
+        "y": 4000
+      },
+      "spacePattern": {
+        "__type__": "cc.Vec2",
+        "x": 144,
+        "y": 23
+      },
+      "paddingLineOdd": {
+        "__type__": "cc.Vec2",
+        "x": 8.75,
+        "y": 0
+      },
+      "paddingLineEven": {
+        "__type__": "cc.Vec2",
+        "x": -8.75,
+        "y": 0
+      },
+      "wh_ratio": 55,
+      "blur": 0.2
+    }
+  ]
+}

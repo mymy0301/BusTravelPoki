@@ -1,0 +1,111 @@
+// Effect Syntax Guide: https://docs.cocos.com/creator/manual/en/shader/
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: sprite-vs:vert
+      frag: sprite-fs:frag
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      rasterizerState:
+        cullMode: none
+      properties:
+        IS_TEST_ALPHA_BG: { value: 0.0, range: [0, 1], editor: { tooltip: "Test alpha background == 0 => false"} }
+        patternTexture: { value: white }
+        sizePattern: { value: [70.0, 43.0] }
+        sizeTexture: { value: [2000.0,2000.0]}
+        spacePattern: {value: [0.0,0.0]}
+        paddingLineOdd: {value: [0.0,0.0]}    # top, left
+        paddingLineEven: {value: [0.0,0.0]}   # top, left
+
+}%
+
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #include <builtin/uniforms/cc-local>
+
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 color;
+  out vec2 uv0;
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+    pos = cc_matViewProj * cc_matWorld * pos;
+    
+    uv0 = a_texCoord;
+    color = a_color;
+
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  
+  in vec4 color;
+  in vec2 uv0;
+
+  uniform sampler2D cc_spriteTexture;
+  uniform sampler2D patternTexture;
+  uniform Properties {
+    vec2 sizePattern;
+    vec2 sizeTexture;
+    vec2 spacePattern;
+    vec2 paddingLineOdd;
+    vec2 paddingLineEven;
+    float IS_TEST_ALPHA_BG;
+  };
+
+  vec4 frag () {
+    vec2 tiling = sizeTexture / (sizePattern + spacePattern);
+    
+    vec2 uv0_tiling = fract(uv0 * tiling);
+
+    // kiểm tra là line odd hay even
+    float lineIndex = floor((uv0 * tiling).y);
+    if(mod(lineIndex, 2.0) == 0.0) {
+      // line even
+      uv0_tiling.x += paddingLineEven.x / sizePattern.x;
+      uv0_tiling.y += paddingLineEven.y / sizePattern.y;
+    } else {
+      // line odd
+      uv0_tiling.x += paddingLineOdd.x / sizePattern.x;
+      uv0_tiling.y += paddingLineOdd.y / sizePattern.y;
+    }
+
+    vec2 patternRatio = sizePattern / (sizePattern + spacePattern);
+    vec2 spacingRatio = spacePattern / (sizePattern + spacePattern);
+    vec2 halfSpacingRatio = spacingRatio * 0.5;
+
+    if(uv0_tiling.x < halfSpacingRatio.x || uv0_tiling.x > (1.0 - halfSpacingRatio.x) ||
+       uv0_tiling.y < halfSpacingRatio.y || uv0_tiling.y > (1.0 - halfSpacingRatio.y)) {
+        if(IS_TEST_ALPHA_BG != 0.0){
+          return vec4(0.0, 0.0, 0.0, 0.0);
+        } else {
+          return color;
+        } 
+    }
+
+    vec2 uv0_pattern_adjusted = (uv0_tiling - halfSpacingRatio) / patternRatio;
+
+    vec4 texturePattern = texture(patternTexture, uv0_pattern_adjusted);
+
+    vec4 resultColor = vec4(0.0, 0.0, 0.0, 0.0);
+    if(IS_TEST_ALPHA_BG != 0.0){
+      resultColor = mix(resultColor, texturePattern, texturePattern.a);
+    } else {
+      resultColor = mix(color, texturePattern, texturePattern.a);
+    }
+
+    return resultColor;
+  }
+}%

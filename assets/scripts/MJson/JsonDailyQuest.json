@@ -1,0 +1,140 @@
+{
+    "QUEST": [
+        {
+            "Id": 0,
+            "Rank": 1,
+            "NameQuest": "LOGIN",
+            "MaxProgress": 1,
+            "TypeQuest": "LOGIN",
+            "MONEY": 50
+        },
+        {
+            "Id": 1,
+            "Rank": 1,
+            "NameQuest": "Play 1 normal game",
+            "MaxProgress": 1,
+            "TypeQuest": "PLAY_NORMAL_GAME",
+            "MONEY": 50
+        },
+        {
+            "Id": 2,
+            "Rank": 2,
+            "NameQuest": "Play 5 normal games",
+            "MaxProgress": 5,
+            "TypeQuest": "PLAY_NORMAL_GAME",
+            "MONEY": 250
+        },
+        {
+            "Id": 3,
+            "Rank": 2,
+            "NameQuest": "Play 10 normal games",
+            "MaxProgress": 10,
+            "TypeQuest": "PLAY_NORMAL_GAME",
+            "MONEY": 500
+        },
+        {
+            "Id": 4,
+            "Rank": 1,
+            "NameQuest": "Spin 1 time",
+            "MaxProgress": 1,
+            "TypeQuest": "SPIN",
+            "MONEY": 50
+        },
+        {
+            "Id": 5,
+            "Rank": 1,
+            "NameQuest": "Invite a Friend",
+            "MaxProgress": 1,
+            "TypeQuest": "INVITE_FRIEND",
+            "MONEY": 200
+        },
+        {
+            "Id": 6,
+            "Rank": 1,
+            "NameQuest": "Use booster Sort 1 time",
+            "MaxProgress": 1,
+            "TypeQuest": "USE_ITEM_SORT",
+            "MONEY": 50
+        },
+        {
+            "Id": 7,
+            "Rank": 2,
+            "NameQuest": "Use booster Sort 3 times",
+            "MaxProgress": 3,
+            "TypeQuest": "USE_ITEM_SORT",
+            "MONEY": 150
+        },
+        {
+            "Id": 8,
+            "Rank": 1,
+            "NameQuest": "Use booster Shuffle 1 time",
+            "MaxProgress": 1,
+            "TypeQuest": "USE_ITEM_SHUFFLE",
+            "MONEY": 50
+        },
+        {
+            "Id": 9,
+            "Rank": 2,
+            "NameQuest": "Use booster Shuffle 3 times",
+            "MaxProgress": 3,
+            "TypeQuest": "USE_ITEM_SHUFFLE",
+            "MONEY": 150
+        },
+        {
+            "Id": 10,
+            "Rank": 1,
+            "NameQuest": "Use booster VIP 1 time",
+            "MaxProgress": 1,
+            "TypeQuest": "USE_ITEM_VIP_SLOT",
+            "MONEY": 50
+        },
+        {
+            "Id": 11,
+            "Rank": 2,
+            "NameQuest": "Use booster VIP 3 times",
+            "MaxProgress": 3,
+            "TypeQuest": "USE_ITEM_VIP_SLOT",
+            "MONEY": 150
+        },
+        {
+            "Id": 12,
+            "Rank": 2,
+            "NameQuest": "Finish a constructor",
+            "MaxProgress": 1,
+            "TypeQuest": "BUILD_A_CONSTRUCTOR",
+            "SHUFFLE": 1
+        },
+        {
+            "Id": 13,
+            "Rank": 2,
+            "NameQuest": "Play a Tournament",
+            "MaxProgress": 1,
+            "TypeQuest": "PLAY_TOURNAMENT_GAME",
+            "MONEY": 75
+        },
+        {
+            "Id": 14,
+            "Rank": 2,
+            "NameQuest": "Watch an ad reward",
+            "MaxProgress": 1,
+            "TypeQuest": "WATCH_ADS",
+            "SORT": 1
+        },
+        {
+            "Id": 15,
+            "Rank": 1,
+            "NameQuest": "Use 2000 coins",
+            "MaxProgress": 2000,
+            "TypeQuest": "USE_COIN",
+            "MONEY": 250
+        },
+        {
+            "Id": 16,
+            "Rank": 2,
+            "NameQuest": "Use 5000 coins",
+            "MaxProgress": 5000,
+            "TypeQuest": "USE_COIN",
+            "MONEY": 500
+        }
+    ]
+}

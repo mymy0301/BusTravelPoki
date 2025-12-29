@@ -1,0 +1,15 @@
+
+// Variables
+const float tranSize = 0.3; 
+
+float rand (vec2 co) {
+  return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+vec4 WindTransition(vec4 color,vec4 mixcolor, vec2 uv, float progression) {
+  // float r = rand(vec2(0, uv.x));
+  // float m = smoothstep(0.0, -tranSize, uv.y*(1.0-tranSize) + tranSize*r - (progression * (1.0 + tranSize)));
+  float m = smoothstep(0.0, -tranSize, uv.y*(1.0-tranSize) + tranSize - (progression * (1.0 + tranSize)));
+  color = mix(color,mixcolor,m);
+  return color;
+}

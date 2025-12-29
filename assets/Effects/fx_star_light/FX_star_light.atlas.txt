@@ -1,0 +1,27 @@
+
+FX_star_light.png
+size: 116,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+3light
+  rotate: true
+  xy: 2, 2
+  size: 46, 107
+  orig: 46, 107
+  offset: 0, 0
+  index: -1
+glow
+  rotate: true
+  xy: 78, 88
+  size: 36, 35
+  orig: 36, 35
+  offset: 0, 0
+  index: -1
+point_blur
+  rotate: false
+  xy: 2, 50
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1

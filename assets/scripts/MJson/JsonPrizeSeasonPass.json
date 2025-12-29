@@ -1,0 +1,255 @@
+{
+    "SEASON_PASS_FREE": [
+        {
+            "INDEX": 0,
+            "MAX_STAR": 0,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 1,
+            "MAX_STAR": 1,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 2,
+            "MAX_STAR": 2,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 3,
+            "MAX_STAR": 3,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 4,
+            "MAX_STAR": 5,
+            "SHUFFLE": 1
+        },
+        {
+            "INDEX": 5,
+            "MAX_STAR": 5,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 6,
+            "MAX_STAR": 10,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 7,
+            "MAX_STAR": 10,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 8,
+            "MAX_STAR": 10,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 9,
+            "MAX_STAR": 10,
+            "SORT": 1
+        },
+        {
+            "INDEX": 10,
+            "MAX_STAR": 15,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 11,
+            "MAX_STAR": 15,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 12,
+            "MAX_STAR": 15,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 13,
+            "MAX_STAR": 15,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 14,
+            "MAX_STAR": 15,
+            "VIP_SLOT": 1
+        },
+        {
+            "INDEX": 15,
+            "MAX_STAR": 20,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 16,
+            "MAX_STAR": 20,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 17,
+            "MAX_STAR": 20,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 18,
+            "MAX_STAR": 20,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 19,
+            "MAX_STAR": 20,
+            "SHUFFLE": 1
+        },
+        {
+            "INDEX": 20,
+            "MAX_STAR": 25,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 21,
+            "MAX_STAR": 25,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 22,
+            "MAX_STAR": 25,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 23,
+            "MAX_STAR": 25,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 24,
+            "MAX_STAR": 25,
+            "SORT": 1
+        },
+        {
+            "INDEX": 25,
+            "MAX_STAR": 30,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 26,
+            "MAX_STAR": 30,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 27,
+            "MAX_STAR": 30,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 28,
+            "MAX_STAR": 30,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 29,
+            "MAX_STAR": 30,
+            "VIP_SLOT": 1
+        }
+    ],
+    "SEASON_PASS_PREMIUM": [
+        {
+            "MONEY": 200
+        },
+        {
+            "MONEY": 220
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "SORT": 1,
+            "SHUFFLE": 1
+        },
+        {
+            "MONEY": 200
+        },
+        {
+            "MONEY": 220
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "VIP_SLOT": 1,
+            "TICKET": 1
+        },
+        {
+            "MONEY": 220
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "MONEY": 280
+        },
+        {
+            "SORT": 1,
+            "SHUFFLE": 1
+        },
+        {
+            "MONEY": 220
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "MONEY": 280
+        },
+        {
+            "VIP_SLOT": 2,
+            "TICKET": 2
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "MONEY": 280
+        },
+        {
+            "MONEY": 300
+        },
+        {
+            "SORT": 2,
+            "SHUFFLE": 2
+        },
+        {
+            "MONEY": 240
+        },
+        {
+            "MONEY": 260
+        },
+        {
+            "MONEY": 280
+        },
+        {
+            "MONEY": 300
+        },
+        {
+            "VIP_SLOT": 5,
+            "TICKET": 5
+        }
+    ],
+    "LAST_SEASON_PASS": {
+        "MONEY": 100
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "SHOP_COIN": [
+        {
+            "idBundle": "c_01",
+            "typeUI": 1,
+            "nameBundle": "coin-01",
+            "price": 1.99,
+            "MONEY": 3000
+        },
+        {
+            "idBundle": "c_02",
+            "typeUI": 1,
+            "nameBundle": "coin-02",
+            "price": 4.99,
+            "MONEY": 10000
+        },
+        {
+            "idBundle": "c_03",
+            "typeUI": 1,
+            "nameBundle": "coin-03",
+            "price": 9.99,
+            "MONEY": 20000
+        },
+        {
+            "idBundle": "c_04",
+            "typeUI": 1,
+            "nameBundle": "coin-04",
+            "price": 19.99,
+            "MONEY": 50000
+        },
+        {
+            "idBundle": "c_05",
+            "typeUI": 1,
+            "nameBundle": "coin-05",
+            "price": 34.99,
+            "MONEY": 100000
+        },
+        {
+            "idBundle": "c_06",
+            "typeUI": 2,
+            "nameBundle": "coin-06",
+            "price": 64.99,
+            "MONEY": 200000
+        }
+    ],
+    "SHOP_TICKET": [
+        {
+            "idBundle": "s_01",
+            "typeUI": 1,
+            "nameBundle": "ticket-01",
+            "price": 2.99,
+            "TICKET": 5
+        },
+        {
+            "idBundle": "s_02",
+            "typeUI": 1,
+            "nameBundle": "ticket-02",
+            "price": 4.99,
+            "TICKET": 10
+        },
+        {
+            "idBundle": "s_03",
+            "typeUI": 1,
+            "nameBundle": "ticket-03",
+            "price": 8.99,
+            "TICKET": 20
+        },
+        {
+            "idBundle": "s_04",
+            "typeUI": 1,
+            "nameBundle": "ticket-04",
+            "price": 19.99,
+            "TICKET": 50
+        },
+        {
+            "idBundle": "s_05",
+            "typeUI": 1,
+            "nameBundle": "ticket-05",
+            "price": 34.99,
+            "TICKET": 100
+        },
+        {
+            "idBundle": "s_06",
+            "typeUI": 2,
+            "nameBundle": "ticket-06",
+            "price": 59.99,
+            "TICKET": 200
+        }
+    ]
+}

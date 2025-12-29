@@ -1,0 +1,20 @@
+
+fx_click.png
+size: 296,188
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/blur
+  rotate: true
+  xy: 2, 2
+  size: 184, 198
+  orig: 184, 198
+  offset: 0, 0
+  index: -1
+images/glow
+  rotate: false
+  xy: 202, 96
+  size: 90, 90
+  orig: 90, 90
+  offset: 0, 0
+  index: -1

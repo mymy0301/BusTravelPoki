@@ -1,0 +1,38 @@
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+export interface IDataCustomTutorialInGame {
+    typeTutPopUp: LEVEL_TUT_IN_GAME;
+    cbCloseUI: CallableFunction;
+}
+
+export enum LEVEL_TUT_IN_GAME {
+    SORT = 4,
+    MYSTERY_CAR = 5,
+    SHUFFLE = 7,
+    VIP_SLOT = 10,
+    MILITARY = 14,
+    GARAGE = 21,
+    POLICE = 34,
+    CONVEYOR_BELT = 36,   
+    CAR_TWO_WAY = 79,   
+    KEY_LOCK = 64,     
+    AMBULANCE = 49,    
+    FIRE_TRUCK = 99,
+}
+
+export const EVENT_TUT_GAME = {
+    "SHOW_POP_UP_TUT_2": "EVENT_TUT_GAME_SHOW_POP_UP_TUT_2",
+    "SHOW_POP_UP_TUT_1": "EVENT_TUT_GAME_SHOW_POP_UP_TUT_1",
+    "SHOW_POP_UP_TUT": "EVENT_TUT_GAME_SHOW_POP_UP_TUT",
+    "HIDE_POP_UP_TUT": "EVENT_TUT_GAME_HIDE_POP_UP_TUT",
+    "HIDE_BG": "EVENT_TUT_GAME_HIDE_BG",
+    "SHOW_BLOCK": "EVENT_TUT_GAME_SHOW_BLOCK",
+    "HIDE_BLOCK": "EVENT_TUT_GAME_HIDE_BLOCK",
+
+    "CAR_START_MOVE": "EVENT_TUT_GAME_CAR_START_MOVE",
+    "CAR_START_MOVE_TO_THE_PARKING": "EVENT_TUT_GAME_CAR_START_MOVE_TO_THE_PARKING",
+    "CAR_MOVE_TO_PARKING_DONE": "EVENT_TUT_GAME_MOVE_TO_PARKING_DONE",
+    "CAR_MOVE_TO_GATE_DONE": "EVENT_TUT_GAME_CAR_MOVE_TO_GATE_DONE",
+    "CAR_MOVE_TO_GATE": "EVENT_TUT_GAME_CAR_MOVE_TO_GATE"
+}

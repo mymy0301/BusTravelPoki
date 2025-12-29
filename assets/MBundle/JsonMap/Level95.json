@@ -1,0 +1,1288 @@
+{
+  "LevelData": {
+    "LevelScaleFactor": 1.0,
+    "ParkingSpaceInit": 4,
+    "GuestColor": [
+      6,
+      6,
+      8,
+      8,
+      8,
+      3,
+      6,
+      3,
+      3,
+      8,
+      3,
+      3,
+      6,
+      6,
+      6,
+      8,
+      6,
+      3,
+      6,
+      3,
+      8,
+      3,
+      1,
+      1,
+      3,
+      8,
+      1,
+      1,
+      3,
+      8,
+      3,
+      8,
+      1,
+      1,
+      8,
+      3,
+      8,
+      8,
+      3,
+      1,
+      3,
+      3,
+      1,
+      8,
+      8,
+      3,
+      6,
+      3,
+      6,
+      2,
+      8,
+      3,
+      2,
+      2,
+      8,
+      6,
+      6,
+      6,
+      2,
+      6,
+      3,
+      3,
+      6,
+      6,
+      2,
+      2,
+      8,
+      8,
+      6,
+      8,
+      1,
+      1,
+      6,
+      3,
+      1,
+      6,
+      1,
+      1,
+      1,
+      6,
+      8,
+      1,
+      6,
+      3,
+      1,
+      8,
+      8,
+      6,
+      6,
+      3,
+      6,
+      6,
+      8,
+      1,
+      3,
+      1,
+      3,
+      3,
+      6,
+      6,
+      8,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      6,
+      5,
+      6,
+      6,
+      4,
+      6,
+      6,
+      6,
+      6,
+      4,
+      4,
+      4,
+      6,
+      6,
+      5,
+      6,
+      6,
+      6,
+      5,
+      3,
+      3,
+      8,
+      8,
+      8,
+      8,
+      8,
+      3,
+      3,
+      3,
+      8,
+      8,
+      8,
+      8,
+      3,
+      8,
+      2,
+      5,
+      5,
+      5,
+      7,
+      1,
+      1,
+      8,
+      8,
+      1,
+      3,
+      6,
+      6,
+      8,
+      3,
+      7,
+      7,
+      2,
+      5,
+      5,
+      3,
+      7,
+      5,
+      7,
+      5,
+      5,
+      6,
+      6,
+      5,
+      7,
+      5,
+      3,
+      8,
+      7,
+      5,
+      7,
+      5,
+      8,
+      5,
+      2,
+      2,
+      7,
+      7,
+      1,
+      8,
+      2,
+      2,
+      5,
+      6,
+      6,
+      1,
+      2,
+      3,
+      2,
+      6,
+      1,
+      3,
+      2,
+      2,
+      2,
+      3,
+      6,
+      3,
+      6,
+      2,
+      6,
+      2,
+      2,
+      2,
+      6,
+      2,
+      6,
+      6,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2,
+      1,
+      6,
+      1,
+      1,
+      2,
+      2,
+      1,
+      5,
+      6,
+      1,
+      6,
+      1,
+      1,
+      6,
+      1,
+      8,
+      6,
+      8,
+      1,
+      6,
+      6,
+      1,
+      1,
+      8,
+      6,
+      6,
+      6,
+      1,
+      8,
+      6,
+      5,
+      8,
+      1,
+      8,
+      5,
+      8,
+      6,
+      1,
+      6,
+      8,
+      6,
+      8,
+      8,
+      1,
+      6,
+      6,
+      5,
+      8,
+      1,
+      8,
+      6,
+      8,
+      1,
+      8,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "CarInfo": [
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": -3.61,
+          "y": 0.84,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.973980367,
+            "y": 0.22663255,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 3.70644021,
+          "sqrMagnitude": 13.7376995
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 8,
+        "carSize": 0,
+        "carPosition": {
+          "x": -3.61,
+          "y": -0.53,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.9893939,
+            "y": -0.145257279,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 3.64869833,
+          "sqrMagnitude": 13.3129988
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 8,
+        "carSize": 0,
+        "carPosition": {
+          "x": -3.61,
+          "y": -1.93000007,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.8818791,
+            "y": -0.471475542,
+            "z": 0.0,
+            "normalized": {
+              "x": -0.881879151,
+              "y": -0.471475571,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 4.09353161,
+          "sqrMagnitude": 16.757
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 2,
+        "carPosition": {
+          "x": -3.61,
+          "y": -4.08,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.6626531,
+            "y": -0.748926461,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 5.447798,
+          "sqrMagnitude": 29.6785
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 6,
+        "carSize": 2,
+        "carPosition": {
+          "x": -2.57999945,
+          "y": 0.520000041,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.980287254,
+            "y": 0.197577342,
+            "z": 0.0,
+            "normalized": {
+              "x": -0.9802873,
+              "y": 0.197577357,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.9999999
+          },
+          "magnitude": 2.631881,
+          "sqrMagnitude": 6.92679739
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 2,
+        "carPosition": {
+          "x": -2.54999971,
+          "y": -1.69,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.8335559,
+            "y": -0.55243516,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 3.05918264,
+          "sqrMagnitude": 9.358599
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 8,
+        "carSize": 2,
+        "carPosition": {
+          "x": -1.50999951,
+          "y": 0.520000041,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.945506,
+            "y": 0.325604826,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 1.597028,
+          "sqrMagnitude": 2.55049849
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 6,
+        "carSize": 2,
+        "carPosition": {
+          "x": -0.5199995,
+          "y": -4.01,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.128598943,
+            "y": -0.9916967,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 4.04357529,
+          "sqrMagnitude": 16.350502
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 2,
+        "carSize": 2,
+        "carPosition": {
+          "x": 0.5000005,
+          "y": -4.03,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.123125553,
+            "y": -0.9923911,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.06089926,
+          "sqrMagnitude": 16.4909019
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": -0.489999533,
+          "y": 1.19,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.380749464,
+            "y": 0.9246782,
+            "z": 0.0,
+            "normalized": {
+              "x": -0.3807495,
+              "y": 0.924678266,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 1.28693426,
+          "sqrMagnitude": 1.65619969
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": 0.4700004,
+          "y": 1.19,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.367344737,
+            "y": 0.9300849,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 1.27945316,
+          "sqrMagnitude": 1.63700044
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": 1.42000043,
+          "y": 1.19,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.766448736,
+            "y": 0.6423055,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 1.85270107,
+          "sqrMagnitude": 3.43250132
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": 2.40000033,
+          "y": 1.2,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.8944272,
+            "y": 0.44721356,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 2.683282,
+          "sqrMagnitude": 7.20000172
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 8,
+        "carSize": 0,
+        "carPosition": {
+          "x": -1.49999952,
+          "y": -2.24,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.5564109,
+            "y": -0.8309072,
+            "z": 0.0,
+            "normalized": {
+              "x": -0.556410968,
+              "y": -0.8309073,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 2.69584846,
+          "sqrMagnitude": 7.26759863
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": -0.479999542,
+          "y": -2.29,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.205148622,
+            "y": -0.9787308,
+            "z": 0.0,
+            "normalized": {
+              "x": -0.205148637,
+              "y": -0.978730857,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 2.33976483,
+          "sqrMagnitude": 5.474499
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 4,
+        "carSize": 0,
+        "carPosition": {
+          "x": 0.510000467,
+          "y": -2.28,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.218290046,
+            "y": -0.975883961,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 2.33634329,
+          "sqrMagnitude": 5.45850039
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 4,
+        "carSize": 2,
+        "carPosition": {
+          "x": 1.50000048,
+          "y": -4.04,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.348070085,
+            "y": -0.937468469,
+            "z": 0.0,
+            "normalized": {
+              "x": 0.3480701,
+              "y": -0.9374685,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 4.30947828,
+          "sqrMagnitude": 18.5716019
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 6,
+        "carSize": 2,
+        "carPosition": {
+          "x": 4.27000046,
+          "y": -4.1,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.721319854,
+            "y": -0.692602158,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 5.91970444,
+          "sqrMagnitude": 35.0429039
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": -2.12999964,
+          "y": -3.15999985,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.5589319,
+            "y": -0.8292136,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 3.81083941,
+          "sqrMagnitude": 14.5224972
+        },
+        "carDirection": 2
+      },
+      {
+        "carColor": 5,
+        "carSize": 0,
+        "carPosition": {
+          "x": -2.10999966,
+          "y": -4.06,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.461146235,
+            "y": -0.887324154,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.57555437,
+          "sqrMagnitude": 20.9356976
+        },
+        "carDirection": 2
+      },
+      {
+        "carColor": 2,
+        "carSize": 0,
+        "carPosition": {
+          "x": -2.07999969,
+          "y": -4.89,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.39141953,
+            "y": -0.9202124,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 5.31399059,
+          "sqrMagnitude": 28.2384968
+        },
+        "carDirection": 2
+      },
+      {
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": -1.11999965,
+          "y": -1.18000007,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.6884262,
+            "y": -0.725306451,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 1.62689865,
+          "sqrMagnitude": 2.64679933
+        },
+        "carDirection": 2
+      },
+      {
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": -0.0799995661,
+          "y": -0.139999986,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.496136934,
+            "y": -0.8682443,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.161244929,
+          "sqrMagnitude": 0.025999926
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": 1.81000042,
+          "y": -0.179999977,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.995091438,
+            "y": -0.0989593342,
+            "z": 0.0,
+            "normalized": {
+              "x": 0.9950915,
+              "y": -0.09895934,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 1.81892872,
+          "sqrMagnitude": 3.30850148
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 0.5600004,
+          "y": -1.0999999,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.453683376,
+            "y": -0.891163,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 1.234342,
+          "sqrMagnitude": 1.52360022
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.18000031,
+          "y": -1.9000001,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.7538606,
+            "y": -0.6570344,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 2.89178181,
+          "sqrMagnitude": 8.362402
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 8,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.18000031,
+          "y": -2.58,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.645411253,
+            "y": -0.763835251,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 3.37769175,
+          "sqrMagnitude": 11.4088011
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.85000038,
+          "y": -3.26,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.6581776,
+            "y": -0.7528627,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.33013868,
+          "sqrMagnitude": 18.750103
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.87000036,
+          "y": -3.98,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.5848952,
+            "y": -0.8111089,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.90686274,
+          "sqrMagnitude": 24.0773029
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 8,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.87000036,
+          "y": -4.85,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.5092673,
+            "y": -0.8606084,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 5.635548,
+          "sqrMagnitude": 31.7594013
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 8,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.9800005,
+          "y": -1.02,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.9686939,
+            "y": -0.2482582,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.10862541,
+          "sqrMagnitude": 16.8808041
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": 3.81,
+          "y": 1.41,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.9378378,
+            "y": 0.347073823,
+            "z": 0.0,
+            "normalized": {
+              "x": 0.937837839,
+              "y": 0.347073853,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 4.06253624,
+          "sqrMagnitude": 16.5042
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 8,
+        "carSize": 0,
+        "carPosition": {
+          "x": 3.79000044,
+          "y": 0.62,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.98688215,
+            "y": 0.161442444,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 3.840378,
+          "sqrMagnitude": 14.7485037
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": 3.79000044,
+          "y": -0.189999983,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.998745739,
+            "y": -0.0500690378,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 3.79476,
+          "sqrMagnitude": 14.4002037
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": 3.89000034,
+          "y": -1.88999987,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.8994563,
+            "y": -0.437010825,
+            "z": 0.0,
+            "normalized": {
+              "x": 0.8994562,
+              "y": -0.437010765,
+              "z": 0.0,
+              "normalized": {
+                "x": 0.899456263,
+                "y": -0.4370108,
+                "z": 0.0,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.0
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 1.00000012,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 4.3248353,
+          "sqrMagnitude": 18.7042027
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": 3.88000035,
+          "y": -2.62,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.8287496,
+            "y": -0.5596195,
+            "z": 0.0,
+            "normalized": {
+              "x": 0.828749657,
+              "y": -0.559619546,
+              "z": 0.0,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.9999999
+          },
+          "magnitude": 4.681752,
+          "sqrMagnitude": 21.9188023
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.2300005,
+          "y": -1.07999992,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.9000061,
+            "y": -0.435877264,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 2.47776151,
+          "sqrMagnitude": 6.13930225
+        },
+        "carDirection": 6
+      },
+      {
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": -4.68,
+          "y": 1.04,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.9761871,
+            "y": 0.216930464,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 4.79416275,
+          "sqrMagnitude": 22.984
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": -4.68,
+          "y": -0.370000064,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.996889353,
+            "y": -0.07881392,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 4.694603,
+          "sqrMagnitude": 22.039299
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": -4.68,
+          "y": -1.81000006,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.932676256,
+            "y": -0.360714585,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 5.017818,
+          "sqrMagnitude": 25.1785
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 5,
+        "carSize": 0,
+        "carPosition": {
+          "x": -4.69,
+          "y": -3.22000027,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.8244008,
+            "y": -0.566006541,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 5.68898058,
+          "sqrMagnitude": 32.364502
+        },
+        "carDirection": 0
+      },
+      {
+        "carColor": 8,
+        "carSize": 0,
+        "carPosition": {
+          "x": -4.68,
+          "y": -4.59,
+          "z": 0.0,
+          "normalized": {
+            "x": -0.713938236,
+            "y": -0.7002087,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 6.55518866,
+          "sqrMagnitude": 42.9705
+        },
+        "carDirection": 0
+      }
+    ],
+    "GarageInfo": [],
+    "ConveyorBeltInfo": [
+      {
+        "conveyorBeltPosition": {
+          "x": 0.0,
+          "y": -7.1,
+          "z": 0.0,
+          "normalized": {
+            "x": 0.0,
+            "y": -1.0,
+            "z": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 7.1,
+          "sqrMagnitude": 50.41
+        },
+        "cars": [
+          {
+            "carColor": 6,
+            "carSize": 0,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 8,
+            "carSize": 1,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 5,
+            "carSize": 0,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 1,
+            "carSize": 0,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 7,
+            "carSize": 2,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 3,
+            "carSize": 0,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 2,
+            "carSize": 1,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          },
+          {
+            "carColor": 5,
+            "carSize": 2,
+            "carPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "carDirection": 0
+          }
+        ]
+      }
+    ]
+  }
+}

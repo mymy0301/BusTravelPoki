@@ -1,0 +1,274 @@
+{
+    "JsonPackChristmas": [
+        {
+            "namePack": "xmash_1",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 4000,
+                "SORT": 2,
+                "SHUFFLE": 2,
+                "VIP_SLOT": 2
+            },
+            "Sale": 35,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_2",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 11000,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 30,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_3",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 20000,
+                "SORT": 6,
+                "SHUFFLE": 6,
+                "VIP_SLOT": 6
+            },
+            "Sale": 25,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_4",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 8000,
+                "SORT": 2,
+                "SHUFFLE": 2,
+                "VIP_SLOT": 2
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_5",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 40,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_6",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 70,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_7",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 12500,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 35,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_8",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 8,
+                "SHUFFLE": 8,
+                "VIP_SLOT": 8
+            },
+            "Sale": 30,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_9",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "29.99",
+            "Prizes": {
+                "MONEY": 25000,
+                "SORT": 10,
+                "SHUFFLE": 10,
+                "VIP_SLOT": 10
+            },
+            "Sale": 25,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_10",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 12500,
+                "SORT": 5,
+                "SHUFFLE": 5,
+                "VIP_SLOT": 5
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_11",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 10,
+                "SHUFFLE": 10,
+                "VIP_SLOT": 10
+            },
+            "Sale": 40,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_12",
+            "nameUI": "CHRISTMAS SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 15000,
+                "SORT": 10,
+                "SHUFFLE": 10,
+                "VIP_SLOT": 10
+            },
+            "Sale": 70,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        }
+    ],
+    "JsonPackChooseOne": [
+        {
+            "namePack": "xmash_choose_one_1",
+            "nameUI": "CHRISTMAS SALE!",
+            "allPack": [
+                {
+                    "namePack": "xmash_choose_one_1_1",
+                    "price": "2.99",
+                    "Prizes": {
+                        "MONEY": 4000,
+                        "SORT": 1
+                    }
+                },
+                {
+                    "namePack": "xmash_choose_one_1_2",
+                    "price": "4.99",
+                    "Prizes": {
+                        "MONEY": 4500,
+                        "SORT": 2,
+                        "SHUFFLE": 2
+                    }
+                },
+                {
+                    "namePack": "xmash_choose_one_1_3",
+                    "price": "9.99",
+                    "Prizes": {
+                        "MONEY": 5000,
+                        "SORT": 5,
+                        "SHUFFLE": 5,
+                        "VIP_SLOT": 5
+                    }
+                }
+            ],
+            "PriceTotal": 9.99,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        },
+        {
+            "namePack": "xmash_choose_one_2",
+            "nameUI": "CHRISTMAS SALE!",
+            "allPack": [
+                {
+                    "namePack": "xmash_choose_one_2_1",
+                    "price": "4.99",
+                    "Prizes": {
+                        "MONEY": 5500,
+                        "SORT": 2
+                    }
+                },
+                {
+                    "namePack": "xmash_choose_one_2_2",
+                    "price": "7.99",
+                    "Prizes": {
+                        "MONEY": 8500,
+                        "SORT": 3,
+                        "SHUFFLE": 3
+                    }
+                },
+                {
+                    "namePack": "xmash_choose_one_2_3",
+                    "price": "14.99",
+                    "Prizes": {
+                        "MONEY": 10000,
+                        "SORT": 6,
+                        "SHUFFLE": 6,
+                        "VIP_SLOT": 6
+                    }
+                }
+            ],
+            "PriceTotal": 14.99,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "CHRISTMAS"
+        }
+    ]
+}

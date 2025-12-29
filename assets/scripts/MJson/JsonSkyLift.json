@@ -1,0 +1,69 @@
+{
+    "SkyLift": [
+        {
+            "idFloor": 0,
+            "progress": 0
+        },
+        {
+            "idFloor": 1,
+            "progress": 2,
+            "MONEY": 100
+        },
+        {
+            "idFloor": 2,
+            "progress": 5,
+            "isSavePoint": "t",
+            "MONEY": 25,
+            "SHUFFLE": 1
+        },
+        {
+            "idFloor": 3,
+            "progress": 8,
+            "MONEY": 150
+        },
+        {
+            "idFloor": 4,
+            "progress": 11,
+            "isSavePoint": "t",
+            "MONEY": 25,
+            "SORT": 1
+        },
+        {
+            "idFloor": 5,
+            "progress": 17,
+            "MONEY": 200
+        },
+        {
+            "idFloor": 6,
+            "progress": 22,
+            "isSavePoint": "t",
+            "MONEY": 25,
+            "VIP_SLOT": 1
+        },
+        {
+            "idFloor": 7,
+            "progress": 28,
+            "MONEY": 250
+        },
+        {
+            "idFloor": 8,
+            "progress": 33,
+            "isSavePoint": "t",
+            "MONEY": 25,
+            "SHUFFLE": 1
+        },
+        {
+            "idFloor": 9,
+            "progress": 42,
+            "MONEY": 300
+        },
+        {
+            "idFloor": 10,
+            "progress": 60,
+            "isSavePoint": "t",
+            "MONEY": 50,
+            "SORT": 1,
+            "VIP_SLOT": 1
+        }
+    ]
+}

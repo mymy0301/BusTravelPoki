@@ -1,0 +1,32 @@
+// you can write GLSL code directly in here
+
+#include <builtin/uniforms/cc-global>
+
+#define iResolution cc_screenSize
+#define iTime cc_time.x
+#define iTimeDelta cc_time.y
+#define iFrame cc_time.z
+
+
+float speedM = 1.0;
+float distanceRec = 10.0;
+
+float functionCheckY(float x, float progress){
+  // distance can from -1.0 -> 1.0
+  float range = progress * 2.0  + (-1.0);
+  return x + range;
+}
+
+float functionCheckX(float y , float progress){
+  return y;
+}
+
+// shadertoy template
+void mainImage (out vec4 fragColor, in vec2 fragCoord) {
+  vec4 colorChoice = vec4(0,0,0,1);
+  float progress = (iTime - floor(iTime / speedM)) / speedM;
+
+  // check if y > yRight change to white
+  float yRight = functionCheckY(fragCoord.x, progress);
+  fragColor = fragCoord.y > yRight? vec4(1,1,1,1) : vec4(0,0,0,1);
+}

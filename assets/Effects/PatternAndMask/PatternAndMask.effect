@@ -1,0 +1,178 @@
+// Effect Syntax Guide: https://docs.cocos.com/creator/manual/en/shader/
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: sprite-vs:vert
+      frag: sprite-fs:frag
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      rasterizerState:
+        cullMode: none
+      properties:
+        IS_TEST_ALPHA_BG: { value: 0.0, range: [0, 1], editor: { tooltip: "Test alpha background == 0 => false"} }
+        patternTexture: { value: white }
+        colorPadding: {value: [1.0, 1.0, 0.0, 1.0], editor: {
+          type: color,
+          tooltip: "light color" }}
+        sizePattern: { value: [70.0, 43.0] }
+        sizeTexture: { value: [2000.0,2000.0]}
+        spacePattern: {value: [0.0,0.0]}
+        paddingLineOdd: {value: [0.0,0.0]}    # top, left
+        paddingLineEven: {value: [0.0,0.0]}   # top, left
+
+        wh_ratio: { value: 1, editor: { tooltip: "ratio" } }
+        blur: { value: 0.01, editor: { tooltip: "blur" } }
+        radius: { value: 0.5, editor: { tooltip: "radius round" } }
+        center: { value: [0.5, 0.5], editor: { tooltip: "position" } }
+
+}%
+
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 color;
+  out vec2 uv0;
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+
+    #if USE_LOCAL
+      pos = cc_matWorld * pos;
+    #endif
+
+    #if USE_PIXEL_ALIGNMENT
+      pos = cc_matView * pos;
+      pos.xyz = floor(pos.xyz);
+      pos = cc_matProj * pos;
+    #else
+      pos = cc_matViewProj * pos;
+    #endif
+    
+    uv0 = a_texCoord;
+    color = a_color;
+
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/internal/embedded-alpha>
+  #include <builtin/internal/alpha-test>
+  
+  in vec4 color;
+
+  #if USE_TEXTURE
+    in vec2 uv0;
+    #pragma builtin(local)
+    layout(set = 2, binding = 11)uniform sampler2D cc_spriteTexture;
+  #endif
+
+  uniform sampler2D patternTexture;
+  uniform Properties {
+    vec4 colorPadding;
+    // pattern properties vào đây
+    vec2 sizePattern;
+    vec2 sizeTexture;
+    vec2 spacePattern;
+    vec2 paddingLineOdd;
+    vec2 paddingLineEven;
+    vec2 center;
+    
+    float IS_TEST_ALPHA_BG;
+    // mask properties vào đây
+    float radius;
+    float blur;
+    float wh_ratio;
+
+  };
+
+  vec4 frag () {
+    //=======================================================
+    //===================== Mask ==================================
+    //=======================================================
+    vec4 o = vec4(1, 1, 1, 1);
+    o *= CCSampleWithAlphaSeparated(cc_spriteTexture, uv0);
+    o *= color;
+
+    ALPHA_TEST(o);
+
+    float circle = radius * radius;
+    float rx = (uv0.x - center.x) * wh_ratio;
+    float ry = (uv0.y - center.y) * wh_ratio;
+    float dis = rx * rx + ry * ry;
+
+    if(wh_ratio < 50.0){
+      o.a = 1.0 - smoothstep(0.2, circle - blur , dis) * o.a;
+    }
+
+    if(o.a <= 0.0){
+      return o;
+    }    
+
+    //=======================================================
+    //================== Pattenr  ==================================
+    //=======================================================
+    vec2 tiling = sizeTexture / (sizePattern + spacePattern);
+    
+    vec2 uv0_tiling = fract(uv0 * tiling);
+
+    // kiểm tra là line odd hay even
+    float lineIndex = floor((uv0 * tiling).y);
+    if(mod(lineIndex, 2.0) == 0.0) {
+      // line even
+      uv0_tiling.x += paddingLineEven.x / sizePattern.x;
+      uv0_tiling.y += paddingLineEven.y / sizePattern.y;
+    } else {
+      // line odd
+      uv0_tiling.x += paddingLineOdd.x / sizePattern.x;
+      uv0_tiling.y += paddingLineOdd.y / sizePattern.y;
+    }
+
+    vec2 patternRatio = sizePattern / (sizePattern + spacePattern);
+    vec2 spacingRatio = spacePattern / (sizePattern + spacePattern);
+    vec2 halfSpacingRatio = spacingRatio * 0.5;
+
+    if(uv0_tiling.x < halfSpacingRatio.x || uv0_tiling.x > (1.0 - halfSpacingRatio.x) ||
+       uv0_tiling.y < halfSpacingRatio.y || uv0_tiling.y > (1.0 - halfSpacingRatio.y)) {
+        if(IS_TEST_ALPHA_BG != 0.0){
+          return vec4(0.0, 0.0, 0.0, 0.0);
+        } else {
+          return o;
+        } 
+    }
+
+    vec2 uv0_pattern_adjusted = (uv0_tiling - halfSpacingRatio) / patternRatio;
+
+    vec4 texturePattern = texture(patternTexture, uv0_pattern_adjusted);
+    vec4 resultColor = o;
+
+    resultColor = mix(o, texturePattern, texturePattern.a);
+    resultColor.a = o.a;
+    // if(texturePattern.a == 0.0){
+    // } else {
+    //   resultColor = mix(o, colorPadding, colorPadding.a);
+    //   resultColor.a = 0.5;
+    //   resultColor *= o;
+    // }
+
+    return resultColor;
+  }
+}%

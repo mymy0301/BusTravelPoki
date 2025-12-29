@@ -1,0 +1,48 @@
+
+thuyen.png
+size: 500,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boat1
+  rotate: true
+  xy: 150, 8
+  size: 117, 98
+  orig: 117, 98
+  offset: 0, 0
+  index: -1
+boat1_2
+  rotate: false
+  xy: 2, 7
+  size: 146, 118
+  orig: 146, 118
+  offset: 0, 0
+  index: -1
+boat2
+  rotate: true
+  xy: 334, 5
+  size: 120, 81
+  orig: 120, 81
+  offset: 0, 0
+  index: -1
+boat3
+  rotate: true
+  xy: 250, 2
+  size: 123, 82
+  orig: 123, 82
+  offset: 0, 0
+  index: -1
+thuyen1
+  rotate: false
+  xy: 417, 58
+  size: 78, 67
+  orig: 78, 67
+  offset: 0, 0
+  index: -1
+thuyen2
+  rotate: false
+  xy: 417, 6
+  size: 66, 50
+  orig: 66, 50
+  offset: 0, 0
+  index: -1

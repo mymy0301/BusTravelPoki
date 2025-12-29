@@ -1,0 +1,62 @@
+{
+  "_from": "@types/facebook-instant-games",
+  "_id": "@types/facebook-instant-games@6.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-cpxtshSQTTNz157xIJ19sMhgnNqA75fvPgTTQLxEX1wlJz1Dp4//gDwsFFvMS1TyFl2xjjqrTFgUiysUcCqCKg==",
+  "_location": "/@types/facebook-instant-games",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@types/facebook-instant-games",
+    "name": "@types/facebook-instant-games",
+    "escapedName": "@types%2ffacebook-instant-games",
+    "scope": "@types",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/facebook-instant-games/-/facebook-instant-games-6.3.2.tgz",
+  "_shasum": "52721542818b003a0b959f9fc6328028f9178d87",
+  "_spec": "@types/facebook-instant-games",
+  "_where": "C:\\Users\\Tuan",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Menushka Weeratunga",
+      "url": "https://github.com/menushka"
+    },
+    {
+      "name": "Øyvind Johansen Amundrud",
+      "url": "https://github.com/oyvindjam"
+    },
+    {
+      "name": "Liana Pigeot",
+      "url": "https://github.com/nialna"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "TypeScript definitions for facebook-instant-games",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/facebook-instant-games",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/facebook-instant-games",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/facebook-instant-games"
+  },
+  "scripts": {},
+  "typeScriptVersion": "3.6",
+  "types": "index.d.ts",
+  "typesPublisherContentHash": "1c9172f2ef840318b4d28fb58cfb5668c10391df5eecb59074c857512d9d5237",
+  "version": "6.3.2"
+}

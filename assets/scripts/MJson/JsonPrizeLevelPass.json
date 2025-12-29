@@ -1,0 +1,94 @@
+{
+    "LEVEL_PASS_FREE": [
+        {
+            "INDEX": 0,
+            "MAX_STAR": 1,
+            "MONEY": 50
+        },
+        {
+            "INDEX": 1,
+            "MAX_STAR": 2,
+            "MONEY": 50
+        },
+        {
+            "INDEX": 2,
+            "MAX_STAR": 3,
+            "MONEY": 50
+        },
+        {
+            "INDEX": 3,
+            "MAX_STAR": 4,
+            "MONEY": 50
+        },
+        {
+            "INDEX": 4,
+            "MAX_STAR": 5,
+            "SORT": 1
+        },
+        {
+            "INDEX": 5,
+            "MAX_STAR": 6,
+            "MONEY": 75
+        },
+        {
+            "INDEX": 6,
+            "MAX_STAR": 7,
+            "MONEY": 100
+        },
+        {
+            "INDEX": 7,
+            "MAX_STAR": 8,
+            "MONEY": 75
+        },
+        {
+            "INDEX": 8,
+            "MAX_STAR": 9,
+            "MONEY": 75
+        },
+        {
+            "INDEX": 9,
+            "MAX_STAR": 10,
+            "SORT": 1,
+            "SHUFFLE": 1
+        }
+    ],
+    "LEVEL_PASS_PREMIUM": [
+        {
+            "MONEY": 200
+        },
+        {
+            "SORT": 2
+        },
+        {
+            "MONEY": 300
+        },
+        {
+            "SHUFFLE": 2
+        },
+        {
+            "SORT": 1,
+            "SHUFFLE": 1,
+            "VIP_SLOT": 1
+        },
+        {
+            "MONEY": 200
+        },
+        {
+            "MONEY": 300
+        },
+        {
+            "VIP_SLOT": 2
+        },
+        {
+            "MONEY": 500
+        },
+        {
+            "SORT": 2,
+            "SHUFFLE": 2,
+            "VIP_SLOT": 2
+        }
+    ],
+    "LAST_LEVEL_PASS": {
+        "MONEY": 100
+    }
+}

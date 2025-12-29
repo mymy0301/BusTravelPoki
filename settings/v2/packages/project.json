@@ -1,0 +1,44 @@
+{
+  "__version__": "1.0.6",
+  "general": {
+    "designResolution": {
+      "width": 720,
+      "height": 1280,
+      "fitHeight": true,
+      "fitWidth": true
+    }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "ROAD"
+      },
+      {
+        "index": 2,
+        "name": "BOX_TRIGGER_ROAD"
+      },
+      {
+        "index": 3,
+        "name": "CAR"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 9,
+      "1": 4,
+      "2": 2,
+      "3": 9
+    }
+  },
+  "custom_joint_texture_layouts": [],
+  "layer": [
+    {
+      "name": "UI_BUILD",
+      "value": 1
+    },
+    {
+      "name": "PARTICLE_TRAIL",
+      "value": 2
+    }
+  ]
+}

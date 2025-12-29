@@ -1,0 +1,9 @@
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+export const EVENT_RANK_TOURNAMNET = {
+    SHOW_NOTIFICATION: "EVENT_RANK_TOURNAMNET_SHOW_NOTIFICATION",
+    FORCE_CLOSE_NOTI: "EVENT_RANK_TOURNAMNET_FORCE_CLOSE_NOTI",
+    TURN_OFF_NOTI_ANCHOR: "EVENT_RANK_TOURNAMNET_TURN_OFF_NOTI_ANCHOR"
+}
+

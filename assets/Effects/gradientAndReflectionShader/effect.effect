@@ -1,0 +1,116 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: sprite-vs:vert
+      frag: sprite-fs:frag
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      rasterizerState:
+        cullMode: none
+      properties:
+        alphaThreshold: { value: 0.5 }
+        Color1: { value: [1.0, 1.0, 1.0, 1.0], editor: {type: color} }
+        Color2: { value: [1.0, 1.0, 1.0, 1.0], editor: {type: color} }
+        Color3: { value: [1.0, 1.0, 1.0, 1.0], editor: {type: color} }
+        speedColor: { value: 0.5}
+}%
+
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+  #if SAMPLE_FROM_RT
+    #include <common/common-define>
+  #endif
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 color;
+  out vec2 uv0;
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+
+    #if USE_LOCAL
+      pos = cc_matWorld * pos;
+    #endif
+
+    #if USE_PIXEL_ALIGNMENT
+      pos = cc_matView * pos;
+      pos.xyz = floor(pos.xyz);
+      pos = cc_matProj * pos;
+    #else
+      pos = cc_matViewProj * pos;
+    #endif
+
+    uv0 = a_texCoord;
+    #if SAMPLE_FROM_RT
+       CC_HANDLE_RT_SAMPLE_FLIP(uv0);
+    #endif
+    color = a_color;
+
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #include <builtin/internal/embedded-alpha>
+  #include <builtin/internal/alpha-test>
+
+  in vec4 color;
+
+  uniform Constant{
+    vec4 Color1;
+    vec4 Color2;
+    vec4 Color3;
+  };   
+
+  in vec2 uv0;
+  #pragma builtin(local)
+  layout(set = 2, binding = 11) uniform sampler2D cc_spriteTexture;
+
+
+  uniform ARGS{
+    float speedColor;
+  };
+
+  vec4 frag () {
+    vec4 o = vec4(1, 1, 1, 1);
+    o *= CCSampleWithAlphaSeparated(cc_spriteTexture, uv0);
+    
+    float timeFactor = mod(cc_time.x * speedColor, 3.0);
+    float uvOffset = uv0.x + mod(cc_time.x * speedColor, 1.0);
+    float mixFactor = mod(uvOffset * 3.0, 3.0);
+    vec3 mixColor; 
+    if (mixFactor < 1.0) {
+        // Giai đoạn hòa trộn giữa Color1 và Color2
+        float transition = smoothstep(0.0, 1.0, mixFactor);
+        mixColor = mix(Color1.rgb, Color2.rgb, transition);
+    } else if (mixFactor < 2.0) {
+        // Giai đoạn hòa trộn giữa Color2 và Color3
+        float transition = smoothstep(1.0, 2.0, mixFactor);
+        mixColor = mix(Color2.rgb, Color3.rgb, transition);
+    } else {
+        // Giai đoạn hòa trộn giữa Color3 và Color1
+        float transition = smoothstep(2.0, 3.0, mixFactor);
+        mixColor = mix(Color3.rgb, Color1.rgb, transition);
+    }
+
+    o.rgb *= mixColor;
+    o *= color;
+    ALPHA_TEST(o);
+    return o;
+  }
+}%

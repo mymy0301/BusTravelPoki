@@ -1,0 +1,73 @@
+
+CCEffect %{
+techniques: 
+  - passes: 
+      - vert: sprite-vs:vert
+        frag: sprite-fs:frag
+        depthStencilState: 
+          depthTest: false
+          depthWrite: false
+        blendState: 
+          targets: 
+            - blend: true
+              blendSrc: src_alpha
+              blendDst: one_minus_src_alpha
+              blendDstAlpha: one_minus_src_alpha
+        rasterizerState: 
+          cullMode: none
+        properties: 
+          shake_speed: {value: 5.0}
+          shake_power: {value: 0.03}
+          shake_rate: {value: 0.2}
+          shake_block_size: {value: 10}
+          shake_color_rate: {value: 0.01}
+}%
+        
+CCProgram sprite-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+  out vec4 color;
+  out vec2 uv0;
+ 
+ vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+    pos = cc_matViewProj * pos;
+    uv0 = a_texCoord;
+    color = a_color;
+    return pos;
+  }
+}%
+
+CCProgram sprite-fs %{
+  precision highp float;
+  #include <builtin/internal/embedded-alpha>
+  #include <Glitch2>
+
+  in vec4 color;
+
+  in vec2 uv0;
+
+  #pragma builtin(local)
+  layout(set = 2, binding = 12) uniform sampler2D cc_spriteTexture;
+
+  // uniform float shake_power;
+  uniform GlitchSettings {
+    float shake_power;
+    float shake_rate;
+    float shake_speed;
+    float shake_block_size;
+    float shake_color_rate;
+  };
+
+  vec4 frag () {
+    vec4 mainColor = texture(cc_spriteTexture, uv0);
+    vec4 result = vec4(0, 0, 0, 0);
+    mainGlitch(shake_power , shake_rate, shake_speed, shake_block_size, shake_color_rate, 
+        uv0, cc_spriteTexture, result);
+    return result;
+  }
+}%
+

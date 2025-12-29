@@ -1,0 +1,68 @@
+{
+    "JsonPackHalloween": [
+        {
+            "namePack": "hl_1",
+            "nameUI": "HALLOWEEN SALE!",
+            "price": "1.99",
+            "Prizes": {
+                "MONEY": 2500,
+                "SORT": 1,
+                "SHUFFLE": 1,
+                "VIP_SLOT": 1
+            },
+            "Sale": 50,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "HALLOWEEN"
+        },
+        {
+            "namePack": "hl_2",
+            "nameUI": "HALLOWEEN SALE!",
+            "price": "4.99",
+            "Prizes": {
+                "MONEY": 10000,
+                "SORT": 3,
+                "SHUFFLE": 3,
+                "VIP_SLOT": 3
+            },
+            "Sale": 55,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "HALLOWEEN"
+        },
+        {
+            "namePack": "hl_3",
+            "nameUI": "HALLOWEEN SALE!",
+            "price": "9.99",
+            "Prizes": {
+                "MONEY": 20000,
+                "SORT": 6,
+                "SHUFFLE": 6,
+                "VIP_SLOT": 6
+            },
+            "Sale": 60,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "HALLOWEEN"
+        },
+        {
+            "namePack": "hl_4",
+            "nameUI": "HALLOWEEN SALE!",
+            "price": "19.99",
+            "Prizes": {
+                "MONEY": 50000,
+                "SORT": 15,
+                "SHUFFLE": 15,
+                "VIP_SLOT": 15
+            },
+            "Sale": 60,
+            "numAvaliable": 1,
+            "timeLimit": 0,
+            "timeAutoReset": 0,
+            "type": "HALLOWEEN"
+        }
+    ]
+}

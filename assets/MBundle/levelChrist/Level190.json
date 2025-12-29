@@ -1,0 +1,982 @@
+{
+  "LevelData": {
+    "Time": null,
+    "LevelScaleFactor": 1,
+    "ParkingSpaceInit": 4,
+    "GuestColor": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1,
+      1,
+      1,
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      6,
+      6,
+      6,
+      6,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "CarInfo": [
+      {
+        "idCar": 1,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.0177408854166665,
+          "y": -8.175630357530382,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 2,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.546740779170284,
+          "y": 1.2164442274305556,
+          "z": 0
+        },
+        "carDirection": 0
+      },
+      {
+        "idCar": 3,
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.87855558042173,
+          "y": -8.261815388997395,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 4,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.695185908564815,
+          "y": -0.3821851942274305,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 7,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.510440402560763,
+          "y": -3.2165018717447915,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 8,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": 5.068650987413194,
+          "y": -8.204990528247974,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 9,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.409185338903356,
+          "y": -4.960000497323495,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 11,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": -2.999370433666088,
+          "y": -8.261815388997395,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 14,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.090185094762731,
+          "y": -6.225001017252604,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 15,
+        "carColor": 4,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.7153704607928235,
+          "y": -3.6840006510416665,
+          "z": 0
+        },
+        "carDirection": 3
+      },
+      {
+        "idCar": 17,
+        "carColor": 5,
+        "carSize": 0,
+        "carPosition": {
+          "x": 4.24418470594618,
+          "y": -7.138001053421585,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 18,
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.1900001808449074,
+          "y": -7.149000944914641,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 19,
+        "carColor": 3,
+        "carSize": 0,
+        "carPosition": {
+          "x": -5.3497407701280375,
+          "y": -7.04081556532118,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 21,
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": -1.9580001831054688,
+          "y": 0.6499984176070601,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 22,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": 1.235137939453125,
+          "y": -8.18414306640625,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 23,
+        "carColor": 7,
+        "carSize": 1,
+        "carPosition": {
+          "x": -0.9020001446759259,
+          "y": -0.7671859176070601,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 25,
+        "carColor": 7,
+        "carSize": 0,
+        "carPosition": {
+          "x": 0.8807288275824652,
+          "y": 1.3432029441550926,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 26,
+        "carColor": 6,
+        "carSize": 2,
+        "carPosition": {
+          "x": -3.8099774961118342,
+          "y": 0.029805501302083332,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 27,
+        "carColor": 4,
+        "carSize": 0,
+        "carPosition": {
+          "x": 1.8040002893518519,
+          "y": -7.138001053421585,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 28,
+        "carColor": 3,
+        "carSize": 2,
+        "carPosition": {
+          "x": -2.8581853795934604,
+          "y": -6.511000456633391,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 29,
+        "carColor": 2,
+        "carSize": 0,
+        "carPosition": {
+          "x": -1.6481854474103008,
+          "y": -8.041814733434606,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 30,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 0.32818490487557866,
+          "y": -1.9771864149305554,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 31,
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": -0.6471851490162037,
+          "y": 1.133999294704861,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 32,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": -2.6491851806640625,
+          "y": -0.6480000813802083,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 33,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": -0.37400026674623843,
+          "y": -7.8218157732928235,
+          "z": 0
+        },
+        "carDirection": 3
+      },
+      {
+        "idCar": 34,
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": 0.5939997920283564,
+          "y": -6.302000822844328,
+          "z": 0
+        },
+        "carDirection": 3
+      },
+      {
+        "idCar": 35,
+        "carColor": 1,
+        "carSize": 1,
+        "carPosition": {
+          "x": -5.503740663881655,
+          "y": -1.0182596842447915,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 36,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": -1.1330001265914351,
+          "y": -5.950000904224536,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 37,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": -4.293740731698495,
+          "y": -2.4850000452112266,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 38,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": -3.1670809145326966,
+          "y": -4.335430569118923,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 39,
+        "carColor": 4,
+        "carSize": 1,
+        "carPosition": {
+          "x": -1.9103704381872106,
+          "y": -1.8910013834635415,
+          "z": 0
+        },
+        "carDirection": 0
+      },
+      {
+        "idCar": 40,
+        "carColor": 4,
+        "carSize": 0,
+        "carPosition": {
+          "x": -1.6573706732855902,
+          "y": -6.767630683051215,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 41,
+        "carColor": 7,
+        "carSize": 1,
+        "carPosition": {
+          "x": -5.503740663881655,
+          "y": 1.0569989239728008,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 42,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.233000013563368,
+          "y": -5.950000904224536,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 43,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.024185745804398,
+          "y": -5.950000904224536,
+          "z": 0
+        },
+        "carDirection": 2
+      },
+      {
+        "idCar": 44,
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.114000108506945,
+          "y": -4.641001383463541,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 45,
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": 2.793999565972222,
+          "y": -5.070001107675058,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 46,
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": -1.7710000497323495,
+          "y": -4.652000709816261,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 47,
+        "carColor": 4,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.705999868887442,
+          "y": -4.179001419632523,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 48,
+        "carColor": 4,
+        "carSize": 0,
+        "carPosition": {
+          "x": 1.1880001491970484,
+          "y": -5.070001107675058,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 49,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.29918529369213,
+          "y": -1.8671863697193285,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 50,
+        "carColor": 7,
+        "carSize": 0,
+        "carPosition": {
+          "x": -0.5041848641854745,
+          "y": -5.070001107675058,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 51,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": 4.409185338903356,
+          "y": 1.265999122902199,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 52,
+        "carColor": 3,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.0781849048755787,
+          "y": 1.544629132306134,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 53,
+        "carColor": 6,
+        "carSize": 0,
+        "carPosition": {
+          "x": 1.7929998327184606,
+          "y": 0.4758142541956018,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 54,
+        "carColor": 5,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.244999638310185,
+          "y": 0.23199915002893517,
+          "z": 0
+        },
+        "carDirection": 0
+      },
+      {
+        "idCar": 55,
+        "carColor": 7,
+        "carSize": 1,
+        "carPosition": {
+          "x": 3.244999638310185,
+          "y": -1.341000027126736,
+          "z": 0
+        },
+        "carDirection": 0
+      },
+      {
+        "idCar": 56,
+        "carColor": 5,
+        "carSize": 0,
+        "carPosition": {
+          "x": -2.920555679886429,
+          "y": -2.804001419632523,
+          "z": 0
+        },
+        "carDirection": 4
+      },
+      {
+        "idCar": 57,
+        "carColor": 7,
+        "carSize": 1,
+        "carPosition": {
+          "x": 0.5610001175491898,
+          "y": -0.3730005334924768,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 58,
+        "carColor": 4,
+        "carSize": 1,
+        "carPosition": {
+          "x": 2.8666562680844905,
+          "y": -3.0342859338831016,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 59,
+        "carColor": 6,
+        "carSize": 1,
+        "carPosition": {
+          "x": 0.9636004412615741,
+          "y": -3.959000764069734,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 60,
+        "carColor": 1,
+        "carSize": 0,
+        "carPosition": {
+          "x": 0.06599991409866898,
+          "y": 0.4959999367042824,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 61,
+        "carColor": 2,
+        "carSize": 1,
+        "carPosition": {
+          "x": 1.964803625036169,
+          "y": -0.8874884711371527,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 62,
+        "carColor": 5,
+        "carSize": 0,
+        "carPosition": {
+          "x": 1.7857406051070601,
+          "y": -2.4868152759693287,
+          "z": 0
+        },
+        "carDirection": 7
+      },
+      {
+        "idCar": 63,
+        "carColor": 6,
+        "carSize": 2,
+        "carPosition": {
+          "x": -3.732740896719473,
+          "y": -1.5390003345630787,
+          "z": 0
+        },
+        "carDirection": 6
+      },
+      {
+        "idCar": 64,
+        "carColor": 3,
+        "carSize": 2,
+        "carPosition": {
+          "x": -0.2419998734085648,
+          "y": -2.892001681857639,
+          "z": 0
+        },
+        "carDirection": 1
+      },
+      {
+        "idCar": 65,
+        "carColor": 1,
+        "carSize": 2,
+        "carPosition": {
+          "x": -1.2521853976779513,
+          "y": -3.5520008228443287,
+          "z": 0
+        },
+        "carDirection": 1
+      }
+    ],
+    "GarageInfo": [],
+    "ConveyorBeltInfo": [],
+    "Group": [
+      {
+        "typeUse": 4,
+        "numberLose": -1,
+        "listGroups": [],
+        "dataCustom": "1_48_18-1-100,16-3-100,14-6-100_8_0*2_46_22-1-100,12-3-100,6-4-100,6-5-100_8_0*3_78_26-1-100,18-2-100,18-4-100,16-5-100_12_0*4_36_14-2-100,18-5-100,4-6-100_7_0*5_48_32-2-100,16-4-100_9_0*6_46_20-3-100,26-5-100_7_0*7_32_16-3-100,6-4-100,6-5-100,4-6-100_6_0"
+      }
+    ]
+  }
+}
