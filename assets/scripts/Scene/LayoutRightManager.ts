@@ -9,11 +9,11 @@ export class LayoutRightManager extends Component {
     @property(Layout) layoutCheck: Layout;
     @property(CCFloat) scale: number = 0.9;
     start() {
-        let scaleWindow = Utils.getScaleWindow();
-        let isFitHeight: boolean = Utils.isFitHeight();
-        if (isFitHeight) {
-            this.widget.right = this.defaultRight - (scaleWindow - 1) * 720 / 2;
-        }
+        // let scaleWindow = Utils.getScaleWindow();
+        // let isFitHeight: boolean = Utils.isFitHeight();
+        // if (isFitHeight) {
+        //     this.widget.right = this.defaultRight - (scaleWindow - 1) * 720 / 2;
+        // }
 
         // update scale item 
         this.ScaleAllIconForSuitHeight();
@@ -33,10 +33,10 @@ export class LayoutRightManager extends Component {
                 item.getComponent(UITransform).contentSize = new Size(baseSizeItem.x * ratioSize, baseSizeItem.y * ratioSize);
             })
 
-            if (this.layoutCheck) {
-                this.layoutCheck.spacingY *= ratioSize;
-                this.layoutCheck.updateLayout(true);
-            }
+            // if (this.layoutCheck) {
+            //     this.layoutCheck.spacingY *= ratioSize;
+            //     this.layoutCheck.updateLayout(true);
+            // }
         }
     }
 }

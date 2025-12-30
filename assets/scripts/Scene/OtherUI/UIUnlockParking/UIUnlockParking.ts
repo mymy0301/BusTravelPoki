@@ -28,6 +28,7 @@ export class UIUnlockParking extends UIBaseSys {
     @property(Label) lbShadowWatchedAds: Label;
     @property(Node) nBtnWatchAds: Node;
     @property(Node) nBtnCoin: Node;
+    @property(Node) nBtnCoin_Disable: Node;
     @property(AnimationComponent) animationComponent: AnimationComponent;
     @property(Node) nIcParking: Node;
     @property(ParticleSystem) par1: ParticleSystem;

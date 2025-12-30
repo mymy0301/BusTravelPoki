@@ -244,7 +244,7 @@ class MConfigs {
     public static readonly MAX_PROGRESS_SPIN_EACH_WEEK: number = 30;
     public static readonly MAX_PRIZE_SPIN: number = 5;
     public static readonly MAX_SPIN_ADS_PER_DAY: number = 5;
-    public static readonly TIME_COOLDOWN_SPIN_ADS: number = 1; // 60 *5
+    public static readonly TIME_COOLDOWN_SPIN_ADS: number = 0; // 60 *5
 
     // LoginReward
     public static readonly MAX_PRIZE_PROGRESS_LOGIN_REWARD: number = 4;

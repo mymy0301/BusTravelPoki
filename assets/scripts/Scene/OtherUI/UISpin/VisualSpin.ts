@@ -10,8 +10,8 @@ const { ccclass, property } = _decorator;
 
 @ccclass('VisualSpin')
 export class VisualSpin extends Component {
-    @property(Node) nBtnSpin_x10: Node;
-    @property(Node) nBtnSpin_x1: Node;
+    // @property(Node) nBtnSpin_x10: Node;
+    // @property(Node) nBtnSpin_x1: Node;
     @property(Node) nBtnWatchAds: Node;
     @property(Node) nBtnFree: Node;
     @property([Node]) listNGraySpin_x10: Node[] = [];
@@ -75,19 +75,19 @@ export class VisualSpin extends Component {
         // update which btn show
         if (DataSpinSys.Instance.HasFreeSpinToday()) {
             this.nBtnFree.active = true;
-            this.nBtnSpin_x1.active = false;
+            // this.nBtnSpin_x1.active = false;
             this.nBtnWatchAds.active = false;
-            this.nBtnSpin_x10.active = false;
+            // this.nBtnSpin_x10.active = false;
         } else if (CurrencySys.Instance.GetTicket() > 0) {
-            this.nBtnSpin_x1.active = true;
+            // this.nBtnSpin_x1.active = true;
             this.nBtnWatchAds.active = false;
             this.nBtnFree.active = false;
-            this.nBtnSpin_x10.active = true;
+            // this.nBtnSpin_x10.active = true;
         } else {
-            this.nBtnSpin_x1.active = false;
+            // this.nBtnSpin_x1.active = false;
             this.nBtnFree.active = false;
             this.nBtnWatchAds.active = true;
-            this.nBtnSpin_x10.active = true;
+            // this.nBtnSpin_x10.active = true;
 
             // check in time coolDown
             const lastTimeSpinAds = DataSpinSys.Instance.getTimeLastUseSpinAds();
