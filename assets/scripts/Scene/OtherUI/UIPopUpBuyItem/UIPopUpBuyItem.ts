@@ -12,6 +12,7 @@ import { MConfigs } from '../../../Configs/MConfigs';
 import { GameSys } from '../../GameScene/GameSys';
 import { LogEventManager } from '../../../LogEvent/LogEventManager';
 import { SoundSys } from '../../../Common/SoundSys';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIPopUpBuyItem')
@@ -23,6 +24,10 @@ export class UIPopUpBuyItem extends UIBaseSys {
     @property(Label) lbPriceShadow: Label;
     @property(Label) lbPrice: Label;
     @property(Sprite) spIcon: Sprite;
+    @property(Node) nBtnCoin_Disable: Node;
+    @property(Label) lbPriceShadow_Disable: Label;
+    @property(Label) lbPrice_Disable: Label;
+    @property(Sprite) spIcon_Disable: Sprite;
     @property({ tooltip: "remember it follow the rule TYPE_ITEM", type: [SpriteFrame] }) listSfIcon: SpriteFrame[] = [];
 
     @property(Node) nBtnCoin: Node;
@@ -58,14 +63,38 @@ export class UIPopUpBuyItem extends UIBaseSys {
             this.lbPrice.string = this.GetPrice(jsonUI.typeItemBuy).toString();
             this.lbPriceShadow.string = this.GetPrice(jsonUI.typeItemBuy).toString();
 
+            this.lbPrice_Disable.string = this.GetPrice(jsonUI.typeItemBuy).toString();
+            this.lbPriceShadow_Disable.string = this.GetPrice(jsonUI.typeItemBuy).toString();
+
+            if(CurrencySys.Instance.GetMoney() >= this.GetPrice(jsonUI.typeItemBuy)) {
+                this.nBtnCoin_Disable.active = false;
+            }else {
+                this.nBtnCoin_Disable.active = true;
+            }
+
             const posY: number = (jsonUI.typeItemBuy == TYPE_ITEM.VIP_SLOT ? this.diffPosY_textVip : 0) + this._baseY_textContent;
             this.lbContent.node.setPosition(0, posY, 0);
             this.lbContent.string = this.GetContent(jsonUI.typeItemBuy);
 
             switch (jsonUI.typeItemBuy) {
-                case TYPE_ITEM.SORT: this.spIcon.spriteFrame = this.listSfIcon[0]; this.spIcon.node.setPosition(this._base_pos_icon.clone()); break;
-                case TYPE_ITEM.SHUFFLE: this.spIcon.spriteFrame = this.listSfIcon[1]; this.spIcon.node.setPosition(this._base_pos_icon.clone()); break;
-                case TYPE_ITEM.VIP_SLOT: this.spIcon.spriteFrame = this.listSfIcon[2]; this.spIcon.node.setPosition(this._base_pos_icon.clone().add3f(this.diffPosX_IcVip, this.diffPosY_IcVip, 0)); break;
+                case TYPE_ITEM.SORT: 
+                    this.spIcon.spriteFrame = this.listSfIcon[0]; 
+                    this.spIcon.node.setPosition(this._base_pos_icon.clone()); 
+                    this.spIcon_Disable.spriteFrame = this.listSfIcon[0]; 
+                    this.spIcon_Disable.node.setPosition(this._base_pos_icon.clone()); 
+                    break;
+                case TYPE_ITEM.SHUFFLE: 
+                    this.spIcon.spriteFrame = this.listSfIcon[1]; 
+                    this.spIcon.node.setPosition(this._base_pos_icon.clone()); 
+                    this.spIcon_Disable.spriteFrame = this.listSfIcon[1]; 
+                    this.spIcon_Disable.node.setPosition(this._base_pos_icon.clone()); 
+                    break;
+                case TYPE_ITEM.VIP_SLOT: 
+                    this.spIcon.spriteFrame = this.listSfIcon[2]; 
+                    this.spIcon.node.setPosition(this._base_pos_icon.clone().add3f(this.diffPosX_IcVip, this.diffPosY_IcVip, 0)); 
+                    this.spIcon_Disable.spriteFrame = this.listSfIcon[2]; 
+                    this.spIcon_Disable.node.setPosition(this._base_pos_icon.clone().add3f(this.diffPosX_IcVip, this.diffPosY_IcVip, 0)); 
+                    break;
             }
 
             this.UpdateUI();
@@ -110,37 +139,37 @@ export class UIPopUpBuyItem extends UIBaseSys {
     }
 
     private UpdateBtnAds() {
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.spIcAds.spriteFrame = this.sfTicket;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        } else {
-            this.spIcAds.spriteFrame = this.sfAds;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.spIcAds.spriteFrame = this.sfTicket;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // } else {
+        //     this.spIcAds.spriteFrame = this.sfAds;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // }
     }
     //#endregion self func
 
     //#region UI
     private UpdateUI() {
-        let canShowBtnWatchAds: boolean = true;
-        // kiểm tra xem có ticket sử dụng hay không
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            canShowBtnWatchAds = true;
-        }
-        // kiểm tra xem lượt này có xem được quảng cáo hya không
-        if (GameSys.Instance.CheckWatchedAdsBuyItem(this._dataPopUpBuyItem.typeItemBuy)) {
-            canShowBtnWatchAds = false;
-        }
+        // let canShowBtnWatchAds: boolean = true;
+        // // kiểm tra xem có ticket sử dụng hay không
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     canShowBtnWatchAds = true;
+        // }
+        // // kiểm tra xem lượt này có xem được quảng cáo hya không
+        // if (GameSys.Instance.CheckWatchedAdsBuyItem(this._dataPopUpBuyItem.typeItemBuy)) {
+        //     canShowBtnWatchAds = false;
+        // }
 
-        if (canShowBtnWatchAds) {
-            this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
-            this.nBtnWatchAds.active = true;
-        } else {
-            this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
-            this.nBtnWatchAds.active = false;
-        }
+        // if (canShowBtnWatchAds) {
+        //     this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
+        //     this.nBtnWatchAds.active = true;
+        // } else {
+        //     this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
+        //     this.nBtnWatchAds.active = false;
+        // }
     }
     //#endregion UI
 
@@ -170,17 +199,23 @@ export class UIPopUpBuyItem extends UIBaseSys {
             self.UpdateUI();
         }
 
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            CurrencySys.Instance.AddTicket(-1, `UIPopUpBuyItem`);
-            UseSuccess()
-            return;
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     CurrencySys.Instance.AddTicket(-1, `UIPopUpBuyItem`);
+        //     UseSuccess()
+        //     return;
+        // }
 
-        FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         UseSuccess();
+        //     }
+        // })
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 UseSuccess();
             }
-        })
+        });
     }
 
     private BtnBuyItemByMoney() {
@@ -194,15 +229,15 @@ export class UIPopUpBuyItem extends UIBaseSys {
             clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, "Not enough Coins!");
 
             // Close this UI and open UIShop to coin
-            clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_POPUP_BUY_ITEM, 2);
-            // if pass all case show ui shop
-            let dataCustomUIShop: DataCustomUIShop = {
-                isActiveClose: true,
-                openUIAfterClose: null,
-                pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
-                canAutoResumeGame: true
-            }
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
+            // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_POPUP_BUY_ITEM, 2);
+            // // if pass all case show ui shop
+            // let dataCustomUIShop: DataCustomUIShop = {
+            //     isActiveClose: true,
+            //     openUIAfterClose: null,
+            //     pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
+            //     canAutoResumeGame: true
+            // }
+            // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
 
         }
     }

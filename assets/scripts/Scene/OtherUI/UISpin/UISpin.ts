@@ -21,6 +21,7 @@ import { MConfigs } from '../../../Configs/MConfigs';
 import { PAGE_VIEW_SHOP, PAGE_VIEW_SHOP_2 } from '../UIShop/TypeShop';
 import { LogEventManager } from '../../../LogEvent/LogEventManager';
 import { EVENT_TUT_LOBBY } from '../UITutorialInGame/TypeTutorialInLobby';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UISpin')
@@ -310,14 +311,20 @@ export class UISpin extends UIBaseSys {
         }
 
         if (DataSpinSys.Instance.getNumSpinAdsTodayWasUse() < MConfigs.MAX_SPIN_ADS_PER_DAY) {
-            FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+            // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+            //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+            //         UseSuccess();
+            //     } else {
+            //         // MConsolLog.Log("=================2 call failed");
+            //         // MConsolLog.Log("Can not load ad");
+            //     }
+            // });
+
+            PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
                 if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                     UseSuccess();
-                } else {
-                    // MConsolLog.Log("=================2 call failed");
-                    // MConsolLog.Log("Can not load ad");
                 }
-            });
+            })
         } else {
             clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t(languages["You have used all ads today"]));
         }
@@ -340,42 +347,42 @@ export class UISpin extends UIBaseSys {
     public async onBtnSkipIts_10() {
         LogEventManager.Instance.logButtonClick(`skip_ads_10`, "UISpin");
 
-        if (CurrencySys.Instance.GetTicket() < 10) {
-            clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.DEFAULT_NOTIFICATION, I18n.t(languages['Not enough Tickets!']));
-            // trượt sang tab shop và close UISpin
-            this.onBtnClose();
+        // if (CurrencySys.Instance.GetTicket() < 10) {
+        //     clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.DEFAULT_NOTIFICATION, I18n.t(languages['Not enough Tickets!']));
+        //     // trượt sang tab shop và close UISpin
+        //     this.onBtnClose();
 
-            if (MConfigs.numIAPTicketHave > 0) {
-                this.LogicShowShop(PAGE_VIEW_SHOP.SKIP_ITS);
-            } else {
-                // this.LogicShowShop(PAGE_VIEW_SHOP_2.COIN);
-            }
-            return;
-        }
+        //     if (MConfigs.numIAPTicketHave > 0) {
+        //         this.LogicShowShop(PAGE_VIEW_SHOP.SKIP_ITS);
+        //     } else {
+        //         // this.LogicShowShop(PAGE_VIEW_SHOP_2.COIN);
+        //     }
+        //     return;
+        // }
 
-        CurrencySys.Instance.AddTicket(-10, "UISpin");
-        await this.Spin();
-        this.UpdateUISpin();
-        this.RewardSpin(true);
-        this.visualSpin.UpdateVisualBtn();
+        // CurrencySys.Instance.AddTicket(-10, "UISpin");
+        // await this.Spin();
+        // this.UpdateUISpin();
+        // this.RewardSpin(true);
+        // this.visualSpin.UpdateVisualBtn();
 
-        // ||**DQ**||
-        clientEvent.dispatchEvent(MConst.EVENT_DAILY_QUEST.UPDATE_QUEST_DAILY_QUEST, TYPE_QUEST_DAILY.SPIN, 10);
+        // // ||**DQ**||
+        // clientEvent.dispatchEvent(MConst.EVENT_DAILY_QUEST.UPDATE_QUEST_DAILY_QUEST, TYPE_QUEST_DAILY.SPIN, 10);
     }
 
     public async onBtnSkipIts_1() {
         LogEventManager.Instance.logButtonClick(`skip_ads_1`, "UISpin");
 
-        if (CurrencySys.Instance.GetTicket() <= 0) {
-            clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.DEFAULT_NOTIFICATION, I18n.t(languages['Not enough Tickets!']));
-            return;
-        }
+        // if (CurrencySys.Instance.GetTicket() <= 0) {
+        //     clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.DEFAULT_NOTIFICATION, I18n.t(languages['Not enough Tickets!']));
+        //     return;
+        // }
 
-        CurrencySys.Instance.AddTicket(-1, "UISpin");
-        await this.Spin();
-        this.UpdateUISpin();
-        this.RewardSpin();
-        this.visualSpin.UpdateVisualBtn();
+        // CurrencySys.Instance.AddTicket(-1, "UISpin");
+        // await this.Spin();
+        // this.UpdateUISpin();
+        // this.RewardSpin();
+        // this.visualSpin.UpdateVisualBtn();
     }
 
     public onBtnClose() {

@@ -387,29 +387,29 @@ export class GameUISys extends UISceneSysBase {
     private BtnShop() {
         LogEventManager.Instance.logButtonClick("shop", "game");
 
-        if (MConfigs.numIAPTicketHave > 0) {
-            this.LogicShowShop(PAGE_VIEW_SHOP.PACKAGE);
-        } else {
-            this.LogicShowShop(PAGE_VIEW_SHOP_2.DAILY_QUEST);
-        }
+        // if (MConfigs.numIAPTicketHave > 0) {
+        //     this.LogicShowShop(PAGE_VIEW_SHOP.PACKAGE);
+        // } else {
+        //     this.LogicShowShop(PAGE_VIEW_SHOP_2.DAILY_QUEST);
+        // }
     }
 
     private BtnShopCoin() {
         LogEventManager.Instance.logButtonClick("coin", "game");
 
-        if (MConfigs.numIAPTicketHave > 0) {
-            this.LogicShowShop(PAGE_VIEW_SHOP.COIN);
-        } else {
-            this.LogicShowShop(PAGE_VIEW_SHOP_2.COIN);
-        }
+        // if (MConfigs.numIAPTicketHave > 0) {
+        //     this.LogicShowShop(PAGE_VIEW_SHOP.COIN);
+        // } else {
+        //     this.LogicShowShop(PAGE_VIEW_SHOP_2.COIN);
+        // }
     }
 
     private BtnShopSkipIts() {
         LogEventManager.Instance.logButtonClick("skip_ads", "game");
 
-        if (MConfigs.numIAPTicketHave > 0) {
-            this.LogicShowShop(PAGE_VIEW_SHOP.SKIP_ITS);
-        }
+        // if (MConfigs.numIAPTicketHave > 0) {
+        //     this.LogicShowShop(PAGE_VIEW_SHOP.SKIP_ITS);
+        // }
     }
 
 
@@ -458,16 +458,16 @@ export class GameUISys extends UISceneSysBase {
             return;
         }
 
-        // if pass all case show ui shop
-        let dataCustomUIShop: DataCustomUIShop = {
-            isActiveClose: true,
-            openUIAfterClose: null,
-            pageViewShop_ScrollTo: pageViewStart,
-            canAutoResumeGame: true
-        }
-        clientEvent.dispatchEvent(MConst.EVENT.PAUSE_GAME);
-        // clientEvent.dispatchEvent(MConst.EVENT.SHOW_SHADOW_GAME_WITH_NO_OPACITY);
-        clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
+        // // if pass all case show ui shop
+        // let dataCustomUIShop: DataCustomUIShop = {
+        //     isActiveClose: true,
+        //     openUIAfterClose: null,
+        //     pageViewShop_ScrollTo: pageViewStart,
+        //     canAutoResumeGame: true
+        // }
+        // clientEvent.dispatchEvent(MConst.EVENT.PAUSE_GAME);
+        // // clientEvent.dispatchEvent(MConst.EVENT.SHOW_SHADOW_GAME_WITH_NO_OPACITY);
+        // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
     }
     //#endregion btnUI
     //=======================================================================

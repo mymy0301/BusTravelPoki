@@ -161,7 +161,7 @@ export class UIShopShort extends UIBaseSys {
     private onBtnClose() {
         LogEventManager.Instance.logButtonClick(`close`, "UIShop");
 
-        clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_SHOP_SHORT, 2);
+        // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_SHOP_SHORT, 2);
     }
 
     private onBtnCoin() {

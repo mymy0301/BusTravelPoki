@@ -16,6 +16,7 @@ import { STATE_TT } from '../../../OtherUI/UITreasureTrail/TypeTreasureTrail';
 import { DataInfoPlayer } from '../../../DataInfoPlayer';
 import { DataHatRace_christ } from 'db://assets/scripts/DataBase/DataHatRace_christ';
 import { PageUIAreYouSureChrist } from '../../../OtherUI/PageUIAreYouSureChrist/PageAreYourSureChrist';
+import { PokiSDKManager } from 'db://assets/scripts/Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 enum STATE_ANIM {
@@ -216,7 +217,10 @@ export class UIEnsureResetGame extends UIBaseSys {
                 LogEventManager.Instance.logStepGame(GameManager.Instance.levelPlayerNow, "R", SaveStepGameSys.Instance.GetListStepToLog());
                 if (GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER && valid2) {
                     logicRunning = false;
-                    FBInstantManager.Instance.Show_InterstitialAdAsync("reset game when playing", (error: Error | null, success: string) => {
+                    // FBInstantManager.Instance.Show_InterstitialAdAsync("reset game when playing", (error: Error | null, success: string) => {
+                    //     logicRunning = true;
+                    // });
+                    PokiSDKManager.Instance.Show_InterstitialAdAsync("reset game when playing", (error: Error | null, success: string) => {
                         logicRunning = true;
                     });
                     await Utils.WaitReceivingDone(() => logicRunning);
@@ -243,7 +247,10 @@ export class UIEnsureResetGame extends UIBaseSys {
                 // LogEventManager.Instance.logStepGame(GameManager.Instance.levelPlayerNow, "R", SaveStepGameSys.Instance.GetListStepToLog());
                 // gọi inter
                 logicRunning = false;
-                FBInstantManager.Instance.Show_InterstitialAdAsync("reset game when playing christ", (error: Error | null, success: string) => {
+                // FBInstantManager.Instance.Show_InterstitialAdAsync("reset game when playing christ", (error: Error | null, success: string) => {
+                //     logicRunning = true;
+                // });
+                PokiSDKManager.Instance.Show_InterstitialAdAsync("reset game when playing christ", (error: Error | null, success: string) => {
                     logicRunning = true;
                 });
                 await Utils.WaitReceivingDone(() => logicRunning);

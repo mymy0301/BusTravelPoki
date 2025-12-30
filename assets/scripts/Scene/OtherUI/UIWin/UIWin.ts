@@ -16,6 +16,7 @@ import { UIWin_anim_2 } from './UIWin_anim_2';
 import { Utils } from '../../../Utils/Utils';
 import { DataLevelProgressionSys } from '../../../DataBase/DataLevelProgressionSys';
 import { OtherUIWin } from './OtherUIWin';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIWin')
@@ -82,9 +83,9 @@ export class UIWin extends UIBaseSys {
         }
 
         // check if has skip'its để sử dụng thì cập nhật lại dữ liệu
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.UpdateUIBtnClaimX2();
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.UpdateUIBtnClaimX2();
+        // }
 
         // show create shortCut nếu như user vượt qua level 2
         if (levelPlayer == 2) {
@@ -135,7 +136,21 @@ export class UIWin extends UIBaseSys {
         switch (true) {
             case GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL && GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER && valid2:
                 self._isWatchAdsDone = false;
-                FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+                // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+                //     if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
+                //         // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
+                //         // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
+                //         //     // hiển thị gói no ads
+                //         //     const dataCustom: IUIPopUpRemoveAds = {
+                //         //         isEmitContinue: false
+                //         //     }
+                //         //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_REMOVE_ADS, 1, true, dataCustom);
+                //         // }
+                //     }
+                //     self._isWatchAdsDone = true;
+                // });
+
+                PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
                     if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
                         // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
                         // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
@@ -147,11 +162,15 @@ export class UIWin extends UIBaseSys {
                         // }
                     }
                     self._isWatchAdsDone = true;
-                });
+                });    
                 break;
             case (GameManager.Instance.TypeGamePlay == TYPE_GAME.WITH_FRIEND || GameManager.Instance.TypeGamePlay == TYPE_GAME.TOURNAMENT) && valid2:
                 self._isWatchAdsDone = false;
-                FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+                // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+                //     self._isWatchAdsDone = true;
+                // });
+
+                PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
                     self._isWatchAdsDone = true;
                 });
                 break;
@@ -161,11 +180,11 @@ export class UIWin extends UIBaseSys {
     }
 
     private UpdateUIBtnClaimX2() {
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.icX2.spriteFrame = this.sfTicket;
-        } else {
-            this.icX2.spriteFrame = this.sfAds;
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.icX2.spriteFrame = this.sfTicket;
+        // } else {
+        //     this.icX2.spriteFrame = this.sfAds;
+        // }
     }
 
     public async UICustomShow(): Promise<void> {
@@ -283,14 +302,20 @@ export class UIWin extends UIBaseSys {
         }
 
         // check has skip'Its thì pass luôn ko cần gọi FBInstanceManager
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            CurrencySys.Instance.AddTicket(-1, 'UIWin_X2_COIN', true, true);
-            UseSuccess();
-            return;
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     CurrencySys.Instance.AddTicket(-1, 'UIWin_X2_COIN', true, true);
+        //     UseSuccess();
+        //     return;
+        // }
 
         // watch ads
-        FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, 'btn_X2Coin', async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, 'btn_X2Coin', async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         UseSuccess();
+        //     }
+        // });
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, 'btn_X2Coin', async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 UseSuccess();
             }

@@ -36,7 +36,7 @@ export class UIChristmasEvent extends UIBaseSys {
     @property(PageLightRoad_UIChristmasEvent) pageLRChrist: PageLightRoad_UIChristmasEvent;
     @property(PageView_UIChristmasEvent) pvUIChristmasEvents: PageView_UIChristmasEvent;
     @property(Node) nCoin: Node;
-    @property(Node) nTicket: Node;
+    // @property(Node) nTicket: Node;
 
     private _listPrize: Node[] = [];
     //==========================================
@@ -198,9 +198,9 @@ export class UIChristmasEvent extends UIBaseSys {
         tween(this.nCoin.getComponent(UIOpacity))
             .to(timeShow, { opacity: 255 })
             .start();
-        tween(this.nTicket.getComponent(UIOpacity))
-            .to(timeShow, { opacity: 255 })
-            .start();
+        // tween(this.nTicket.getComponent(UIOpacity))
+        //     .to(timeShow, { opacity: 255 })
+        //     .start();
     }
 
     private HideCoinTicket() {
@@ -208,9 +208,9 @@ export class UIChristmasEvent extends UIBaseSys {
         tween(this.nCoin.getComponent(UIOpacity))
             .to(timeHide, { opacity: 0 })
             .start();
-        tween(this.nTicket.getComponent(UIOpacity))
-            .to(timeHide, { opacity: 0 })
-            .start();
+        // tween(this.nTicket.getComponent(UIOpacity))
+        //     .to(timeHide, { opacity: 0 })
+        //     .start();
     }
     //#endregion callback
     //==========================================

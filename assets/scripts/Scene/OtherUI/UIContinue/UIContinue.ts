@@ -23,6 +23,7 @@ import SupLogEvent from '../../../LogEvent/SupLogEvent';
 import { DataEventsSys } from '../../DataEventsSys';
 import { PageUIAreYouSureChrist } from '../PageUIAreYouSureChrist/PageAreYourSureChrist';
 import { DataHatRace_christ } from '../../../DataBase/DataHatRace_christ';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 enum NAME_ANIM {
@@ -66,6 +67,7 @@ export class UIContinue extends UIBaseSys {
 
     @property(Node) nBtnWatchAds: Node;
     @property(Node) nBtnCoin: Node;
+    @property(Node) nBtnCoin_Disable: Node;
     private readonly _posNBtnCoinWhen2Btn: Vec3 = new Vec3(-142, -85.812, 0);
 
     @property(Node) nVisualSys: Node;
@@ -162,15 +164,15 @@ export class UIContinue extends UIBaseSys {
     }
 
     private UpdateBtnAds() {
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.spIc.spriteFrame = this.sfTicket;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        } else {
-            this.spIc.spriteFrame = this.sfAds;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.spIc.spriteFrame = this.sfTicket;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // } else {
+        //     this.spIc.spriteFrame = this.sfAds;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // }
     }
 
     protected update(dt: number): void {
@@ -312,26 +314,32 @@ export class UIContinue extends UIBaseSys {
     //==============================
     //#region UI
     private UpdateUI() {
-        let canShowBtnWatchAds: boolean = true;
-        // kiểm tra xem có ticket sử dụng hay không
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            canShowBtnWatchAds = true;
-        }
-        // kiểm tra xem lượt này có xem được quảng cáo hya không
-        if (GameSys.Instance.CheckWatchedAdsContinue()) {
-            canShowBtnWatchAds = false;
-        }
+        // let canShowBtnWatchAds: boolean = true;
+        // // kiểm tra xem có ticket sử dụng hay không
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     canShowBtnWatchAds = true;
+        // }
+        // // kiểm tra xem lượt này có xem được quảng cáo hya không
+        // if (GameSys.Instance.CheckWatchedAdsContinue()) {
+        //     canShowBtnWatchAds = false;
+        // }
 
-        if (canShowBtnWatchAds) {
-            this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
-            this.nBtnWatchAds.active = true;
+        // if (canShowBtnWatchAds) {
+        //     this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
+        //     this.nBtnWatchAds.active = true;
+        // } else {
+        //     this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
+        //     this.nBtnWatchAds.active = false;
+        // }
+
+        // // Kiểm tra xem có pack lose nào ko?
+        // this.TryUpdateUIWhenNoPack();
+
+        if(CurrencySys.Instance.GetMoney() >= 1500) {
+            this.nBtnCoin_Disable.active = false;
         } else {
-            this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
-            this.nBtnWatchAds.active = false;
+            this.nBtnCoin_Disable.active = true;
         }
-
-        // Kiểm tra xem có pack lose nào ko?
-        this.TryUpdateUIWhenNoPack();
     }
 
     private TryUpdateUIWhenNoPack(anim: boolean = false) {
@@ -375,7 +383,14 @@ export class UIContinue extends UIBaseSys {
             return;
         }
 
-        FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         GameSys.Instance.SetWatchedAdsContinue();
+        //         useSuccess();
+        //     }
+        // })
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 GameSys.Instance.SetWatchedAdsContinue();
                 useSuccess();
@@ -395,17 +410,17 @@ export class UIContinue extends UIBaseSys {
         } else {
             clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, "Not enough Coins!");
 
-            // Close this UI and open UIShop to coin
-            clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_CONTINUE, 2);
-            // if pass all case show ui shop
-            let dataCustomUIShop: DataCustomUIShop = {
-                isActiveClose: true,
-                openUIAfterClose: TYPE_UI.UI_CONTINUE,
-                pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
-                canAutoResumeGame: false,
-                dataCustom: this._dataCustom
-            }
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
+            // // Close this UI and open UIShop to coin
+            // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_CONTINUE, 2);
+            // // if pass all case show ui shop
+            // let dataCustomUIShop: DataCustomUIShop = {
+            //     isActiveClose: true,
+            //     openUIAfterClose: TYPE_UI.UI_CONTINUE,
+            //     pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
+            //     canAutoResumeGame: false,
+            //     dataCustom: this._dataCustom
+            // }
+            // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
         }
     }
 

@@ -78,12 +78,14 @@ export class VisualSpin extends Component {
             // this.nBtnSpin_x1.active = false;
             this.nBtnWatchAds.active = false;
             // this.nBtnSpin_x10.active = false;
-        } else if (CurrencySys.Instance.GetTicket() > 0) {
-            // this.nBtnSpin_x1.active = true;
-            this.nBtnWatchAds.active = false;
-            this.nBtnFree.active = false;
-            // this.nBtnSpin_x10.active = true;
-        } else {
+        } 
+        // else if (CurrencySys.Instance.GetTicket() > 0) {
+        //     // this.nBtnSpin_x1.active = true;
+        //     this.nBtnWatchAds.active = false;
+        //     this.nBtnFree.active = false;
+        //     // this.nBtnSpin_x10.active = true;
+        // } 
+        else {
             // this.nBtnSpin_x1.active = false;
             this.nBtnFree.active = false;
             this.nBtnWatchAds.active = true;

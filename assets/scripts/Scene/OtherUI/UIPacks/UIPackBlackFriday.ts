@@ -13,6 +13,7 @@ import { PrizeSys } from '../../../DataBase/PrizeSys';
 import { UIReceivePrizeLobby } from '../../LobbyScene/UIReceivePrizeLobby';
 import { DataInfoPlayer } from '../../DataInfoPlayer';
 import { Utils } from '../../../Utils/Utils';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIPackBlackFriday')
@@ -54,19 +55,22 @@ export class UIPackBlackFriday extends UIBaseSys {
         if (this._infoPack == null) { this.node.active = false; return; }
 
         // trong trường hợp là pack ads thì sẽ có ads còn pack khác thì sẽ là pack khác
-        if (this._infoPack.namePack == "blackfriday_ads") {
-            this.nSale.active = false;
-            this.listNPrize1.forEach(nCheck => nCheck.active = true);
-            this.listNPrize2.forEach(nCheck => nCheck.active = false);
-        } else {
-            this.nSale.active = true;
-            this.listNPrize1.forEach(nCheck => nCheck.active = false);
-            this.listNPrize2.forEach(nCheck => nCheck.active = true);
+        this.nSale.active = false;
+        this.listNPrize1.forEach(nCheck => nCheck.active = true);
+        this.listNPrize2.forEach(nCheck => nCheck.active = false);
+        // if (this._infoPack.namePack == "blackfriday_ads") {
+        //     this.nSale.active = false;
+        //     this.listNPrize1.forEach(nCheck => nCheck.active = true);
+        //     this.listNPrize2.forEach(nCheck => nCheck.active = false);
+        // } else {
+        //     this.nSale.active = true;
+        //     this.listNPrize1.forEach(nCheck => nCheck.active = false);
+        //     this.listNPrize2.forEach(nCheck => nCheck.active = true);
 
-            this.lbPrice.string = `${this._infoPack.price}$`;
-            this.lbPriceShadow.string = this.lbPrice.string;
-            this.listLbSale.forEach(lbSale => lbSale.string = `${this._infoPack.Sale}%`)
-        }
+        //     this.lbPrice.string = `${this._infoPack.price}$`;
+        //     this.lbPriceShadow.string = this.lbPrice.string;
+        //     this.listLbSale.forEach(lbSale => lbSale.string = `${this._infoPack.Sale}%`)
+        // }
 
         // update UI
         // this.lbTitle.string = this._infoPack.nameUI;
@@ -128,7 +132,13 @@ export class UIPackBlackFriday extends UIBaseSys {
     private onBtnBuyByAds() {
         LogEventManager.Instance.logButtonClick(`buy ads`, this.node.name);
 
-        FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         this.OnBuySuccessfull();
+        //     }
+        // });
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 this.OnBuySuccessfull();
             }

@@ -14,6 +14,7 @@ import { MConfigFacebook } from '../Configs/MConfigFacebook';
 import { Utils } from '../Utils/Utils';
 import { CanvasLoadingSys } from '../Utils/CanvasLoadingSys';
 import { SoundSys } from '../Common/SoundSys';
+import { PokiSDKManager } from '../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIWinWithFriend')
@@ -128,9 +129,11 @@ export class UIWinWithFriend extends UIBaseSys {
                 });
             }
         }
-        FBInstantManager.Instance.Show_InterstitialAdAsync("ui_win_with_friend", (error: Error | null, success: string) => {
+        // FBInstantManager.Instance.Show_InterstitialAdAsync("ui_win_with_friend", (error: Error | null, success: string) => {
 
-        });
+        // });
+
+        PokiSDKManager.Instance.Show_InterstitialAdAsync("ui_win_with_friend", (error: Error | null, success: string) => { });
     }
 
     public async UIShowDone(): Promise<void> {

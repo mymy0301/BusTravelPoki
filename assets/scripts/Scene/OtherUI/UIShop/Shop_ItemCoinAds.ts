@@ -15,6 +15,7 @@ import { LogEventManager } from '../../../LogEvent/LogEventManager';
 import { SoundSys } from '../../../Common/SoundSys';
 import { DataEventsSys } from '../../DataEventsSys';
 import SupLogEvent from '../../../LogEvent/SupLogEvent';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Shop_ItemCoinAds')
@@ -56,11 +57,11 @@ export class Shop_ItemCoinAds extends Component {
     }
 
     private UpdateUIWatchAds() {
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.icAds.spriteFrame = this.sfTicket;
-        } else {
-            this.icAds.spriteFrame = this.sfAds;
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.icAds.spriteFrame = this.sfTicket;
+        // } else {
+        //     this.icAds.spriteFrame = this.sfAds;
+        // }
     }
 
     public SetUp(typeScene: 'home' | 'game') {
@@ -90,14 +91,20 @@ export class Shop_ItemCoinAds extends Component {
             self.UpdateUIWatchAds();
         }
 
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            CurrencySys.Instance.AddTicket(-1, `SHOP_COIN_FREE_${this._typeScene}`);
-            UseSuccess(false);
-            return;
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     CurrencySys.Instance.AddTicket(-1, `SHOP_COIN_FREE_${this._typeScene}`);
+        //     UseSuccess(false);
+        //     return;
+        // }
 
 
-        FBInstantManager.Instance.Show_RewardedVideoAsync("UIShop", "btnWatchAds", async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync("UIShop", "btnWatchAds", async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         UseSuccess();
+        //     }
+        // });
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync("UIShop", "btnWatchAds", async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 UseSuccess();
             }

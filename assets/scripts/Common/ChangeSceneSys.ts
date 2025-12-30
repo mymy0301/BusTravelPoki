@@ -18,6 +18,7 @@ import { DataLevelProgressionSys } from '../DataBase/DataLevelProgressionSys';
 import { LogEventManager } from '../LogEvent/LogEventManager';
 import { GetLevelChristGame } from '../Scene/OtherUI/UIChristmasEvent/TypeChristmasEvent';
 import { DataChristmasSys } from '../DataBase/DataChristmasSys';
+import { PokiSDKManager } from '../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 export enum TYPE_SCENE_USING {
@@ -158,7 +159,10 @@ export class ChangeSceneSys {
 
         if (valid1 && valid2) {
             isWatchingAds = true;
-            FBInstantManager.Instance.Show_InterstitialAdAsync("back_to_lobby", (error: Error | null, success: string) => {
+            // FBInstantManager.Instance.Show_InterstitialAdAsync("back_to_lobby", (error: Error | null, success: string) => {
+            //     isWatchingAds = false;
+            // });
+            PokiSDKManager.Instance.Show_InterstitialAdAsync("back_to_lobby", (error: Error | null, success: string) => {
                 isWatchingAds = false;
             });
         }

@@ -307,26 +307,27 @@ export class BoosterLock extends Component {
 
     //#region func ShowShop
     private ShowShop() {
+        console.log("ShowShopShowShopShowShopShowShop");
         // check in case player in the game sys
-        const typeSceneChange: TYPE_SCENE_USING = ChangeSceneSys.Instance.GetTypeSceneUsing();
-        switch (typeSceneChange) {
-            case TYPE_SCENE_USING.GAME:
-                // case end game
-                let dataCustomShop: DataCustomUIShop = {
-                    isActiveClose: true,
-                    openUIAfterClose: null,
-                    pageViewShop_ScrollTo: 0,
-                    canAutoResumeGame: false
-                }
-                clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_SHOP_SHORT, 20);
-                clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 1, true, dataCustomShop);
-                break;
-            case TYPE_SCENE_USING.LOBBY:
-                // case prepare normal + prepare dailyChallenge
-                clientEvent.dispatchEvent(MConst.EVENT.CLOSE_ALL_UI_SHOWING);
-                clientEvent.dispatchEvent(MConst.EVENT.CHANGE_PAGE_LOBBY, PAGE_VIEW_LOBBY_NAME.SHOP);
-                break;
-        }
+        // const typeSceneChange: TYPE_SCENE_USING = ChangeSceneSys.Instance.GetTypeSceneUsing();
+        // switch (typeSceneChange) {
+        //     case TYPE_SCENE_USING.GAME:
+        //         // case end game
+        //         let dataCustomShop: DataCustomUIShop = {
+        //             isActiveClose: true,
+        //             openUIAfterClose: null,
+        //             pageViewShop_ScrollTo: 0,
+        //             canAutoResumeGame: false
+        //         }
+        //         clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_SHOP_SHORT, 20);
+        //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 1, true, dataCustomShop);
+        //         break;
+        //     case TYPE_SCENE_USING.LOBBY:
+        //         // case prepare normal + prepare dailyChallenge
+        //         clientEvent.dispatchEvent(MConst.EVENT.CLOSE_ALL_UI_SHOWING);
+        //         clientEvent.dispatchEvent(MConst.EVENT.CHANGE_PAGE_LOBBY, PAGE_VIEW_LOBBY_NAME.SHOP);
+        //         break;
+        // }
     }
     //#endregion func ShowShop
 

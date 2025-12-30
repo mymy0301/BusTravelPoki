@@ -11,6 +11,7 @@ import { MConfigs } from '../../../Configs/MConfigs';
 import { GameSys } from '../../GameScene/GameSys';
 import { LogEventManager } from '../../../LogEvent/LogEventManager';
 import { Utils } from '../../../Utils/Utils';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 enum NAME_ANIM {
@@ -55,36 +56,43 @@ export class UIUnlockParking extends UIBaseSys {
     }
 
     private UpdateBtnAds() {
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            this.icAds.spriteFrame = this.sfTicket;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        } else {
-            this.icAds.spriteFrame = this.sfAds;
-            this.lbWatchedAds.string = "Free(1)";
-            this.lbShadowWatchedAds.string = "Free(1)";
-        }
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     this.icAds.spriteFrame = this.sfTicket;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // } else {
+        //     this.icAds.spriteFrame = this.sfAds;
+        //     this.lbWatchedAds.string = "Free(1)";
+        //     this.lbShadowWatchedAds.string = "Free(1)";
+        // }
     }
 
     private UpadetUI() {
 
-        let canShowBtnWatchAds: boolean = true;
-        // kiểm tra xem có ticket sử dụng hay không
-        if (CurrencySys.Instance.GetTicket() > 0) {
-            canShowBtnWatchAds = true;
-        }
-        // kiểm tra xem lượt này có xem được quảng cáo hay không
-        if (GameSys.Instance.CheckWatchedAdsUnlockSpot()) {
-            canShowBtnWatchAds = false;
+        // let canShowBtnWatchAds: boolean = true;
+        // // kiểm tra xem có ticket sử dụng hay không
+        // if (CurrencySys.Instance.GetTicket() > 0) {
+        //     canShowBtnWatchAds = true;
+        // }
+        // // kiểm tra xem lượt này có xem được quảng cáo hay không
+        // if (GameSys.Instance.CheckWatchedAdsUnlockSpot()) {
+        //     canShowBtnWatchAds = false;
+        // }
+
+        // if (canShowBtnWatchAds) {
+        //     this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
+        //     this.nBtnWatchAds.active = true;
+        // } else {
+        //     this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
+        //     this.nBtnWatchAds.active = false;
+        // }
+
+        if(CurrencySys.Instance.GetMoney() >= 1500) {
+            this.nBtnCoin_Disable.active = false;
+        } else {
+            this.nBtnCoin_Disable.active = true;
         }
 
-        if (canShowBtnWatchAds) {
-            this.nBtnCoin.position = this._posNBtnCoinWhen2Btn;
-            this.nBtnWatchAds.active = true;
-        } else {
-            this.nBtnCoin.position = new Vec3(0, this._posNBtnCoinWhen2Btn.y, 0);
-            this.nBtnWatchAds.active = false;
-        }
     }
 
     private onBtnClose() {
@@ -115,25 +123,32 @@ export class UIUnlockParking extends UIBaseSys {
         }
 
         // watch ads
-        FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        // FBInstantManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
+        //     if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
+        //         GameSys.Instance.SetWatcedAdsUnlockSpot();
+        //         this.AddParkingSuccess();
+        //     } else {
+        //         // clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t(languages['No video Available!']));
+
+        //         // // show Shop in here -> after close shop -> show this UIagain , remmember not change state game to resume
+        //         // // Close this UI and open UIShop to coin
+        //         // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_UNLOCK_PARKING, 2);
+        //         // // if pass all case show ui shop
+        //         // let dataCustomUIShop: DataCustomUIShop = {
+        //         //     isActiveClose: true,
+        //         //     openUIAfterClose: TYPE_UI.UI_UNLOCK_PARKING,
+        //         //     pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN
+        //         // }
+        //         // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP, 2, true, dataCustomUIShop, false);
+        //     }
+        // })
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnWatchAds", async (err, succ) => {
             if (succ == MConst.FB_REWARD_CALLBACK_SUCCESS) {
                 GameSys.Instance.SetWatcedAdsUnlockSpot();
                 this.AddParkingSuccess();
-            } else {
-                // clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t(languages['No video Available!']));
-
-                // // show Shop in here -> after close shop -> show this UIagain , remmember not change state game to resume
-                // // Close this UI and open UIShop to coin
-                // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_UNLOCK_PARKING, 2);
-                // // if pass all case show ui shop
-                // let dataCustomUIShop: DataCustomUIShop = {
-                //     isActiveClose: true,
-                //     openUIAfterClose: TYPE_UI.UI_UNLOCK_PARKING,
-                //     pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN
-                // }
-                // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP, 2, true, dataCustomUIShop, false);
             }
-        })
+        });
     }
 
     private BtnAddParkingByCoin() {
@@ -145,16 +160,16 @@ export class UIUnlockParking extends UIBaseSys {
             clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, "Not enough Coins!");
 
             // Close this UI and open UIShop to coin
-            clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_UNLOCK_PARKING, 2);
-            // if pass all case show ui shop
-            let dataCustomUIShop: DataCustomUIShop = {
-                isActiveClose: true,
-                openUIAfterClose: TYPE_UI.UI_UNLOCK_PARKING,
-                pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
-                canAutoResumeGame: false,
-                dataCustom: this._dataCustom
-            }
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
+            // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, TYPE_UI.UI_UNLOCK_PARKING, 2);
+            // // if pass all case show ui shop
+            // let dataCustomUIShop: DataCustomUIShop = {
+            //     isActiveClose: true,
+            //     openUIAfterClose: TYPE_UI.UI_UNLOCK_PARKING,
+            //     pageViewShop_ScrollTo: MConfigs.numIAPTicketHave > 0 ? PAGE_VIEW_SHOP.COIN : PAGE_VIEW_SHOP_2.COIN,
+            //     canAutoResumeGame: false,
+            //     dataCustom: this._dataCustom
+            // }
+            // clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SHOP_SHORT, 2, true, dataCustomUIShop, false);
         }
     }
 

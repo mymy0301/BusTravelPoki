@@ -18,6 +18,7 @@ import { OtherUILose } from './OtherUILose';
 import { CONFIG_LR_CHRIST } from '../UIChristmasEvent/LightRoad/TypeLightRoad';
 import { DataHatRace_christ } from '../../../DataBase/DataHatRace_christ';
 import { UISupHatRace } from '../SupHatRace/UISupHatRace';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UILose')
@@ -43,13 +44,18 @@ export class UILose extends UIBaseSys {
             switch (typeGamePlaying) {
                 case TYPE_GAME.TUTORIAL: break;
                 case TYPE_GAME.NORMAL:
-                    if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_SHOW_INTER) { FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { }); }
+                    if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_SHOW_INTER) { 
+                        // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { }); 
+                        PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    }
                     break;
                 case TYPE_GAME.TOURNAMENT:
-                    FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
                     break;
                 case TYPE_GAME.CHRISTMAS:
-                    FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
                     break;
 
             }
@@ -141,7 +147,12 @@ export class UILose extends UIBaseSys {
                 break;
             case typeGamePlaying == TYPE_GAME.NORMAL:
                 if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_SHOW_INTER) {
-                    FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                    // FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                    //     clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
+                    //     clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
+                    // });
+
+                    PokiSDKManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
                         clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
                         clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
                     });
@@ -152,13 +163,21 @@ export class UILose extends UIBaseSys {
 
                 break;
             case typeGamePlaying == TYPE_GAME.WITH_FRIEND || GameManager.Instance.TypeGamePlay == TYPE_GAME.TOURNAMENT:
-                FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                // FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                //     clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
+                //     clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
+                // });
+                PokiSDKManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
                     clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
                     clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
                 });
                 break;
             case typeGamePlaying == TYPE_GAME.CHRISTMAS:
-                FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                // FBInstantManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
+                //     clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
+                //     clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
+                // });
+                PokiSDKManager.Instance.Show_InterstitialAdAsync("reset game from lose", (error: Error | null, success: string) => {
                     clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LOSE, 1);
                     clientEvent.dispatchEvent(MConst.EVENT.RESET_GAME);
                 });

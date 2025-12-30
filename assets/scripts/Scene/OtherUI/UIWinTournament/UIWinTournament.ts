@@ -20,6 +20,7 @@ import { ChangeSceneSys } from '../../../Common/ChangeSceneSys';
 import { GameSoundEffect, IShareTournamentData, TYPE_SPECIAL_LOBBY, TYPE_UI_SHARE } from '../../../Utils/Types';
 import { CanvasLoadingSys } from '../../../Utils/CanvasLoadingSys';
 import { SoundSys } from '../../../Common/SoundSys';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIWinTournament')
@@ -76,15 +77,26 @@ export class UIWinTournament extends UIBaseSys {
         }
 
         // noti to facebook
-        FBInstantManager.Instance.Show_InterstitialAdAsync("ui_win_tournament", (error: Error | null, success: string) => {
+        // FBInstantManager.Instance.Show_InterstitialAdAsync("ui_win_tournament", (error: Error | null, success: string) => {
+        //     const scroreShareTour = this.newScore < 0 ? -this.newScore : this.newScore;
+        //     // push score to the tournament
+        //     // remmember convert to miliseconds
+        //     FBInstantManager.Instance.ShareTournamentScore(scroreShareTour * 1000, (err, succ) => {
+        //         if (succ == MConst.FB_CALLBACK_FAIL) {
+        //             MConsolLog.Error(err);
+        //         }
+        //     });
+        // });
+
+        PokiSDKManager.Instance.Show_InterstitialAdAsync("ui_win_tournament", (error: Error | null, success: string) => {
             const scroreShareTour = this.newScore < 0 ? -this.newScore : this.newScore;
             // push score to the tournament
             // remmember convert to miliseconds
-            FBInstantManager.Instance.ShareTournamentScore(scroreShareTour * 1000, (err, succ) => {
-                if (succ == MConst.FB_CALLBACK_FAIL) {
-                    MConsolLog.Error(err);
-                }
-            });
+            // PokiSDKManager.Instance.ShareTournamentScore(scroreShareTour * 1000, (err, succ) => {
+            //     if (succ == MConst.FB_CALLBACK_FAIL) {
+            //         MConsolLog.Error(err);
+            //     }
+            // });
         });
     }
 
