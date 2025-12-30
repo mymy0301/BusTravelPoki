@@ -41,7 +41,7 @@ enum STATE_UI_CONTINUE {
 
 @ccclass('UIContinue')
 export class UIContinue extends UIBaseSys {
-    @property(UIContinue_PagePack) pagePack: UIContinue_PagePack;
+    // @property(UIContinue_PagePack) pagePack: UIContinue_PagePack;
     @property(Node) nUnlockParking: Node;
     @property(Sprite) spIc: Sprite;
     @property(SpriteFrame) sfAds: SpriteFrame;
@@ -99,10 +99,10 @@ export class UIContinue extends UIBaseSys {
 
         document.addEventListener("mousemove", this.onGlobalMouseMove.bind(this), { passive: false });
 
-        this.pagePack.SetCB(this.TryUpdateUIWhenNoPack.bind(this));
-        if (GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL) {
-            this.pagePack.TryInitPack();
-        }
+        // this.pagePack.SetCB(this.TryUpdateUIWhenNoPack.bind(this));
+        // if (GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL) {
+        //     this.pagePack.TryInitPack();
+        // }
 
         this.UpdateBtnAds();
     }
@@ -343,17 +343,17 @@ export class UIContinue extends UIBaseSys {
     }
 
     private TryUpdateUIWhenNoPack(anim: boolean = false) {
-        const isTypeGameNormalOrTut = GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL || GameManager.Instance.TypeGamePlay == TYPE_GAME.TUTORIAL;
-        const isHasAnyPackLose = this.pagePack.IsHasAnyPackCanInit();
-        const locEnd = isHasAnyPackLose && isTypeGameNormalOrTut ? this._posWhenHavePackLose.clone() : this._posWhenHaveNoPackLose;
-        if (!anim) {
-            this.nVisualSys.position = locEnd;
-        } else {
-            const timeMove = 0.5;
-            tween(this.nVisualSys)
-                .to(timeMove, { position: locEnd }, { easing: "smooth" })
-                .start();
-        }
+        // const isTypeGameNormalOrTut = GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL || GameManager.Instance.TypeGamePlay == TYPE_GAME.TUTORIAL;
+        // const isHasAnyPackLose = this.pagePack.IsHasAnyPackCanInit();
+        // const locEnd = isHasAnyPackLose && isTypeGameNormalOrTut ? this._posWhenHavePackLose.clone() : this._posWhenHaveNoPackLose;
+        // if (!anim) {
+        //     this.nVisualSys.position = locEnd;
+        // } else {
+        //     const timeMove = 0.5;
+        //     tween(this.nVisualSys)
+        //         .to(timeMove, { position: locEnd }, { easing: "smooth" })
+        //         .start();
+        // }
     }
     //#endregion UI
     //==============================

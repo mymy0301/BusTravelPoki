@@ -15,6 +15,7 @@ const { ccclass, property } = _decorator;
 export class UILoginReward extends UIBaseSys {
     @property(ProgressBar) pbBar: ProgressBar;
     @property(Node) nBtnReceive: Node;
+    @property(Node) nBtnClose2: Node;
     @property(Node) nCar: Node;
     @property(RealCurve) rcAnimProgress: RealCurve = new RealCurve();
 
@@ -66,12 +67,17 @@ export class UILoginReward extends UIBaseSys {
                 allPromise.push(
                     new Promise<void>(async resolve => {
                         this.nBtnReceive.active = true;
+                        this.nBtnClose2.active = true;
+                        this.nBtnClose2.position = new Vec3(-140, -493, 0);
                         await Utils.delay(0.5 * 1000);
                         if (this != null || this._itemReceiveToday != null) {
                             this._itemReceiveToday.UpdateState(STATE_ITEM_LOGIN_REWARD.UNLOCK);
                         }
                     })
                 )
+            }else{
+                this.nBtnClose2.active = true;
+                this.nBtnClose2.position = new Vec3(0, -493, 0);
             }
 
             // await all promise
@@ -148,6 +154,7 @@ export class UILoginReward extends UIBaseSys {
     private ResetStatusBtnReceive() {
         this._itemReceiveToday = null;
         this.nBtnReceive.active = false;
+        this.nBtnClose2.active = false;
     }
 
 
