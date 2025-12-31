@@ -571,7 +571,7 @@ export class ItemPrizeSeasonPass extends Component {
                 )
             } else {
                 if (!isBuyPass && index == 0) {
-                    this.ShowUIPopUpBuySeasonPass();
+                    // this.ShowUIPopUpBuySeasonPass();
                 } else {
                     clientEvent.dispatchEvent(EVENT_SEASON_PASS.NOTIFICATION.TEXT
                         , isBuyPass ? SEASON_PASS_DESCRIBE_NOTI.NOTIFI_CAN_NOT_COLLECTED_FREE : SEASON_PASS_DESCRIBE_NOTI.NOTIFI_CAN_NOT_COLLECTED_PREMIUM
@@ -616,17 +616,17 @@ export class ItemPrizeSeasonPass extends Component {
     }
     //#endregion
 
-    private ShowUIPopUpBuySeasonPass() {
-        const idBundle = DataShopSys.Instance.getIdBundle('SeasonPass');
-        if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(idBundle)) {
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 20);
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 1, true, null, false);
-        } else {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-        }
+    // private ShowUIPopUpBuySeasonPass() {
+    //     const idBundle = DataShopSys.Instance.getIdBundle('SeasonPass');
+    //     if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(idBundle)) {
+    //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+    //         clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 20);
+    //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 1, true, null, false);
+    //     } else {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //     }
 
-    }
+    // }
 }
 
 const shadowProgress = 200;

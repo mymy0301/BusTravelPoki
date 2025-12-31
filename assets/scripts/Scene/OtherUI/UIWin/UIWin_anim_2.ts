@@ -16,7 +16,6 @@ export class UIWin_anim_2 extends Component {
     @property(Node) nLayer2: Node;
     @property(Node) nLayer3: Node;
     @property(Node) nListBtn: Node;
-    @property(Node) nShare: Node;
     @property(Button) listBtn: Button[] = [];
     @property(SkeWinSys2) skeWinSys: SkeWinSys2;
     @property(AnimTextWin2) animTextWin2: AnimTextWin2;
@@ -60,7 +59,6 @@ export class UIWin_anim_2 extends Component {
         this.opa1.opacity = 0;
         this.opa2.opacity = 0;
         this.nListBtn.scale = Vec3.ZERO;
-        if (this.nShare != null) this.nShare.scale = Vec3.ZERO;
         // this.animPhase2.play(NAME_ANIM.IDLE);
 
         this.animTextWin2.PrepareAnimTextWin();
@@ -101,13 +99,6 @@ export class UIWin_anim_2 extends Component {
         this._cbAnimItem && this._cbAnimItem(timeScale, timeDelayEachItem);
 
         cbDone1 && cbDone1();
-
-        // scale btn share
-        if (this.nShare != null) {
-            tween(this.nShare)
-                .to(timeScale, { scale: Vec3.ONE })
-                .start()
-        }
 
         // scale list Btn
         tween(this.nListBtn)

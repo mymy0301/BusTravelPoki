@@ -71,8 +71,8 @@ export class DataEventsSys {
                 return this._stateSeasonPass;
             case TYPE_EVENT_GAME.SPIN:
                 return this._stateSpin;
-            case TYPE_EVENT_GAME.INVITE_FRIEND:
-                return this._stateInviteFriend;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND:
+            //     return this._stateInviteFriend;
             case TYPE_EVENT_GAME.LOGIN_REWARD:
                 return this._stateLoginReward;
             case TYPE_EVENT_GAME.LEVEL_PASS:
@@ -121,8 +121,8 @@ export class DataEventsSys {
                 return MConfigs.LEVEL_TUTORIAL_EVENT.SeasonPass;
             case TYPE_EVENT_GAME.SPIN:
                 return MConfigs.LEVEL_TUTORIAL_EVENT.Spin;
-            case TYPE_EVENT_GAME.INVITE_FRIEND:
-                return MConfigs.LEVEL_TUTORIAL_EVENT.InviteFriend;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND:
+            //     return MConfigs.LEVEL_TUTORIAL_EVENT.InviteFriend;
             case TYPE_EVENT_GAME.LOGIN_REWARD:
                 return MConfigs.LEVEL_TUTORIAL_EVENT.LoginReward;
             case TYPE_EVENT_GAME.LEVEL_PASS:
@@ -701,7 +701,7 @@ export class DataEventsSys {
     //#endregion time
     //===============================================
 }
-const IDGrUsing = [0, 1];
+const IDGrUsing = [];//[0, 1];
 
 //NOTE - Xin hãy nhớ là ko bao giờ được phép xóa Gr chỉ được thêm
 //NOTE - Nếu sửa hãy cân nhắc

@@ -26,6 +26,7 @@ export class UISpeedRace extends UIBaseSys {
     @property(SRProgressSys) srProgressSys: SRProgressSys;
     @property(BubbleSys) bubbleSys: BubbleSys;
     @property(Node) nBtnClaimPrizeSummery: Node;
+    @property(Node) nBtnClose2: Node;
     @property(Node) nBtnClose: Node;
     @property(Label) lbTextBtnClaim: Label;
     @property(Label) lbShadowTextBtnClaim: Label;
@@ -78,6 +79,7 @@ export class UISpeedRace extends UIBaseSys {
 
         this.infoUIBase.node.active = false;
         this.PrepareAnim();
+        this.nBtnClose2.active = false;
     }
 
     public async PrepareDataClose(): Promise<void> {
@@ -340,6 +342,12 @@ export class UISpeedRace extends UIBaseSys {
                 widgetCom.updateAlignment();
                 this.listBot.nView.getComponent(Widget).updateAlignment();
                 break;
+        }
+
+        if(this.nBtnClaimPrizeSummery.active){
+            
+        }else{
+            this.nBtnClose2.active = true;
         }
     }
     //#endregion anim

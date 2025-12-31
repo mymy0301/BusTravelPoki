@@ -497,6 +497,22 @@ export class ResourceUtils {
         cb(pathAvatar, ResourceUtils.mapCacheAvatars.get(pathAvatarLoad));
     }
 
+    public static async TryLoadImageAvatar(pathAvatar: string, cb: CallableFunction) {
+        let pathAvatarLoad = pathAvatar;
+        if (pathAvatarLoad == null || pathAvatarLoad == '' || pathAvatarLoad == 'undefined')
+            pathAvatarLoad = MConst.PATH.NON_AVATAR;
+
+        if (!ResourceUtils.mapCacheAvatars.has(pathAvatarLoad)) {
+            let spriteFrame = await ResourceUtils.loadSpriteFrame(pathAvatarLoad);
+            ResourceUtils.mapCacheAvatars.set(pathAvatarLoad, spriteFrame);
+        } else {
+            MConsolLog.Log("already load image");
+        }
+
+        // MConsolLog.Log("pathAvatar :" + pathAvatar, ResourceUtils.mapCacheAvatars.get(pathAvatar));
+        cb(pathAvatar, ResourceUtils.mapCacheAvatars.get(pathAvatarLoad));
+    }
+
     public static loadSkeleton_Bundle(path: string, pathBundle: string, cb: LoadCompleteCallback<sp.SkeletonData>) {
         return new Promise((resolve, reject) => {
             const pathSF = path;

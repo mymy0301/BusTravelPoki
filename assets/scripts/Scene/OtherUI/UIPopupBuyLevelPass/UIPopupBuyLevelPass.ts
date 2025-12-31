@@ -153,7 +153,7 @@ export class UIPopupBuyLevelPass extends UIBaseSys {
     private onBtnClose() {
         LogEventManager.Instance.logButtonClick(`close`, "UIPopUpBuyLevelPass");
 
-        clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1);
+        // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1);
     }
 
     //#endregion func btn

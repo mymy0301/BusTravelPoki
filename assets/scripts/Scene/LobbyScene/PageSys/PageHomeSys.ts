@@ -173,7 +173,7 @@ export class PageHomeSys extends PageLobbyBase {
          * 4.
          * 3. unRegister event receive done
          */
-
+        console.log("PlayAnimReceivePrizeAtLobby");
         const self = this;
         let needSaveLobbyJson: boolean = false;
 
@@ -406,20 +406,20 @@ export class PageHomeSys extends PageLobbyBase {
         //====================================================================================================================
         //======================             piggy bank             ==========================================================
         //====================================================================================================================
-        const piggyBank_timeNextAnim: number = 1;
-        if (!DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.PIGGY_BANK)) {
-            if (DataLobbyJsonSys.Instance.IsPlayPiggy()) {
-                let promise = new Promise<void>(async resolve => {
-                    DataLobbyJsonSys.Instance.CanPlayPiggy(false, false);
-                    needSaveLobbyJson = true;
-                    const animPiggyBankCom = this.animLoadItemHomeSys.itemEventPiggyBank.nParent.children[0].getComponent(AnimPrefabsBase);
-                    animPiggyBankCom.PlayAnim(NameAnimIconHome_Receive.piggyBank, false);
-                    await Utils.delay(animPiggyBankCom.GetTimeAnim(NameAnimIconHome_Receive.piggyBank) * 1000);
-                    resolve();
-                })
-                AddAnimToQueue(promise, piggyBank_timeNextAnim);
-            }
-        }
+        // const piggyBank_timeNextAnim: number = 1;
+        // if (!DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.PIGGY_BANK)) {
+        //     if (DataLobbyJsonSys.Instance.IsPlayPiggy()) {
+        //         let promise = new Promise<void>(async resolve => {
+        //             DataLobbyJsonSys.Instance.CanPlayPiggy(false, false);
+        //             needSaveLobbyJson = true;
+        //             const animPiggyBankCom = this.animLoadItemHomeSys.itemEventPiggyBank.nParent.children[0].getComponent(AnimPrefabsBase);
+        //             animPiggyBankCom.PlayAnim(NameAnimIconHome_Receive.piggyBank, false);
+        //             await Utils.delay(animPiggyBankCom.GetTimeAnim(NameAnimIconHome_Receive.piggyBank) * 1000);
+        //             resolve();
+        //         })
+        //         AddAnimToQueue(promise, piggyBank_timeNextAnim);
+        //     }
+        // }
         //====================================================================================================================
         //======================             piggy bank             ===========================================================
         //====================================================================================================================
@@ -522,13 +522,13 @@ export class PageHomeSys extends PageLobbyBase {
         //====================================================================================================================
         //======================            Check tournament       ===========================================================
         //====================================================================================================================
-        if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_TUTORIAL_EVENT.Tournament) {
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-            // check player can receive prize from event to show popUP receive prize
-            await this.TryShowReceivePrizeTournament();
-            await this.WaitReceivingDone();
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-        }
+        // if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_TUTORIAL_EVENT.Tournament) {
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //     // check player can receive prize from event to show popUP receive prize
+        //     await this.TryShowReceivePrizeTournament();
+        //     await this.WaitReceivingDone();
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        // }
         //====================================================================================================================
         //======================            Check tournament       ===========================================================
         //====================================================================================================================
@@ -538,44 +538,44 @@ export class PageHomeSys extends PageLobbyBase {
         //======================            Check weekly       ===============================================================
         //====================================================================================================================
         // get previous weekly and check player isReceive or not
-        const dataPreviousWeek = await DataWeeklySys.Instance.GetRankPlayerPreviousWeek();
+        // const dataPreviousWeek = await DataWeeklySys.Instance.GetRankPlayerPreviousWeek();
 
-        // console.warn("check", dataPreviousWeek);
+        // // console.warn("check", dataPreviousWeek);
 
-        const rankPreviousWeek = dataPreviousWeek.rank;
-        if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_RECEIVE_PRIZE_WEEKLY && (rankPreviousWeek > 0 && rankPreviousWeek <= 3)) {
-            // chỉ lấy top 3
-            //turn off block UI
-            const dataPrize = CheatingSys.Instance.isCheatWeekly ? dataPreviousWeek.prize[0] : dataPreviousWeek.prize[dataPreviousWeek.rank];
-            if (dataPrize != null) {
-                dataPrize.forEach(item => {
-                    if (item.typePrize == TYPE_PRIZE.MONEY) {
-                        CurrencySys.Instance.AddMoney(item.value, "prize Weekly", false, false);
-                    } else if (item.typePrize == TYPE_PRIZE.TICKET) {
-                        CurrencySys.Instance.AddTicket(item.value, "prize Weekly", false, false);
-                    }
-                })
-                DataItemSys.Instance.AddItemPrize(dataPrize, "prize Weekly", true, false);
-                DataWeeklySys.Instance.ClaimPrizePreviousWeek(DataWeeklySys.Instance.GetNamePreviousWeek());
+        // const rankPreviousWeek = dataPreviousWeek.rank;
+        // if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_RECEIVE_PRIZE_WEEKLY && (rankPreviousWeek > 0 && rankPreviousWeek <= 3)) {
+        //     // chỉ lấy top 3
+        //     //turn off block UI
+        //     const dataPrize = CheatingSys.Instance.isCheatWeekly ? dataPreviousWeek.prize[0] : dataPreviousWeek.prize[dataPreviousWeek.rank];
+        //     if (dataPrize != null) {
+        //         dataPrize.forEach(item => {
+        //             if (item.typePrize == TYPE_PRIZE.MONEY) {
+        //                 CurrencySys.Instance.AddMoney(item.value, "prize Weekly", false, false);
+        //             } else if (item.typePrize == TYPE_PRIZE.TICKET) {
+        //                 CurrencySys.Instance.AddTicket(item.value, "prize Weekly", false, false);
+        //             }
+        //         })
+        //         DataItemSys.Instance.AddItemPrize(dataPrize, "prize Weekly", true, false);
+        //         DataWeeklySys.Instance.ClaimPrizePreviousWeek(DataWeeklySys.Instance.GetNamePreviousWeek());
 
-                // wait until player received done
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-                await UIReceivePrizeLobby.Instance.AddActionToQueue(TYPE_RECEIVE_PRIZE_LOBBY.WEEKLY, dataPrize, "prize Weekly", rankPreviousWeek, null, "Weekly Rewards");
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            }
-        } else if (CheatingSys.Instance.isCheatWeekly) {
-            const dataPrize = [
-                new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
-                new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
-                new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
-                new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
-            ]
+        //         // wait until player received done
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //         await UIReceivePrizeLobby.Instance.AddActionToQueue(TYPE_RECEIVE_PRIZE_LOBBY.WEEKLY, dataPrize, "prize Weekly", rankPreviousWeek, null, "Weekly Rewards");
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        //     }
+        // } else if (CheatingSys.Instance.isCheatWeekly) {
+        //     const dataPrize = [
+        //         new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
+        //         new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
+        //         new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
+        //         new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 1),
+        //     ]
 
-            // wait until player received done
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-            await UIReceivePrizeLobby.Instance.AddActionToQueue(TYPE_RECEIVE_PRIZE_LOBBY.WEEKLY, dataPrize, "prize Weekly", 1, null, "Weekly Rewards");
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-        }
+        //     // wait until player received done
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //     await UIReceivePrizeLobby.Instance.AddActionToQueue(TYPE_RECEIVE_PRIZE_LOBBY.WEEKLY, dataPrize, "prize Weekly", 1, null, "Weekly Rewards");
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        // }
 
         //====================================================================================================================
         //======================            Check weekly       ===============================================================
@@ -586,22 +586,22 @@ export class PageHomeSys extends PageLobbyBase {
         //====================================================================================================================
 
         // check if has new friend => show has new friend
-        if (MConfigs.CAN_SHOW_INVITE_AT_LOBBY && DataFriendJoinedSys.Instance.CanReceivePrizeAutoInLobby()) {
-            this.isRunningOtherLogic = true;
-            const dataCustomUIInvite: IOpenUIInviteFriend = {
-                iOpenUIBaseWithInfo: {
-                    isShowInfo: false
-                },
-                isShowBtnClose: true
-            }
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_INVITE_FRIEND, 1, true, dataCustomUIInvite);
+        // if (MConfigs.CAN_SHOW_INVITE_AT_LOBBY && DataFriendJoinedSys.Instance.CanReceivePrizeAutoInLobby()) {
+        //     this.isRunningOtherLogic = true;
+        //     const dataCustomUIInvite: IOpenUIInviteFriend = {
+        //         iOpenUIBaseWithInfo: {
+        //             isShowInfo: false
+        //         },
+        //         isShowBtnClose: true
+        //     }
+        //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_INVITE_FRIEND, 1, true, dataCustomUIInvite);
 
 
-            // wait until player received done
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-            await this.WaitReceivingDone();
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-        }
+        //     // wait until player received done
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //     await this.WaitReceivingDone();
+        //     clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        // }
         //====================================================================================================================
         //======================  Invite new Friend            ===============================================================
         //====================================================================================================================
@@ -631,45 +631,45 @@ export class PageHomeSys extends PageLobbyBase {
         //======================            Pack               ===============================================================
         //====================================================================================================================
         // check popUp starterPack
-        if (this.icEventPackStarter != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.StartedPack)) {
-            if (this.icEventPackStarter.TryShowPopUpAtLobby()) {
-                //turn off block UI
-                this.isRunningOtherLogic = true;
+        // if (this.icEventPackStarter != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.StartedPack)) {
+        //     if (this.icEventPackStarter.TryShowPopUpAtLobby()) {
+        //         //turn off block UI
+        //         this.isRunningOtherLogic = true;
 
-                // wait until player received done
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-                await this.WaitReceivingDone();
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            }
-        }
+        //         // wait until player received done
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //         await this.WaitReceivingDone();
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        //     }
+        // }
 
-        // // check popUp receveive pack 1
-        clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-        if (this.icEventPackGreateDeal_1 != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.GreateDealsPack_1)) {
-            if (this.icEventPackGreateDeal_1.TryShowPopUpAtLobby()) {
-                //turn off block UI
-                this.isRunningOtherLogic = true;
+        // // // check popUp receveive pack 1
+        // clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        // if (this.icEventPackGreateDeal_1 != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.GreateDealsPack_1)) {
+        //     if (this.icEventPackGreateDeal_1.TryShowPopUpAtLobby()) {
+        //         //turn off block UI
+        //         this.isRunningOtherLogic = true;
 
-                // wait until player received done
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-                await this.WaitReceivingDone();
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            }
-        }
+        //         // wait until player received done
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //         await this.WaitReceivingDone();
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        //     }
+        // }
 
-        // check popUp receveive pack 2
-        clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-        if (this.icEventPackGreateDeal_2 != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.GreateDealsPack_2)) {
-            if (this.icEventPackGreateDeal_2.TryShowPopUpAtLobby()) {
-                //turn off block UI
-                this.isRunningOtherLogic = true;
+        // // check popUp receveive pack 2
+        // clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        // if (this.icEventPackGreateDeal_2 != null && FBInstantManager.Instance.checkHaveIAPPack_byProductID(EnumNamePack.GreateDealsPack_2)) {
+        //     if (this.icEventPackGreateDeal_2.TryShowPopUpAtLobby()) {
+        //         //turn off block UI
+        //         this.isRunningOtherLogic = true;
 
-                // wait until player received done
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-                await this.WaitReceivingDone();
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            }
-        }
+        //         // wait until player received done
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //         await this.WaitReceivingDone();
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        //     }
+        // }
 
         //====================================================================================================================
         //======================            Pack               ===============================================================
@@ -678,23 +678,23 @@ export class PageHomeSys extends PageLobbyBase {
         //====================================================================================================================
         //======================             piggy bank             ==========================================================
         //====================================================================================================================
-        if (DataEventsSys.Instance.IsPlayTutorialEvent(TYPE_EVENT_GAME.PIGGY_BANK)) {
-            if (DataPiggySys.Instance.IsMaxCoinAndNotPopUpYet()) {
-                this.isRunningOtherLogic = true;
+        // if (DataEventsSys.Instance.IsPlayTutorialEvent(TYPE_EVENT_GAME.PIGGY_BANK)) {
+        //     if (DataPiggySys.Instance.IsMaxCoinAndNotPopUpYet()) {
+        //         this.isRunningOtherLogic = true;
 
-                // handle
-                DataPiggySys.Instance.SavePopUpFull();
-                let dataCustom: IUIKeepTutAndReceiveLobby = {
-                    canKeepTutAndReceiveLobby: true
-                }
-                clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_PIGGY_BANK, 1, true, [dataCustom]);
+        //         // handle
+        //         DataPiggySys.Instance.SavePopUpFull();
+        //         let dataCustom: IUIKeepTutAndReceiveLobby = {
+        //             canKeepTutAndReceiveLobby: true
+        //         }
+        //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_PIGGY_BANK, 1, true, [dataCustom]);
 
-                // wait until player received done
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
-                await this.WaitReceivingDone();
-                clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            }
-        }
+        //         // wait until player received done
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_LOBBY);
+        //         await this.WaitReceivingDone();
+        //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+        //     }
+        // }
         //====================================================================================================================
         //======================             piggy bank             ==========================================================
         //====================================================================================================================
@@ -940,7 +940,9 @@ export class PageHomeSys extends PageLobbyBase {
         //=====================================  logic check tut event ============================
         this.isRunningOtherLogic = true;
         clientEvent.dispatchEvent(EVENT_TUT_LOBBY.CHANGE_ENABLE_CHECK_LOGIC_TUT, true, true, (hasEventRun: boolean) => {
+            console.log("hasEventRun", hasEventRun);
             if (!hasEventRun) {
+                console.log("MConfigs.IsTryShowPopUpStartEventLP", MConfigs.IsTryShowPopUpStartEventLP);
                 // check can show LevelProgress
                 const logic1 = DataLevelProgressionSys.Instance.STATE == STATE_EVENT_LEVEL_PROGRESS.WAIT_TO_JOIN;
                 if (DataEventsSys.Instance.IsPlayTutorialEvent(TYPE_EVENT_GAME.LEVEL_PROGRESSION) && !MConfigs.IsTryShowPopUpStartEventLP && logic1) {

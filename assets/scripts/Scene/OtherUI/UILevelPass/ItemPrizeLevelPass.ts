@@ -571,7 +571,7 @@ export class ItemPrizeLevelPass extends Component {
                 )
             } else {
                 if (!isBuyPass && index == 0) {
-                    this.ShowUIPopUpBuyLevelPass();
+                    // this.ShowUIPopUpBuyLevelPass();
                 } else {
                     clientEvent.dispatchEvent(EVENT_LEVEL_PASS.NOTIFICATION.TEXT
                         , isBuyPass ? LEVEL_PASS_DESCRIBE_NOTI.NOTIFI_CAN_NOT_COLLECTED_FREE : LEVEL_PASS_DESCRIBE_NOTI.NOTIFI_CAN_NOT_COLLECTED_PREMIUM
@@ -617,16 +617,16 @@ export class ItemPrizeLevelPass extends Component {
     }
     //#endregion
 
-    private ShowUIPopUpBuyLevelPass() {
-        const idBundle = DataShopSys.Instance.getIdBundle('LevelPass');
-        if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(idBundle)) {
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1, true, null, false);
-        } else {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-        }
+    // private ShowUIPopUpBuyLevelPass() {
+    //     const idBundle = DataShopSys.Instance.getIdBundle('LevelPass');
+    //     if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(idBundle)) {
+    //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+    //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1, true, null, false);
+    //     } else {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //     }
 
-    }
+    // }
 }
 
 const shadowProgress = 200;

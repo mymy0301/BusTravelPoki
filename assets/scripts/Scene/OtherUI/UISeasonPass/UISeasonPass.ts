@@ -30,14 +30,14 @@ export class UISeasonPass extends UIBaseSys {
     @property({ group: "Header", type: Label }) lbProgressLevel: Label;
     @property({ group: "Header", type: Label }) lbLevel: Label;
     @property({ group: "Header", type: ProgressBar }) progressLevel: ProgressBar;
-    @property({ group: "Header", type: Node }) btnActivePass: Node;
+    // @property({ group: "Header", type: Node }) btnActivePass: Node;
     @property({ group: "Header", type: InfoUIBase }) info: InfoUIBase;
     @property(ListPrizeSeasonPass) listPrizeSeasonPass: ListPrizeSeasonPass;
     @property(BubbleSys) bubbleSys: BubbleSys;
     @property(Node) nLockPrize: Node;
     @property(Node) viewScroll: Node;
     @property(Node) contentScroll: Node;
-    @property(Node) nNoti: Node;
+    // @property(Node) nNoti: Node;
 
     private _isUIClosed: boolean = false;
     private _idBundle: string = '';
@@ -133,13 +133,13 @@ export class UISeasonPass extends UIBaseSys {
 
 
         // set up button active 
-        this.btnActivePass.active = !DataSeasonPassSys.Instance.IsActivePass();
+        // this.btnActivePass.active = !DataSeasonPassSys.Instance.IsActivePass();
     }
     //#endregion
 
     //#region listen func
     private async ActiveUIPass() {
-        this.btnActivePass.active = false;
+        // this.btnActivePass.active = false;
         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
         // unlock all item that can unlock
         await this.listPrizeSeasonPass.unlockAllItemPremium();
@@ -226,19 +226,19 @@ export class UISeasonPass extends UIBaseSys {
         this.info.Show();
     }
 
-    private btnActive() {
-        LogEventManager.Instance.logButtonClick(`active`, "UISeasonPass");
+    // private btnActive() {
+    //     LogEventManager.Instance.logButtonClick(`active`, "UISeasonPass");
 
-        if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_SEASON_PASS)) {
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 20);  // set it to the last to not under other UI
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 1, true, null, false);
+    //     if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_SEASON_PASS)) {
+    //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+    //         clientEvent.dispatchEvent(MConst.EVENT.SET_INDEX, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 20);  // set it to the last to not under other UI
+    //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_SEASON_PASS, 1, true, null, false);
 
-            // this.onBtnActivePass();
-        } else {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-        }
-    }
+    //         // this.onBtnActivePass();
+    //     } else {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //     }
+    // }
     //#endregion
 
     //#region on buy seasonPass
@@ -259,61 +259,61 @@ export class UISeasonPass extends UIBaseSys {
 
 
     //#region func btn
-    private onBtnActivePass() {
+    // private onBtnActivePass() {
 
-        const self = this;
+    //     const self = this;
 
-        this.nNoti.active = false;
+    //     this.nNoti.active = false;
 
-        // check cheat first
-        if (CheatingSys.Instance.isCheatStore) {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-            self.BuyItemSuccessful();
-            return;
-        }
+    //     // check cheat first
+    //     if (CheatingSys.Instance.isCheatStore) {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //         self.BuyItemSuccessful();
+    //         return;
+    //     }
 
-        // log event
-        LogEventManager.Instance.buyPack(this._idBundle);
+    //     // log event
+    //     LogEventManager.Instance.buyPack(this._idBundle);
 
-        const price = CONFIG_SP.PRICE_ACTIVE_PRENIUM;
-        LogEventManager.Instance.logIAP_PurchaseItem(this._idBundle, price)
+    //     const price = CONFIG_SP.PRICE_ACTIVE_PRENIUM;
+    //     LogEventManager.Instance.logIAP_PurchaseItem(this._idBundle, price)
 
-        // buy normal
-        FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
-            if (err) {
-                FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
-                    if (err) {
-                        clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                    } else {
-                        clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                        self.BuyItemSuccessful();
-                    }
-                }, price);
+    //     // buy normal
+    //     FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
+    //         if (err) {
+    //             FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
+    //                 if (err) {
+    //                     clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                 } else {
+    //                     clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                     self.BuyItemSuccessful();
+    //                 }
+    //             }, price);
 
-            } else {
-                let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(this._idBundle);
-                if (purchaseToken != "") {
-                    FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                            self.BuyItemSuccessful();
-                        }
-                    });
-                } else {
-                    FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                            self.BuyItemSuccessful();
-                        }
-                    }, price);
-                }
-            }
-        });
-    }
+    //         } else {
+    //             let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(this._idBundle);
+    //             if (purchaseToken != "") {
+    //                 FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
+    //                     if (err) {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                     } else {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                         self.BuyItemSuccessful();
+    //                     }
+    //                 });
+    //             } else {
+    //                 FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
+    //                     if (err) {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                     } else {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                         self.BuyItemSuccessful();
+    //                     }
+    //                 }, price);
+    //             }
+    //         }
+    //     });
+    // }
     //#endregion on buy seasonPass
 }
 

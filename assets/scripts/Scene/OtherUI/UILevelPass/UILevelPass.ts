@@ -32,13 +32,13 @@ export class UILevelPass extends UIBaseSys {
     @property({ group: "Header", type: Label }) lbProgressLevel: Label;
     @property({ group: "Header", type: Label }) lbLevel: Label;
     @property({ group: "Header", type: ProgressBar }) progressLevel: ProgressBar;
-    @property({ group: "Header", type: Node }) btnActivePass: Node;
+    // @property({ group: "Header", type: Node }) btnActivePass: Node;
     @property({ group: "Header", type: InfoUIBase }) info: InfoUIBase;
     @property(ListPrizeLevelPass) listPrizeLevelPass: ListPrizeLevelPass;
     @property(BubbleSys) bubbleSys: BubbleSys;
     @property(Node) viewScroll: Node;
     @property(Node) contentScroll: Node;
-    @property(Node) nNoti: Node;
+    // @property(Node) nNoti: Node;
 
     private _isUIClosed: boolean = false;
     private _idBundle: string = '';
@@ -128,13 +128,13 @@ export class UILevelPass extends UIBaseSys {
         this.lbLevel.string = levelNow.toString();
 
         // set up button active 
-        this.btnActivePass.active = !DataLevelPassSys.Instance.IsActivePass();
+        // this.btnActivePass.active = !DataLevelPassSys.Instance.IsActivePass();
     }
     //#endregion self func
 
     //#region listen func
     private async ActiveUIPass() {
-        this.btnActivePass.active = false;
+        // this.btnActivePass.active = false;
         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
         // unlock all item that can unlock
         await this.listPrizeLevelPass.unlockAllItemPremium();
@@ -222,18 +222,18 @@ export class UILevelPass extends UIBaseSys {
         this.info.Show();
     }
 
-    private btnActive() {
-        LogEventManager.Instance.logButtonClick(`active`, "UILevelPass");
+    // private btnActive() {
+    //     LogEventManager.Instance.logButtonClick(`active`, "UILevelPass");
 
-        if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_LEVEL_PASS)) {
-            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
-            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1, true, null, false);
+    //     if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_LEVEL_PASS)) {
+    //         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
+    //         clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1, true, null, false);
 
-            // this.onBtnActivePass();
-        } else {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, i18n.t("Buy Failed!"));
-        }
-    }
+    //         // this.onBtnActivePass();
+    //     } else {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, i18n.t("Buy Failed!"));
+    //     }
+    // }
     //#endregion func btn
 
     //#region buy LevelPass
@@ -250,60 +250,60 @@ export class UILevelPass extends UIBaseSys {
         clientEvent.dispatchEvent(EVENT_LEVEL_PASS.ACTIVE_SUCCESS_PASS);
     }
 
-    private onBtnActivePass() {
-        const self = this;
+    // private onBtnActivePass() {
+    //     const self = this;
 
-        const price = CONFIG_LP.PRICE_ACTIVE_PRENIUM;
-        this.nNoti.active = false;
+    //     const price = CONFIG_LP.PRICE_ACTIVE_PRENIUM;
+    //     // this.nNoti.active = false;
 
-        // check cheat first
-        if (CheatingSys.Instance.isCheatStore) {
-            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-            self.BuyItemSuccessful();
-            return;
-        }
+    //     // check cheat first
+    //     if (CheatingSys.Instance.isCheatStore) {
+    //         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //         self.BuyItemSuccessful();
+    //         return;
+    //     }
 
-        // log event
-        LogEventManager.Instance.buyPack(this._idBundle);
+    //     // log event
+    //     LogEventManager.Instance.buyPack(this._idBundle);
 
-        LogEventManager.Instance.logIAP_PurchaseItem(this._idBundle, price)
+    //     LogEventManager.Instance.logIAP_PurchaseItem(this._idBundle, price)
 
-        // buy normal
-        FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
-            if (err) {
-                FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
-                    if (err) {
-                        clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                    } else {
-                        clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                        self.BuyItemSuccessful();
-                    }
-                }, price);
+    //     // buy normal
+    //     FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
+    //         if (err) {
+    //             FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
+    //                 if (err) {
+    //                     clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                 } else {
+    //                     clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                     self.BuyItemSuccessful();
+    //                 }
+    //             }, price);
 
-            } else {
-                let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(this._idBundle);
-                if (purchaseToken != "") {
-                    FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                            self.BuyItemSuccessful();
-                        }
-                    });
-                } else {
-                    FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
-                            self.BuyItemSuccessful();
-                        }
-                    }, price);
-                }
-            }
-        });
-    }
+    //         } else {
+    //             let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(this._idBundle);
+    //             if (purchaseToken != "") {
+    //                 FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
+    //                     if (err) {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                     } else {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                         self.BuyItemSuccessful();
+    //                     }
+    //                 });
+    //             } else {
+    //                 FBInstantManager.Instance.buyIAP_consumePackID(this._idBundle, (err: Error, success: string) => {
+    //                     if (err) {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Failed!"));
+    //                     } else {
+    //                         clientEvent.dispatchEvent(MConst.FB_SHOW_NOTIFICATION_NO_BLOCK, I18n.t("Buy Successfully!"));
+    //                         self.BuyItemSuccessful();
+    //                     }
+    //                 }, price);
+    //             }
+    //         }
+    //     });
+    // }
 
     //#endregion buy LevelPass
 

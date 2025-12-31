@@ -32,6 +32,7 @@ export class UISkyLift extends UIBaseSys {
     @property(Label) lbTime: Label;
     @property(Node) nBlockUI: Node;
     @property(Node) nBtnContinue: Node;
+    @property(Node) nBtnCLose2: Node;
     @property(Node) nBtnClose: Node;
 
     private readonly TIME_SCROLL_INTRO: number = 1.8;
@@ -105,6 +106,9 @@ export class UISkyLift extends UIBaseSys {
         // hide btn continue
         this.nBtnContinue.active = false;
 
+        // hide btn close 2
+        this.nBtnCLose2.active = false;
+
         // kiểm tra nếu trong trường hợp đang đợi nhận thưởng thì event sẽ ẩn button close đi
         this.nBtnClose.active = DataSkyLiftSys.Instance.STATE != STATE_SL.WAIT_TO_RECEIVE;
     }
@@ -142,6 +146,8 @@ export class UISkyLift extends UIBaseSys {
         // try show btn continue
         if (DataSkyLiftSys.Instance.STATE == STATE_SL.WAIT_TO_RECEIVE) {
             this.nBtnContinue.active = true;
+        }else {
+            this.nBtnCLose2.active = true;
         }
 
         this.nBlockUI.active = false;

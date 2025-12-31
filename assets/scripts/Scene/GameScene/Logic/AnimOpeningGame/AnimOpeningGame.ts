@@ -61,6 +61,8 @@ export class AnimOpeningGame extends Component {
 
         function prepareListData(listNode: Node[], mapBaseWPos: Map<string, Vec3>, mapToWPos: Map<string, Vec3>, type: 'Top' | 'Bottom' | 'Left' | 'Right') {
             listNode.forEach((nNode) => {
+                nNode.getComponent(Widget)?.updateAlignment();
+                
                 const wPosNow: Vec3 = nNode.worldPosition.clone();
                 mapBaseWPos.set(nNode.uuid, wPosNow.clone());
                 // disable widget

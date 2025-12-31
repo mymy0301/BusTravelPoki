@@ -67,6 +67,7 @@ export class LogicCheckTutInLobby extends Component {
      * @returns 
      */
     private RunLogicCheckTut(cbHasEventCanRun: CallableFunction): boolean {
+        console.log("RunLogicCheckTut", this._enableCheckTut);
         if (!this._enableCheckTut) { cbHasEventCanRun && cbHasEventCanRun(false); return false; }
 
         this._tutShow = null;
@@ -89,6 +90,8 @@ export class LogicCheckTutInLobby extends Component {
                 break;
         }
 
+        console.log("this._tutShow", this._tutShow);
+
         if (this._tutShow == null) {
             cbHasEventCanRun && cbHasEventCanRun(false);
             if (forceTutDone) { this.TutCheckDone(); }
@@ -96,6 +99,7 @@ export class LogicCheckTutInLobby extends Component {
         } else {
             this._previousTut = this._tutShow;
             this._enableCheckTut = false;
+            console.log("this._tutShowAAAA", this._tutShow);
             cbHasEventCanRun && cbHasEventCanRun(true);
             if (forceTutDone) { this.TutCheckDone(); }
             return true;
@@ -105,7 +109,7 @@ export class LogicCheckTutInLobby extends Component {
     private TutCheckDone() {
         switch (this._tutShow) {
             case TYPE_EVENT_GAME.SPIN: this.tutEventSpin.CheckLogicDone(); break;
-            case TYPE_EVENT_GAME.INVITE_FRIEND: this.tutEventInviteFriend.CheckLogicDone(); break;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND: this.tutEventInviteFriend.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.SEASON_PASS: this.tutEventSeasonPass.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.LOGIN_REWARD: this.tutEventLoginReward.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.LEVEL_PASS: this.tutEventLevelPass.CheckLogicDone(); break;
@@ -146,9 +150,9 @@ export class LogicCheckTutInLobby extends Component {
             case TYPE_EVENT_GAME.LEVEL_PASS:
                 clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_LEVEL_PASS, 1, true, [canPlayInfo]);
                 break;
-            case TYPE_EVENT_GAME.INVITE_FRIEND:
-                clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_INVITE_FRIEND, 1, true, [canPlayInfo]);
-                break;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND:
+            //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_INVITE_FRIEND, 1, true, [canPlayInfo]);
+            //     break;
             case TYPE_EVENT_GAME.LOGIN_REWARD:
                 clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_LOGIN_REWARD, 1);
                 break;
@@ -199,6 +203,7 @@ export class LogicCheckTutInLobby extends Component {
 
     private _cacheCbHasEventCanRun: CallableFunction = null;
     private ChangeEnableCheckLogicTut(enabled: boolean, force: boolean = false, cbHasEventCanRun: CallableFunction = null) {
+        console.log("ChangeEnableCheckLogicTut", enabled, force, cbHasEventCanRun);
         if (cbHasEventCanRun != null) { this._cacheCbHasEventCanRun = cbHasEventCanRun; }
 
         if (!enabled) {
@@ -270,7 +275,7 @@ export class LogicCheckTutInLobby extends Component {
                 break;
         }
 
-
+        console.log("canNextTut", canNextTut,this._previousTut,this._cacheCbHasEventCanRun);
         // play check logic tut again
         if (canNextTut) {
             this._enableCheckTut = true;

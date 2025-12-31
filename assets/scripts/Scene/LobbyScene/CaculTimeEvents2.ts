@@ -50,7 +50,7 @@ export class CaculTimeEvents2 {
                 // check time event was end
                 this.UnRegisterTime(idIntervalCB);
                 clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_LEVEL_PASS, 2);
-                clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1);
+                // clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_POPUP_BUY_LEVEL_PASS, 1);
                 clientEvent.dispatchEvent(EVENT_LEVEL_PASS.HIDE_ICON_EVENT, TYPE_EVENT_GAME.LEVEL_PASS);
             }
         }

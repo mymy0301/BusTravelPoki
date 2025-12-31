@@ -183,6 +183,7 @@ export class UITreasureTrail extends UIBaseSys {
             stageChoice = this._stageBefore;
         }
         dataBotShow = DataTreasureTrailSys.Instance.GetListBotByStage(stageChoice);
+        console.log("dataBotShow", dataBotShow);
 
         // save stage
         DataTreasureTrailSys.Instance.SaveSTAGE();

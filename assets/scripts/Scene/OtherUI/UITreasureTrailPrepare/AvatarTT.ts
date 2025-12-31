@@ -41,7 +41,7 @@ export class AvatarTT extends Component {
         this._pathAvatar = pathAvatar;
         const self = this;
 
-        ResourceUtils.TryLoadImage(pathAvatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(pathAvatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (self._pathAvatar == pathAvatar && self.node != null && self.node.isValid) {
                 self.spAvatar.spriteFrame = spriteFrame;
             }

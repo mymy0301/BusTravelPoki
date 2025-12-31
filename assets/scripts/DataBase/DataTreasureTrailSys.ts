@@ -13,6 +13,7 @@ import { clientEvent } from '../framework/clientEvent';
 import { EVENT_CLOCK_ON_TICK, MConst } from '../Const/MConst';
 import { DataEventsSys } from '../Scene/DataEventsSys';
 import { LogEventManager } from '../LogEvent/LogEventManager';
+import { lodash } from '../framework/lodash';
 const { ccclass, property } = _decorator;
 
 /**
@@ -117,16 +118,26 @@ export class DataTreasureTrailSys {
 
     private InitAvatar(): string[] {
         // get datato random
-        let fakePlayerGetByServer: IDataPlayer_LEADERBOARD[] = Array.from(DataLeaderboardSys.Instance.GetLeaderboard(DataLeaderboardSys.Instance.ID_LEADERBOARD_WEEKLY_PREVIOUS));
-        // console.log("111", fakePlayerGetByServer);
-        if (fakePlayerGetByServer == null || fakePlayerGetByServer.length < 99) {
-            fakePlayerGetByServer = MConfigs.dataBotFriend;
-        } else {
-            // remove player
-            fakePlayerGetByServer = fakePlayerGetByServer.filter(player => player.playerId != MConfigFacebook.Instance.playerID);
+        // let fakePlayerGetByServer: IDataPlayer_LEADERBOARD[] = Array.from(DataLeaderboardSys.Instance.GetLeaderboard(DataLeaderboardSys.Instance.ID_LEADERBOARD_WEEKLY_PREVIOUS));
+        // // console.log("111", fakePlayerGetByServer);
+        // if (fakePlayerGetByServer == null || fakePlayerGetByServer.length < 99) {
+        //     fakePlayerGetByServer = MConfigs.dataBotFriend;
+        // } else {
+        //     // remove player
+        //     fakePlayerGetByServer = fakePlayerGetByServer.filter(player => player.playerId != MConfigFacebook.Instance.playerID);
+        // }
+        let arrTempAvatars: string[] = [];
+        for (let i = 1; i < 24; i++) {
+            arrTempAvatars.push("avatars/"+i);
         }
-
-        let cloneAvatar: string[] = fakePlayerGetByServer.map(player => player.avatar).slice(0, CONFIG_TT.NUM_BOT_LIMIT_SHOW_UI);
+        let cloneAvatar: string[] = [];
+        for(let i=0; i< CONFIG_TT.NUM_BOT_LIMIT_SHOW_UI; i++) {
+            let indexAvatar = lodash.random(0, arrTempAvatars.length - 1);
+            let pathAvatar = arrTempAvatars[indexAvatar];
+            arrTempAvatars.splice(indexAvatar, 1);
+            cloneAvatar.push(pathAvatar);
+        }
+        //let cloneAvatar: string[] = //fakePlayerGetByServer.map(player => player.avatar).slice(0, CONFIG_TT.NUM_BOT_LIMIT_SHOW_UI);
         return cloneAvatar;
     }
 
