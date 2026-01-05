@@ -628,7 +628,8 @@ export class ItemEventSys extends Component {
                         time = -1;
                         break;
                     default:
-                        time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
+                        // time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
+                        time = DataDashRush.Instance.GetTimeDisplay();
                         break;
                 }
 
@@ -648,7 +649,8 @@ export class ItemEventSys extends Component {
                         time = -1;
                         break;
                     default:
-                        time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
+                        // time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
+                        time = DataDashRush.Instance.GetTimeDisplay();
                         break;
                 }
 

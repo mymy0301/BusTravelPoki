@@ -26,12 +26,11 @@ export class UIDashRushPrepare extends UIBaseSys {
 
     protected onEnable(): void {
         this._isCloseByBtnClose = false;
-        this.UpdateTime();
-        this.RegisterTime();
+        this.lbTime.string = Utils.convertTimeLengthToFormat_ForEvent(CONFIG_DR.DR_MAX_TIME_EVENT);
     }
 
     protected onDisable(): void {
-        this.UnRegisterTime();
+        // this.UnRegisterTime();
     }
 
     public async UICloseDone(): Promise<void> {
@@ -44,25 +43,6 @@ export class UIDashRushPrepare extends UIBaseSys {
     }
     //#endregion UIBase
     //=====================================
-
-    //==========================================
-    //#region time
-    private UpdateTime() {
-        let time = -1;
-        time = DataEventsSys.Instance.GetTimeEventWithLoop(TYPE_EVENT_GAME.DASH_RUSH);
-        if (time <= 0) {
-            this.UnRegisterTime();
-            this.lbTime.string = 'FINISHED';
-        } else {
-            const timeString = Utils.convertTimeLengthToFormat_ForEvent(time);
-            this.lbTime.string = timeString;
-        }
-    }
-
-    private UnRegisterTime() { clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateTime, this); }
-    private RegisterTime() { clientEvent.on(EVENT_CLOCK_ON_TICK, this.UpdateTime, this); }
-    //#endregion time
-    //==========================================
 
     //==============================================
     //#region btn

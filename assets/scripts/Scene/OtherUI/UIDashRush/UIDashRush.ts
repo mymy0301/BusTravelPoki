@@ -64,7 +64,8 @@ export class UIDashRush extends UIBaseSys {
     public async PrepareDataShow(): Promise<void> {
         this._isAnimShowingUI = true;
         this._isEndTime = false;
-        const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
+        // const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
+        const time = DataDashRush.Instance.GetTimeDisplay();
         if (time > 0) {
             this.UpdateUITime(false);
             clientEvent.on(EVENT_CLOCK_ON_TICK, this.UpdateUITime, this);
@@ -109,7 +110,8 @@ export class UIDashRush extends UIBaseSys {
     //=======================================
     //#region self
     private UpdateUITime(canCheckUpdateUI: boolean = true) {
-        const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
+        // const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
+        const time = DataDashRush.Instance.GetTimeDisplay();
         if (time <= 0) {
             // ko lắng nghe sự kiện clock time
             clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateUITime, this);
@@ -386,7 +388,8 @@ export class UIDashRush extends UIBaseSys {
     private async UpdateOtherUIAfterCarMove() {
         const isHasPlayerMaxScore = DataDashRush.Instance.GetPlayerMaxScore() != null;
         const isEventEndTime = DataDashRush.Instance.IsEndTime();
-        const isGroupEventEndTime = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1) <= 0;
+        // const isGroupEventEndTime = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1) <= 0;
+        const isGroupEventEndTime = DataDashRush.Instance.GetTimeDisplay() <= 0;
         const isPlayerWin = DataDashRush.Instance.IsPlayerWin();
         switch (true) {
             // case win

@@ -228,8 +228,8 @@ export class SubDashRush_UIDetail extends Component {
     }
 
     private UpdateTime() {
-        // const time = DataDashRush.Instance.GetTimeDisplay();
-        const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
+        const time = DataDashRush.Instance.GetTimeDisplay();
+        // const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.DASH_RUSH, 1);
         if (time <= 0) {
             this.UnRegisterClock();
             this.lbTime.string = I18n.t("FINISHED");

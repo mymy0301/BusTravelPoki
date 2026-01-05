@@ -503,8 +503,12 @@ export class ResourceUtils {
             pathAvatarLoad = MConst.PATH.NON_AVATAR;
 
         if (!ResourceUtils.mapCacheAvatars.has(pathAvatarLoad)) {
-            let spriteFrame = await ResourceUtils.loadSpriteFrame(pathAvatarLoad);
-            ResourceUtils.mapCacheAvatars.set(pathAvatarLoad, spriteFrame);
+            try{
+                let spriteFrame = await ResourceUtils.loadSpriteFrame(pathAvatarLoad);
+                ResourceUtils.mapCacheAvatars.set(pathAvatarLoad, spriteFrame);
+            } catch(e){
+                console.error(e);
+            }
         } else {
             MConsolLog.Log("already load image");
         }
