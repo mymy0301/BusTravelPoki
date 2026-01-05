@@ -2351,7 +2351,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 100
@@ -2623,7 +2623,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 112
@@ -3031,7 +3031,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 130
@@ -3167,7 +3167,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 136
@@ -3303,7 +3303,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 142
@@ -3847,7 +3847,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 166
@@ -4119,7 +4119,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 178
@@ -4479,7 +4479,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 192
@@ -4535,7 +4535,7 @@
       "__id__": 86
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 194
@@ -4598,8 +4598,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 360,
-      "y": -490,
+      "x": -360,
+      "y": -180,
       "z": 0
     },
     "_lrot": {
@@ -4634,8 +4634,6 @@
       "__id__": 0
     },
     "fileId": "75gm9+h1JNmbKfWhH1Drc+",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -4730,12 +4728,6 @@
       },
       {
         "__id__": 189
-      },
-      {
-        "__id__": 191
-      },
-      {
-        "__id__": 193
       }
     ],
     "nMoveIn": {

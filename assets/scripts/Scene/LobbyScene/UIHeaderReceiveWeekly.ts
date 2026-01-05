@@ -18,7 +18,7 @@ export class UIHeaderReceiveWeekly extends Component {
 
     private LoadImagePlayer() {
         const self = this;
-        ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (pathAvatar == MConfigFacebook.Instance.playerPhotoURL && self.node != null && self.node.isValid) {
                 self.spAvatarPlayer.spriteFrame = spriteFrame;
             }

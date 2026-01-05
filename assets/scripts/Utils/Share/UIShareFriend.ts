@@ -26,7 +26,7 @@ export class UIShareFriend extends UIShareBase implements IUIShareBase {
 
         // load avatar
         try {
-            await ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+            await ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                 if (pathAvatar == MConfigFacebook.Instance.playerPhotoURL && self.node != null && self.node.isValid) {
                     self.Nor_spAvatar.spriteFrame = spriteFrame;
                 }

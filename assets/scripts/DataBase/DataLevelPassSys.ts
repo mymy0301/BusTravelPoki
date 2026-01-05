@@ -156,7 +156,10 @@ export class DataLevelPassSys {
 
     // public IsClaimLastPrize(): boolean { return this._insPlayData._isClaimedLastPrizeTilePass; }
 
-    public IsActivePass(): boolean { return this._insPlayData._levelPass_isActive; }
+    public IsActivePass(): boolean { 
+        // return this._insPlayData._levelPass_isActive; 
+        return true;
+    }
 
     public GetMaxLevel(): number { return MConfigs.MAX_PRIZE_LEVEL_PASS; }
 

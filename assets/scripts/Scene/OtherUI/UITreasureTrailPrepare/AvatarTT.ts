@@ -31,6 +31,7 @@ export class AvatarTT extends Component {
     //==========================================
     //#region public
     public SetUp(sfBg: SpriteFrame, pathAvatar: string) {
+        console.log("AvatarTT.SetUp", pathAvatar);
         // stop anim
         Tween.stopAllByTarget(this.node);
 

@@ -62,7 +62,7 @@ export class UIWinWithFriend extends UIBaseSys {
         // console.log("UIWinWithFriend PrepareDataShow", DataInfoPlayer.Instance.currWithFriendDataInfo);
         const self = this;
         this.playerName.string = `${FBInstantManager.Instance.getName()}`;
-        ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (pathAvatar == MConfigFacebook.Instance.playerPhotoURL && self.playerAvatar != null && self.playerAvatar.isValid) {
                 self.playerAvatar.spriteFrame = spriteFrame;
             }
@@ -94,7 +94,7 @@ export class UIWinWithFriend extends UIBaseSys {
             if (DataInfoPlayer.Instance.currWithFriendDataInfo.receiverAvatarURL.length == 0) {
 
             } else {
-                ResourceUtils.TryLoadImage(DataInfoPlayer.Instance.currWithFriendDataInfo.receiverAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+                ResourceUtils.TryLoadImageAvatar(DataInfoPlayer.Instance.currWithFriendDataInfo.receiverAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                     if (pathAvatar == DataInfoPlayer.Instance.currWithFriendDataInfo.receiverAvatarURL && self.friendAvatar != null && self.friendAvatar.isValid) {
                         self.friendAvatar.spriteFrame = spriteFrame;
                     }
@@ -122,7 +122,7 @@ export class UIWinWithFriend extends UIBaseSys {
             if (DataInfoPlayer.Instance.currWithFriendDataInfo.senderAvatarURL.length == 0) {
 
             } else {
-                ResourceUtils.TryLoadImage(DataInfoPlayer.Instance.currWithFriendDataInfo.senderAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+                ResourceUtils.TryLoadImageAvatar(DataInfoPlayer.Instance.currWithFriendDataInfo.senderAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                     if (pathAvatar == DataInfoPlayer.Instance.currWithFriendDataInfo.senderAvatarURL && self.friendAvatar != null && self.friendAvatar.isValid) {
                         self.friendAvatar.spriteFrame = spriteFrame;
                     }

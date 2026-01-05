@@ -113,16 +113,16 @@ export class ItemEventHomeCustom {
             let nameAnim = null;
             switch (typeEvent) {
                 case TYPE_EVENT_GAME.SPIN: nameAnim = NameAnimIconHome_Idle.spin; break;
-                case TYPE_EVENT_GAME.INVITE_FRIEND: nameAnim = NameAnimIconHome_Idle.invite; break;
+                // case TYPE_EVENT_GAME.INVITE_FRIEND: nameAnim = NameAnimIconHome_Idle.invite; break;
                 case TYPE_EVENT_GAME.LEVEL_PASS: nameAnim = NameAnimIconHome_Idle.levelPass; break;
                 case TYPE_EVENT_GAME.LOGIN_REWARD: nameAnim = NameAnimIconHome_Idle.daily; break;
-                case TYPE_EVENT_GAME.PVP: nameAnim = NameAnimIconHome_Idle.PVP; break;
-                case TYPE_EVENT_GAME.PIGGY_BANK: nameAnim = NameAnimIconHome_Idle.piggyBank; break;
+                // case TYPE_EVENT_GAME.PVP: nameAnim = NameAnimIconHome_Idle.PVP; break;
+                // case TYPE_EVENT_GAME.PIGGY_BANK: nameAnim = NameAnimIconHome_Idle.piggyBank; break;
                 case TYPE_EVENT_GAME.DASH_RUSH: nameAnim = NameAnimIconHome_Idle.dashRush; break;
                 case TYPE_EVENT_GAME.SPEED_RACE: nameAnim = NameAnimIconHome_Idle.speed_race; break;
                 case TYPE_EVENT_GAME.ENDLESS_TREASURE: nameAnim = NameAnimIconHome_Idle.endless_treasure; break;
-                case TYPE_EVENT_GAME.SEASON_PASS: nameAnim = NameAnimIconHome_Idle.seasonPass; break;
-                case TYPE_EVENT_GAME.SEASON_PASS_2: nameAnim = NameAnimIconHome_Idle.seasonPass_2; break;
+                // case TYPE_EVENT_GAME.SEASON_PASS: nameAnim = NameAnimIconHome_Idle.seasonPass; break;
+                // case TYPE_EVENT_GAME.SEASON_PASS_2: nameAnim = NameAnimIconHome_Idle.seasonPass_2; break;
                 case TYPE_EVENT_GAME.LEVEL_PROGRESSION: nameAnim = NameAnimIconHome_Idle.levelProgress; break;
                 case TYPE_EVENT_GAME.TREASURE_TRAIL: nameAnim = NameAnimIconHome_Idle.treasureTraill; break;
                 case TYPE_EVENT_GAME.SKY_LIFT: nameAnim = NameAnimIconHome_Idle.skyLift; break;
@@ -142,16 +142,16 @@ export class ItemEventHomeCustom {
         let nameAnim = null;
         switch (typeEvent) {
             case TYPE_EVENT_GAME.SPIN: nameAnim = NameAnimIconHome_Active.spin; break;
-            case TYPE_EVENT_GAME.INVITE_FRIEND: nameAnim = NameAnimIconHome_Active.invite; break;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND: nameAnim = NameAnimIconHome_Active.invite; break;
             case TYPE_EVENT_GAME.LEVEL_PASS: nameAnim = NameAnimIconHome_Active.levelPass; break;
             case TYPE_EVENT_GAME.LOGIN_REWARD: nameAnim = NameAnimIconHome_Active.daily; break;
-            case TYPE_EVENT_GAME.PVP: nameAnim = NameAnimIconHome_Active.PVP; break;
-            case TYPE_EVENT_GAME.PIGGY_BANK: nameAnim = NameAnimIconHome_Active.piggyBank; break;
+            // case TYPE_EVENT_GAME.PVP: nameAnim = NameAnimIconHome_Active.PVP; break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK: nameAnim = NameAnimIconHome_Active.piggyBank; break;
             case TYPE_EVENT_GAME.DASH_RUSH: nameAnim = NameAnimIconHome_Active.dashRush; break;
             case TYPE_EVENT_GAME.SPEED_RACE: nameAnim = NameAnimIconHome_Active.speedRace; break;
             case TYPE_EVENT_GAME.ENDLESS_TREASURE: nameAnim = NameAnimIconHome_Active.endless_treasure; break;
-            case TYPE_EVENT_GAME.SEASON_PASS: nameAnim = NameAnimIconHome_Idle.seasonPass; break;
-            case TYPE_EVENT_GAME.SEASON_PASS_2: nameAnim = NameAnimIconHome_Active.seasonPass_2; break;
+            // case TYPE_EVENT_GAME.SEASON_PASS: nameAnim = NameAnimIconHome_Idle.seasonPass; break;
+            // case TYPE_EVENT_GAME.SEASON_PASS_2: nameAnim = NameAnimIconHome_Active.seasonPass_2; break;
             case TYPE_EVENT_GAME.LEVEL_PROGRESSION: nameAnim = NameAnimIconHome_Active.levelProgress; break;
             case TYPE_EVENT_GAME.TREASURE_TRAIL: nameAnim = NameAnimIconHome_Active.treasureTraill; break;
             case TYPE_EVENT_GAME.SKY_LIFT: nameAnim = NameAnimIconHome_Active.skyLift; break;
@@ -210,22 +210,22 @@ export class AnimLoadItemHomeSys extends Component {
     @property(Material) matGrayIcon: Material;
     @property(ItemEventHomeCustom) itemEventPiggyBank: ItemEventHomeCustom; private readonly scalePiggyBank: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventSpin: ItemEventHomeCustom; private readonly scaleSpin: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventInvite: ItemEventHomeCustom; private readonly scaleInviteFriend: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventInvite: ItemEventHomeCustom; private readonly scaleInviteFriend: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventLoginReward: ItemEventHomeCustom; private readonly scaleLoginReward: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventLevelPass: ItemEventHomeCustom; private readonly scaleLevelPass: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventSpeedRace: ItemEventHomeCustom; private readonly scaleSpeedRace: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventDashRush: ItemEventHomeCustom; private readonly scaleDashRush: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventPVP: ItemEventHomeCustom; private readonly scalePVP: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventPVP: ItemEventHomeCustom; private readonly scalePVP: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventEndlessTreasure: ItemEventHomeCustom; private readonly scaleEndlessTreasure: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventSeasonPass: ItemEventHomeCustom; private readonly scaleSeasonPass: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventSeasonPass: ItemEventHomeCustom; private readonly scaleSeasonPass: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventTreasureTrail: ItemEventHomeCustom; private readonly scaleTreasureTrail: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventSkyLift: ItemEventHomeCustom; private readonly scaleSkyLift: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventLevelProgress: ItemEventHomeCustom; private readonly scaleLevelProgress: Vec3 = new Vec3(0.65, 0.65, 1);
-    @property(ItemEventHomeCustom) itemEventPackStarter: ItemEventHomeCustom; private readonly scalePackStarter: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventGreateDeal_1: ItemEventHomeCustom; private readonly scaleGreateDeal_1: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventGreateDeal_2: ItemEventHomeCustom; private readonly scaleGreateDeal_2: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventPackHalloween: ItemEventHomeCustom; private readonly scalePackHalloween: Vec3 = new Vec3(1, 1, 1);
-    @property(ItemEventHomeCustom) itemEventPackChristmas: ItemEventHomeCustom; private readonly scalePackChirstmas: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventPackStarter: ItemEventHomeCustom; private readonly scalePackStarter: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventGreateDeal_1: ItemEventHomeCustom; private readonly scaleGreateDeal_1: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventGreateDeal_2: ItemEventHomeCustom; private readonly scaleGreateDeal_2: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventPackHalloween: ItemEventHomeCustom; private readonly scalePackHalloween: Vec3 = new Vec3(1, 1, 1);
+    // @property(ItemEventHomeCustom) itemEventPackChristmas: ItemEventHomeCustom; private readonly scalePackChirstmas: Vec3 = new Vec3(1, 1, 1);
     @property(ItemEventHomeCustom) itemEventChristmas: ItemEventHomeCustom; private readonly scaleChristmasEvent: Vec3 = new Vec3(1, 1, 1);
 
     private stopInit: boolean = false;
@@ -265,18 +265,18 @@ export class AnimLoadItemHomeSys extends Component {
         if (this.itemEventLevelPass.nParent && this.itemEventLevelPass.nParent.active) {
             this.itemEventLevelPass.PlayAnimFirstTimeAgain();
         }
-        if (this.itemEventPVP.nParent && this.itemEventPVP.nParent.active) {
-            this.itemEventPVP.PlayAnimFirstTimeAgain();
-        }
-        if (this.itemEventPackStarter.nParent && this.itemEventPackStarter.nParent.active) {
-            this.itemEventPackStarter.PlayAnimFirstTimeAgain();
-        }
-        if (this.itemEventGreateDeal_1.nParent && this.itemEventGreateDeal_1.nParent.active) {
-            this.itemEventGreateDeal_1.PlayAnimFirstTimeAgain();
-        }
-        if (this.itemEventGreateDeal_2.nParent && this.itemEventGreateDeal_2.nParent.active) {
-            this.itemEventGreateDeal_2.PlayAnimFirstTimeAgain();
-        }
+        // if (this.itemEventPVP.nParent && this.itemEventPVP.nParent.active) {
+        //     this.itemEventPVP.PlayAnimFirstTimeAgain();
+        // }
+        // if (this.itemEventPackStarter.nParent && this.itemEventPackStarter.nParent.active) {
+        //     this.itemEventPackStarter.PlayAnimFirstTimeAgain();
+        // }
+        // if (this.itemEventGreateDeal_1.nParent && this.itemEventGreateDeal_1.nParent.active) {
+        //     this.itemEventGreateDeal_1.PlayAnimFirstTimeAgain();
+        // }
+        // if (this.itemEventGreateDeal_2.nParent && this.itemEventGreateDeal_2.nParent.active) {
+        //     this.itemEventGreateDeal_2.PlayAnimFirstTimeAgain();
+        // }
         if (this.itemEventDashRush.nParent && this.itemEventDashRush.nParent.active) {
             this.itemEventDashRush.PlayAnimFirstTimeAgain();
         }
@@ -286,21 +286,21 @@ export class AnimLoadItemHomeSys extends Component {
         if (this.itemEventEndlessTreasure.nParent && this.itemEventEndlessTreasure.nParent.active) {
             this.itemEventEndlessTreasure.PlayAnimFirstTimeAgain();
         }
-        if (this.itemEventSeasonPass.nParent && this.itemEventSeasonPass.nParent.active) {
-            this.itemEventSeasonPass.PlayAnimFirstTimeAgain();
-        }
+        // if (this.itemEventSeasonPass.nParent && this.itemEventSeasonPass.nParent.active) {
+        //     this.itemEventSeasonPass.PlayAnimFirstTimeAgain();
+        // }
         if (this.itemEventTreasureTrail.nParent && this.itemEventTreasureTrail.nParent.active) {
             this.itemEventTreasureTrail.PlayAnimFirstTimeAgain();
         }
         if (this.itemEventSkyLift.nParent && this.itemEventSkyLift.nParent.active) {
             this.itemEventSkyLift.PlayAnimFirstTimeAgain();
         }
-        if (this.itemEventPackHalloween != null && this.itemEventPackHalloween.nParent && this.itemEventPackHalloween.nParent.active) {
-            this.itemEventPackHalloween.PlayAnimFirstTimeAgain();
-        }
-        if (this.itemEventPackChristmas != null && this.itemEventPackChristmas.nParent && this.itemEventPackChristmas.nParent.active) {
-            this.itemEventPackChristmas.PlayAnimFirstTimeAgain();
-        }
+        // if (this.itemEventPackHalloween != null && this.itemEventPackHalloween.nParent && this.itemEventPackHalloween.nParent.active) {
+        //     this.itemEventPackHalloween.PlayAnimFirstTimeAgain();
+        // }
+        // if (this.itemEventPackChristmas != null && this.itemEventPackChristmas.nParent && this.itemEventPackChristmas.nParent.active) {
+        //     this.itemEventPackChristmas.PlayAnimFirstTimeAgain();
+        // }
         if (this.itemEventChristmas != null && this.itemEventChristmas.nParent && this.itemEventChristmas.nParent.active) {
             this.itemEventChristmas.PlayAnimFirstTimeAgain();
         }
@@ -412,18 +412,18 @@ export class AnimLoadItemHomeSys extends Component {
         }
 
         //================= pvp ======================
-        if (listTypeEvent.includes(TYPE_EVENT_GAME.PVP)) {
-            let canLoadAnimEvent_pvp = levelPlayer >= MConfigs.LEVEL_TUTORIAL_EVENT.PVP;
-            // let wasUnlockEvent_pvp = DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.PVP);
-            this.itemEventPVP.typeEvent = TYPE_EVENT_GAME.PVP;
-            this.InitSkeletonItem(this.itemEventPVP, NameAnimIconHome_Active.PVP, NameAnimIconHome_Idle.PVP,
-                canLoadAnimEvent_pvp, true, true, 3, this.scalePVP);
-            await Utils.delay(this.waitingTimeEachAnim * 1000);
-            clientEvent.dispatchEvent(MConst.EVENT_GAME.UPDATE_NOTIFICATION, TYPE_EVENT_GAME.PVP);
-            clientEvent.dispatchEvent(MConst.EVENT_GAME.SHOW_NAME_EVENT, TYPE_EVENT_GAME.PVP);
+        // if (listTypeEvent.includes(TYPE_EVENT_GAME.PVP)) {
+        //     let canLoadAnimEvent_pvp = levelPlayer >= MConfigs.LEVEL_TUTORIAL_EVENT.PVP;
+        //     // let wasUnlockEvent_pvp = DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.PVP);
+        //     this.itemEventPVP.typeEvent = TYPE_EVENT_GAME.PVP;
+        //     this.InitSkeletonItem(this.itemEventPVP, NameAnimIconHome_Active.PVP, NameAnimIconHome_Idle.PVP,
+        //         canLoadAnimEvent_pvp, true, true, 3, this.scalePVP);
+        //     await Utils.delay(this.waitingTimeEachAnim * 1000);
+        //     clientEvent.dispatchEvent(MConst.EVENT_GAME.UPDATE_NOTIFICATION, TYPE_EVENT_GAME.PVP);
+        //     clientEvent.dispatchEvent(MConst.EVENT_GAME.SHOW_NAME_EVENT, TYPE_EVENT_GAME.PVP);
 
-            if (this.stopInit) return;
-        }
+        //     if (this.stopInit) return;
+        // }
 
         //================== level pass ==============
         // trong trường hợp event đã end thì sẽ ko có anim load nữa
@@ -443,18 +443,18 @@ export class AnimLoadItemHomeSys extends Component {
         }
 
         //================== season pass ==============
-        if (listTypeEvent.includes(TYPE_EVENT_GAME.SEASON_PASS)) {
-            let isLockEvent_seasonPass = DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.SEASON_PASS);
-            let isPlayTut_SeasonPass = DataEventsSys.Instance.IsPlayTutorialEvent(TYPE_EVENT_GAME.SEASON_PASS);
-            // let canLoadAnimEvent_seasonPass = levelPlayer >= MConfigs.LEVEL_TUTORIAL_EVENT.SeasonPass;
-            let canLoadAnimEvent_seasonPass = true;
-            this.itemEventSeasonPass.typeEvent = TYPE_EVENT_GAME.SEASON_PASS_2;
-            this.InitSkeletonItem(this.itemEventSeasonPass, NameAnimIconHome_Active.seasonPass_2, NameAnimIconHome_Idle.seasonPass_2,
-                canLoadAnimEvent_seasonPass, isLockEvent_seasonPass, isPlayTut_SeasonPass, 3, this.scaleSeasonPass);
-            await Utils.delay(this.waitingTimeEachAnim * 1000);
+        // if (listTypeEvent.includes(TYPE_EVENT_GAME.SEASON_PASS)) {
+        //     let isLockEvent_seasonPass = DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.SEASON_PASS);
+        //     let isPlayTut_SeasonPass = DataEventsSys.Instance.IsPlayTutorialEvent(TYPE_EVENT_GAME.SEASON_PASS);
+        //     // let canLoadAnimEvent_seasonPass = levelPlayer >= MConfigs.LEVEL_TUTORIAL_EVENT.SeasonPass;
+        //     let canLoadAnimEvent_seasonPass = true;
+        //     this.itemEventSeasonPass.typeEvent = TYPE_EVENT_GAME.SEASON_PASS_2;
+        //     this.InitSkeletonItem(this.itemEventSeasonPass, NameAnimIconHome_Active.seasonPass_2, NameAnimIconHome_Idle.seasonPass_2,
+        //         canLoadAnimEvent_seasonPass, isLockEvent_seasonPass, isPlayTut_SeasonPass, 3, this.scaleSeasonPass);
+        //     await Utils.delay(this.waitingTimeEachAnim * 1000);
 
-            if (this.stopInit) return;
-        }
+        //     if (this.stopInit) return;
+        // }
 
         //================== dashRush =================
         if (listTypeEvent.includes(TYPE_EVENT_GAME.DASH_RUSH)) {
@@ -529,18 +529,18 @@ export class AnimLoadItemHomeSys extends Component {
         }
 
         //================= halloween =========================
-        if (this.itemEventPackHalloween.nParent != null && DataHalloweenSys.Instance.GetTimeRemain() > 0 && this.itemEventPackHalloween.nParent.active) {
-            this.InitSkeletonItem(this.itemEventPackHalloween, NameAnimIconHome_Active.halloween, NameAnimIconHome_Idle.halloween
-                , true, false, true, 3, this.scalePackHalloween
-            );
-        }
+        // if (this.itemEventPackHalloween.nParent != null && DataHalloweenSys.Instance.GetTimeRemain() > 0 && this.itemEventPackHalloween.nParent.active) {
+        //     this.InitSkeletonItem(this.itemEventPackHalloween, NameAnimIconHome_Active.halloween, NameAnimIconHome_Idle.halloween
+        //         , true, false, true, 3, this.scalePackHalloween
+        //     );
+        // }
 
-        //================= pack christmas ==========================
-        if (this.itemEventPackChristmas.nParent != null && DataChristmasSys.Instance.GetTimeRemain() > 0 && this.itemEventPackChristmas.nParent.active) {
-            this.InitSkeletonItem(this.itemEventPackChristmas, NameAnimIconHome_Active.pack_christmas, NameAnimIconHome_Idle.pack_christmas
-                , true, false, true, 3, this.scalePackChirstmas
-            )
-        }
+        // //================= pack christmas ==========================
+        // if (this.itemEventPackChristmas.nParent != null && DataChristmasSys.Instance.GetTimeRemain() > 0 && this.itemEventPackChristmas.nParent.active) {
+        //     this.InitSkeletonItem(this.itemEventPackChristmas, NameAnimIconHome_Active.pack_christmas, NameAnimIconHome_Idle.pack_christmas
+        //         , true, false, true, 3, this.scalePackChirstmas
+        //     )
+        // }
 
         //================= event christmas event ==============
         if (listTypeEvent.includes(TYPE_EVENT_GAME.CHRISTMAS_EVENT)) {
@@ -568,18 +568,18 @@ export class AnimLoadItemHomeSys extends Component {
 
         // init pack in here too
         // call load prefab anim item pack 
-        if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.StartedPack)) {
-            this.InitAnimPackStarter();
-            await Utils.delay(this.waitingTimeEachAnim * 1000);
-        }
-        if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.GreateDealsPack_1)) {
-            this.InitAnimPackGreatDeal_1();
-            await Utils.delay(this.waitingTimeEachAnim * 1000);
-        }
-        if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.GreateDealsPack_2)) {
-            this.InitAnimPackGreatDeal_2();
-            await Utils.delay(this.waitingTimeEachAnim * 1000);
-        }
+        // if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.StartedPack)) {
+        //     this.InitAnimPackStarter();
+        //     await Utils.delay(this.waitingTimeEachAnim * 1000);
+        // }
+        // if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.GreateDealsPack_1)) {
+        //     this.InitAnimPackGreatDeal_1();
+        //     await Utils.delay(this.waitingTimeEachAnim * 1000);
+        // }
+        // if (DataPackSys.Instance.CheckLogicIsRemaingPack(EnumNamePack.GreateDealsPack_2)) {
+        //     this.InitAnimPackGreatDeal_2();
+        //     await Utils.delay(this.waitingTimeEachAnim * 1000);
+        // }
 
         // ============================================================
         // ================== after load done =========================
@@ -650,18 +650,18 @@ export class AnimLoadItemHomeSys extends Component {
     }
 
     public InitAnimPackStarter() {
-        this.itemEventPackStarter.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.starterPack, 3, this.scalePackStarter);
-        this._listAnim.push(this.itemEventPackStarter);
+        // this.itemEventPackStarter.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.starterPack, 3, this.scalePackStarter);
+        // this._listAnim.push(this.itemEventPackStarter);
     }
 
     public InitAnimPackGreatDeal_1() {
-        this.itemEventGreateDeal_1.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.greatDeals, 3, this.scaleGreateDeal_1);
-        this._listAnim.push(this.itemEventGreateDeal_1);
+        // this.itemEventGreateDeal_1.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.greatDeals, 3, this.scaleGreateDeal_1);
+        // this._listAnim.push(this.itemEventGreateDeal_1);
     }
 
     public InitAnimPackGreatDeal_2() {
-        this.itemEventGreateDeal_2.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.greatDeals, 3, this.scaleGreateDeal_2);
-        this._listAnim.push(this.itemEventGreateDeal_2);
+        // this.itemEventGreateDeal_2.LoadAnimOpen(this.prefabAnimEvent, NameAnimIconHome_Active.greatDeals, 3, this.scaleGreateDeal_2);
+        // this._listAnim.push(this.itemEventGreateDeal_2);
     }
 
     //#region listen func
@@ -670,11 +670,11 @@ export class AnimLoadItemHomeSys extends Component {
             case TYPE_EVENT_GAME.LEVEL_PASS: cb(this.itemEventLevelPass.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.LOGIN_REWARD: cb(this.itemEventLoginReward.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.SPIN: cb(this.itemEventSpin.nParent.worldPosition.clone()); break;
-            case TYPE_EVENT_GAME.PIGGY_BANK: cb(this.itemEventPiggyBank.nParent.worldPosition.clone()); break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK: cb(this.itemEventPiggyBank.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.DASH_RUSH: cb(this.itemEventDashRush.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.SPEED_RACE: cb(this.itemEventSpeedRace.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.ENDLESS_TREASURE: cb(this.itemEventEndlessTreasure.nParent.worldPosition.clone()); break;
-            case TYPE_EVENT_GAME.SEASON_PASS: cb(this.itemEventSeasonPass.nParent.worldPosition.clone()); break;
+            // case TYPE_EVENT_GAME.SEASON_PASS: cb(this.itemEventSeasonPass.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.TREASURE_TRAIL: cb(this.itemEventTreasureTrail.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.SKY_LIFT: cb(this.itemEventSkyLift.nParent.worldPosition.clone()); break;
             case TYPE_EVENT_GAME.CHRISTMAS_EVENT: cb(this.itemEventChristmas.nParent.worldPosition.clone()); break;
@@ -698,9 +698,9 @@ export class AnimLoadItemHomeSys extends Component {
                 case TYPE_EVENT_GAME.LEVEL_PASS:
                     await addAnimEventToList(this.itemEventLevelPass, NameAnimIconHome_Active.levelPass);
                     break;
-                case TYPE_EVENT_GAME.INVITE_FRIEND:
-                    await addAnimEventToList(this.itemEventInvite, NameAnimIconHome_Active.invite);
-                    break;
+                // case TYPE_EVENT_GAME.INVITE_FRIEND:
+                //     await addAnimEventToList(this.itemEventInvite, NameAnimIconHome_Active.invite);
+                //     break;
                 case TYPE_EVENT_GAME.LOGIN_REWARD:
                     await addAnimEventToList(this.itemEventLoginReward, NameAnimIconHome_Active.daily);
                     break;
@@ -719,9 +719,9 @@ export class AnimLoadItemHomeSys extends Component {
                 case TYPE_EVENT_GAME.ENDLESS_TREASURE:
                     await addAnimEventToList(this.itemEventEndlessTreasure, NameAnimIconHome_Active.endless_treasure);
                     break;
-                case TYPE_EVENT_GAME.SEASON_PASS:
-                    await addAnimEventToList(this.itemEventSeasonPass, NameAnimIconHome_Active.seasonPass_2);
-                    break;
+                // case TYPE_EVENT_GAME.SEASON_PASS:
+                //     await addAnimEventToList(this.itemEventSeasonPass, NameAnimIconHome_Active.seasonPass_2);
+                //     break;
                 case TYPE_EVENT_GAME.TREASURE_TRAIL:
                     await addAnimEventToList(this.itemEventTreasureTrail, NameAnimIconHome_Active.treasureTraill);
                     break;
@@ -748,14 +748,14 @@ export class AnimLoadItemHomeSys extends Component {
         let result = 0;
         switch (typeEvent) {
             case TYPE_EVENT_GAME.LEVEL_PASS: result = this.itemEventLevelPass.GetTimeAnim(NameAnimLock.unlock); break;
-            case TYPE_EVENT_GAME.INVITE_FRIEND: result = this.itemEventInvite.GetTimeAnim(NameAnimLock.unlock); break;
+            // case TYPE_EVENT_GAME.INVITE_FRIEND: result = this.itemEventInvite.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.LOGIN_REWARD: result = this.itemEventLoginReward.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.SPIN: result = this.itemEventSpin.GetTimeAnim(NameAnimLock.unlock); break;
-            case TYPE_EVENT_GAME.PIGGY_BANK: result = this.itemEventPiggyBank.GetTimeAnim(NameAnimLock.unlock); break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK: result = this.itemEventPiggyBank.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.DASH_RUSH: result = this.itemEventDashRush.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.SPEED_RACE: result = this.itemEventSpeedRace.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.ENDLESS_TREASURE: result = this.itemEventEndlessTreasure.GetTimeAnim(NameAnimLock.unlock); break;
-            case TYPE_EVENT_GAME.SEASON_PASS: result = this.itemEventSeasonPass.GetTimeAnim(NameAnimLock.unlock); break;
+            // case TYPE_EVENT_GAME.SEASON_PASS: result = this.itemEventSeasonPass.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.TREASURE_TRAIL: result = this.itemEventTreasureTrail.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.SKY_LIFT: result = this.itemEventSkyLift.GetTimeAnim(NameAnimLock.unlock); break;
             case TYPE_EVENT_GAME.CHRISTMAS_EVENT: result = this.itemEventChristmas.GetTimeAnim(NameAnimLock.unlock); break;

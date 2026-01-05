@@ -24,9 +24,9 @@ export const EVENT_LEVEL_PASS = {
 
 export const LEVEL_PASS_DESCRIBE_NOTI = {
     NOTIFI_HAS_COLLECTED: "This reward has \nalready been collected",
-    NOTIFI_CAN_NOT_COLLECTED_PREMIUM: "Unlock this stage and activate the\nLevel Pass to get this reward!",
+    NOTIFI_CAN_NOT_COLLECTED_PREMIUM: "Unlock this stage \nto get this reward!",
     NOTIFI_CAN_NOT_COLLECTED_FREE: "Beat more levels \nto unlock this stage!",
-    NOTIFI_CAN_NOT_COLLECTED_LAST_PRIZE: "Complete all stages and activate the\nLevel Pass to get the Bonus Prize!"
+    NOTIFI_CAN_NOT_COLLECTED_LAST_PRIZE: "Complete all stages \nto get the Bonus Prize!"
 }
 
 

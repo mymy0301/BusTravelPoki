@@ -11,6 +11,7 @@ import { MConst } from '../../../Const/MConst';
 import { PrizeSys } from '../../../DataBase/PrizeSys';
 import { Utils } from '../../../Utils/Utils';
 import { DataInfoPlayer } from '../../DataInfoPlayer';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 
 const { ccclass, property } = _decorator;
 
@@ -31,6 +32,12 @@ export class ItemOfferET extends Component {
     @property(Node) nV: Node;
     @property(Node) listNBtn: Node[] = [];
     @property(Node) nOnClickAllItem: Node;
+
+    @property(Node)
+    groupFree: Node = null;
+
+    @property(Node)
+    groupWatchAd: Node = null;
 
     private _stateItem: STATE_INFO_PACK_ET = STATE_INFO_PACK_ET.LOCK;
     private _infoPack: InfoPackEndlessTreasure = null;
@@ -57,15 +64,19 @@ export class ItemOfferET extends Component {
         // set UI
         //---------------------------
         // price
+        this.groupFree.active = false;
+        this.groupWatchAd.active = false;
         if (this._infoPack.price == 0) {
             // free
-            this.lbPrice.string = "Free";
-            this.lbShadowPrice.string = "Free";
+            // this.lbPrice.string = "Free";
+            // this.lbShadowPrice.string = "Free";
+            this.groupFree.active = true;
         } else {
-            const priceFB = FBInstantManager.Instance.getPriceIAPPack_byProductID(this._infoPack.idBundle);
-            const valuePriceShow = priceFB == null ? `${this._infoPack.price}$` : priceFB;
-            this.lbPrice.string = valuePriceShow;
-            this.lbShadowPrice.string = valuePriceShow;
+            // const priceFB = FBInstantManager.Instance.getPriceIAPPack_byProductID(this._infoPack.idBundle);
+            // const valuePriceShow = priceFB == null ? `${this._infoPack.price}$` : priceFB;
+            // this.lbPrice.string = valuePriceShow;
+            // this.lbShadowPrice.string = valuePriceShow;
+            this.groupWatchAd.active = true;
         }
 
         //---------------------------
@@ -128,6 +139,8 @@ export class ItemOfferET extends Component {
                 this.listNBtn.forEach(item => { item.active = true; item.getComponent(UIOpacity).opacity = 255 })
                 break;
             case STATE_INFO_PACK_ET.BUY_DONE:
+                this.groupFree.active = false;
+                this.groupWatchAd.active = false;
                 this.listNBtn.forEach(item => item.active = false)
                 this.nLock.active = false;
                 this.nOnClickAllItem.active = false;
@@ -213,52 +226,62 @@ export class ItemOfferET extends Component {
         const price = this._infoPack.price;
         LogEventManager.Instance.logButtonClick(`buy_${this._infoPack.idBundle}`, "UIEndlessTreasure");
 
-        const self = this;
-        const namePack: string = this._infoPack.idBundle;
+        // const self = this;
+        // const namePack: string = this._infoPack.idBundle;
 
-        // log event
-        LogEventManager.Instance.buyPack(namePack);
+        // // log event
+        // LogEventManager.Instance.buyPack(namePack);
 
-        LogEventManager.Instance.logIAP_PurchaseItem(namePack, price)
+        // LogEventManager.Instance.logIAP_PurchaseItem(namePack, price)
 
-        // buy item
-        FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
+        // // buy item
+        // FBInstantManager.Instance.getListIAP_Purchase((err: Error, success: string) => {
+        //     if (err) {
+        //         FBInstantManager.Instance.buyIAP_consumePackID(namePack, (err: Error, success: string) => {
+        //             if (err) {
+        //                 clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
+        //             } else {
+        //                 clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
+        //                 self.BuySuccess(namePack);
+        //                 self.PlayAnimBuyItemSuccessful();
+        //             }
+        //         }, price);
+
+        //     } else {
+        //         let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(namePack);
+        //         if (purchaseToken != "") {
+        //             FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
+        //                 if (err) {
+        //                     clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
+        //                 } else {
+        //                     clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
+        //                     self.BuySuccess(namePack);
+        //                     self.PlayAnimBuyItemSuccessful();
+        //                 }
+        //             });
+        //         } else {
+        //             FBInstantManager.Instance.buyIAP_consumePackID(namePack, (err: Error, success: string) => {
+        //                 if (err) {
+        //                     clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
+        //                 } else {
+        //                     clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
+        //                     self.BuySuccess(namePack);
+        //                     self.PlayAnimBuyItemSuccessful();
+        //                 }
+        //             }, price);
+        //         }
+        //     }
+        // });
+
+        PokiSDKManager.Instance.Show_RewardedVideoAsync("UIEndlessTreasure", ""+this._infoPack.idBundle, (err: Error, success: string) => {
             if (err) {
-                FBInstantManager.Instance.buyIAP_consumePackID(namePack, (err: Error, success: string) => {
-                    if (err) {
-                        clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
-                    } else {
-                        clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
-                        self.BuySuccess(namePack);
-                        self.PlayAnimBuyItemSuccessful();
-                    }
-                }, price);
-
+                clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
             } else {
-                let purchaseToken: string = FBInstantManager.Instance.iap_checkPurchaseInfo(namePack);
-                if (purchaseToken != "") {
-                    FBInstantManager.Instance.iap_consumePackID(purchaseToken, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
-                            self.BuySuccess(namePack);
-                            self.PlayAnimBuyItemSuccessful();
-                        }
-                    });
-                } else {
-                    FBInstantManager.Instance.buyIAP_consumePackID(namePack, (err: Error, success: string) => {
-                        if (err) {
-                            clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Failed!"));
-                        } else {
-                            clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
-                            self.BuySuccess(namePack);
-                            self.PlayAnimBuyItemSuccessful();
-                        }
-                    }, price);
-                }
+                clientEvent.dispatchEvent(EVENT_ENDLESS_TREASURE.NOTIFICATION, I18n.t("Buy Successfully!"));
+                this.BuySuccess();
+                this.PlayAnimBuyItemSuccessful();
             }
-        });
+        })
     }
     //#endregion btn
     //===================================

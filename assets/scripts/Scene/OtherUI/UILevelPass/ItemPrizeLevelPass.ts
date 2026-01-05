@@ -16,6 +16,7 @@ import { MConfigs } from '../../../Configs/MConfigs';
 import { LogEventManager } from '../../../LogEvent/LogEventManager';
 import { Utils } from '../../../Utils/Utils';
 import { CaculTimeEvents2 } from '../../LobbyScene/CaculTimeEvents2';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 export enum STATE_ITEM_PRIZE_LEVEL_PASS {
@@ -558,8 +559,11 @@ export class ItemPrizeLevelPass extends Component {
             //     clientEvent.dispatchEvent(EVENT_LEVEL_PASS.RECEIVE_LIST_ITEM_PRIZE);
             // }
 
-            this.ClaimItemPremium();
-            this.UpdateState(1, STATE_ITEM_PRIZE_LEVEL_PASS.CLAIMED);
+            PokiSDKManager.Instance.Show_RewardedVideoAsync(this.node.name, "btnItemPremium", async (err, succ) => {
+                this.ClaimItemPremium();
+                this.UpdateState(1, STATE_ITEM_PRIZE_LEVEL_PASS.CLAIMED);
+            });
+            
         } else if (this._statePremium == STATE_ITEM_PRIZE_LEVEL_PASS.CAN_NOT_CLAIM) {
             if (index == 4 || index == 9 || index == 19 || index == 29) {
                 clientEvent.dispatchEvent(EVENT_LEVEL_PASS.NOTIFICATION.ITEMS

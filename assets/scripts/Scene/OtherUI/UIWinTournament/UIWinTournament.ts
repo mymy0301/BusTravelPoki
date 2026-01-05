@@ -112,7 +112,7 @@ export class UIWinTournament extends UIBaseSys {
     //#region self func
     private LoadImagePlayer() {
         const self = this;
-        ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (pathAvatar == MConfigFacebook.Instance.playerPhotoURL && self.node != null && self.node.isValid) {
                 self.spAvatar.spriteFrame = spriteFrame;
                 self.spAvatarPlayerTour.spriteFrame = spriteFrame;
@@ -151,7 +151,7 @@ export class UIWinTournament extends UIBaseSys {
         let listSfAvatar: SpriteFrame[] = [];
         for (let i = 0; i < dataPlayerLeaderboard.length; i++) {
             const pathAva = dataPlayerLeaderboard[i].avatar;
-            await ResourceUtils.TryLoadImage(pathAva, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+            await ResourceUtils.TryLoadImageAvatar(pathAva, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                 spriteFrame.name = pathAvatar;
                 listSfAvatar.push(spriteFrame);
             });

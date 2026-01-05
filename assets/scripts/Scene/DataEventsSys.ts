@@ -701,7 +701,7 @@ export class DataEventsSys {
     //#endregion time
     //===============================================
 }
-const IDGrUsing = [];//[0, 1];
+const IDGrUsing = [0];//[0, 1];
 
 //NOTE - Xin hãy nhớ là ko bao giờ được phép xóa Gr chỉ được thêm
 //NOTE - Nếu sửa hãy cân nhắc

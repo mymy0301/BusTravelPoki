@@ -7,15 +7,13 @@
         },
         {
             "idBundle": "et_2",
-            "price": 0,
+            "price": 1,
             "MONEY": 150
         },
         {
             "idBundle": "et_3",
-            "price": 2.99,
-            "MONEY": 4000,
-            "SORT": 1,
-            "SHUFFLE": 1
+            "price": 1,
+            "SORT": 1
         },
         {
             "idBundle": "et_4",
@@ -24,14 +22,12 @@
         },
         {
             "idBundle": "et_5",
-            "price": 0,
+            "price": 1,
             "VIP_SLOT": 1
         },
         {
             "idBundle": "et_6",
-            "price": 4.99,
-            "MONEY": 10000,
-            "SORT": 1,
+            "price": 1,
             "SHUFFLE": 1
         },
         {
@@ -41,32 +37,28 @@
         },
         {
             "idBundle": "et_8",
-            "price": 0,
+            "price": 1,
             "VIP_SLOT": 1
         },
         {
             "idBundle": "et_9",
-            "price": 9.99,
-            "MONEY": 20000,
-            "SORT": 1,
+            "price": 1,
             "SHUFFLE": 2
         },
         {
             "idBundle": "et_10",
             "price": 0,
-            "MONEY": 1000
+            "MONEY": 600
         },
         {
             "idBundle": "et_11",
-            "price": 0,
+            "price": 1,
             "VIP_SLOT": 1
         },
         {
             "idBundle": "et_12",
-            "price": 19.99,
-            "MONEY": 50000,
-            "SORT": 2,
-            "SHUFFLE": 2
+            "price": 1,
+            "SORT": 2
         },
         {
             "idBundle": "et_13",
@@ -75,7 +67,7 @@
         },
         {
             "idBundle": "et_14",
-            "price": 0,
+            "price": 1,
             "VIP_SLOT": 2
         }
     ]

@@ -174,7 +174,7 @@ export class ItemRankFriend extends Component {
         let self = this;
         this.spAvatar.spriteFrame = null;
         try {
-            ResourceUtils.TryLoadImage(this._dataItem.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+            ResourceUtils.TryLoadImageAvatar(this._dataItem.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                 if (pathAvatar == self._dataItem.avatar && self.node != null && self.node.isValid) {
                     self.spAvatar.spriteFrame = spriteFrame;
                 }

@@ -15,7 +15,8 @@ export class MConfigFacebook {
     public envType: ENV_TYPE = ENV_TYPE.FB;
 
     public playerID: string = "1";
-    public playerPhotoURL: string = "https://i.imgur.com/DaoUDiV.png";
+    // public playerPhotoURL: string = "https://i.imgur.com/DaoUDiV.png";
+    public playerPhotoURL: string = "avatars/0";
     public playerName: string = "Bus";
     public playerCountryCode: string = null;
     public entryPointData = null;

@@ -231,12 +231,12 @@ export class PageHomeSys extends PageLobbyBase {
                 )
             }
 
-            listAnimReceive.push(
-                new Promise<void>(async resolve => {
-                    await UILobbySys.Instance.pvLobbySys.mIndicatorLobby_2.PlayAnimStar();
-                    resolve();
-                })
-            )
+            // listAnimReceive.push(
+            //     new Promise<void>(async resolve => {
+            //         await UILobbySys.Instance.pvLobbySys.mIndicatorLobby_2.PlayAnimStar();
+            //         resolve();
+            //     })
+            // )
 
             if (numBuilding > 0 || isTest) {
                 listAnimReceive.push(
@@ -253,8 +253,9 @@ export class PageHomeSys extends PageLobbyBase {
                 )
             }
 
-            await Promise.all(listAnimReceive);
-
+            await Promise.all(listAnimReceive).then((values) => {
+                console.log(values); // Output: [3, 'foo', 42]
+            });
             // gọi thêm emit nữa cho chắc ăn
             clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_LOBBY);
         }
@@ -302,7 +303,7 @@ export class PageHomeSys extends PageLobbyBase {
         if (!DataEventsSys.Instance.IsLockEvent(TYPE_EVENT_GAME.LEVEL_PASS) && CaculTimeEvents2.Instance.GetTimeEvent(TYPE_EVENT_GAME.LEVEL_PASS) > 0 && !isEndEventLP) {
             const keyLevelNow = DataLevelPassSys.Instance.GetProgressNow();
             const keyReceive_levelPass = keyLevelNow - DataLobbyJsonSys.Instance.GetLevelPassProgress();
-            // console.log(keyLevelNow, keyReceive_levelPass, DataLobbyJsonSys.Instance.GetLevelPassProgress());
+            console.log(keyLevelNow, keyReceive_levelPass, DataLobbyJsonSys.Instance.GetLevelPassProgress());
             if (keyReceive_levelPass > 0) {
                 let promise = new Promise<void>(async resolve => {
                     DataLobbyJsonSys.Instance.SaveLevelPassProgress(keyLevelNow, false);
@@ -491,6 +492,7 @@ export class PageHomeSys extends PageLobbyBase {
         }
 
         try {
+            console.log("listQueueAnimReceivePrize", listQueueAnimReceivePrize);
             await Promise.all(listQueueAnimReceivePrize);
         } catch (e) {
             console.error("1111", e);

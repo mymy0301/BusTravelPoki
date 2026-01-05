@@ -30,7 +30,7 @@ export class VisualCarDashRush extends Component {
         this.lbNotification.string = info.progress.toString();
         this.lbNameBot.string = info.name;
         this.lbNameBot_shadow.string = info.name;
-        ResourceUtils.TryLoadImage(info.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(info.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (pathAvatar == info.avatar && self.node != null && self.node.isValid) {
                 self.spAvatar.spriteFrame = spriteFrame;
             }

@@ -76,11 +76,11 @@ export class LogicCheckTutInLobby extends Component {
             case this.tutEventSpin.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.SPIN; break;
             case this.tutEventLoginReward.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.LOGIN_REWARD; break;
             case this.tutEventLevelPass.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.LEVEL_PASS; break;
-            case this.tutEventPiggyBank.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.PIGGY_BANK; break;
+            // case this.tutEventPiggyBank.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.PIGGY_BANK; break;
             case this.tutEventDashRush.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.DASH_RUSH; break;
             case this.tutEventSpeedRace.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.SPEED_RACE; break;
             case this.tutEventEndlessTreasure.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.ENDLESS_TREASURE; break;
-            case this.tutEventSeasonPass.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.SEASON_PASS; break;
+            // case this.tutEventSeasonPass.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.SEASON_PASS; break;
             case this.tutEventTreasureTrail.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.TREASURE_TRAIL; break;
             case this.tutEventSkyLift.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.SKY_LIFT; break;
             case this.tutEventChristmas.CheckLogic(): this._tutShow = TYPE_EVENT_GAME.CHRISTMAS_EVENT; break;
@@ -110,10 +110,10 @@ export class LogicCheckTutInLobby extends Component {
         switch (this._tutShow) {
             case TYPE_EVENT_GAME.SPIN: this.tutEventSpin.CheckLogicDone(); break;
             // case TYPE_EVENT_GAME.INVITE_FRIEND: this.tutEventInviteFriend.CheckLogicDone(); break;
-            case TYPE_EVENT_GAME.SEASON_PASS: this.tutEventSeasonPass.CheckLogicDone(); break;
+            // case TYPE_EVENT_GAME.SEASON_PASS: this.tutEventSeasonPass.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.LOGIN_REWARD: this.tutEventLoginReward.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.LEVEL_PASS: this.tutEventLevelPass.CheckLogicDone(); break;
-            case TYPE_EVENT_GAME.PIGGY_BANK: this.tutEventPiggyBank.CheckLogicDone(); break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK: this.tutEventPiggyBank.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.DASH_RUSH: this.tutEventDashRush.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.SPEED_RACE: this.tutEventSpeedRace.CheckLogicDone(); break;
             case TYPE_EVENT_GAME.ENDLESS_TREASURE: this.tutEventEndlessTreasure.CheckLogicDone(); break;
@@ -128,11 +128,11 @@ export class LogicCheckTutInLobby extends Component {
 
     private HasAnyLogicTutCanPlay(): boolean {
         if (this.tutEventSpin.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.SPIN; return true }
-        if (this.tutEventSeasonPass.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.SEASON_PASS; return true; }
+        // if (this.tutEventSeasonPass.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.SEASON_PASS; return true; }
         // if (this.tutEventInviteFriend.CheckLogic()) { this._tutShow = TYPE_EVENT_GAME.INVITE_FRIEND; return true; }
         if (this.tutEventLoginReward.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.LOGIN_REWARD; return true; }
         if (this.tutEventLevelPass.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.LEVEL_PASS; return true; }
-        if (this.tutEventPiggyBank.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.PIGGY_BANK; return true; }
+        // if (this.tutEventPiggyBank.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.PIGGY_BANK; return true; }
         if (this.tutEventDashRush.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.DASH_RUSH; return true; }
         if (this.tutEventSpeedRace.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.SPEED_RACE; return true; }
         if (this.tutEventEndlessTreasure.JustCheckTut()) { this._tutShow = TYPE_EVENT_GAME.ENDLESS_TREASURE; return true; }
@@ -159,9 +159,9 @@ export class LogicCheckTutInLobby extends Component {
             case TYPE_EVENT_GAME.SPIN:
                 clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SPIN, 1);
                 break;
-            case TYPE_EVENT_GAME.PIGGY_BANK:
-                clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_PIGGY_BANK, 1, true, [canPlayInfo]);
-                break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK:
+            //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_PIGGY_BANK, 1, true, [canPlayInfo]);
+            //     break;
             case TYPE_EVENT_GAME.DASH_RUSH:
                 if (!DataEventsSys.Instance.IsEventShowButLock(TYPE_EVENT_GAME.TREASURE_TRAIL)) {
                     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_DASH_RUSH_PREPARE, 1, true, [canPlayInfo]);
@@ -185,9 +185,9 @@ export class LogicCheckTutInLobby extends Component {
             case TYPE_EVENT_GAME.LEVEL_PROGRESSION:
                 clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_LEVEL_PROGRESSION_PREPARE, 1, true, [canPlayInfo]);
                 break;
-            case TYPE_EVENT_GAME.SEASON_PASS:
-                clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SEASON_PASS, 1, true, [canPlayInfo]);
-                break;
+            // case TYPE_EVENT_GAME.SEASON_PASS:
+            //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_SEASON_PASS, 1, true, [canPlayInfo]);
+            //     break;
             case TYPE_EVENT_GAME.SKY_LIFT:
                 const iOpenNewGameSL: IOpenNewEvent = {
                     openNewEvent: true
@@ -229,10 +229,10 @@ export class LogicCheckTutInLobby extends Component {
                 // đối với level_pass sẽ chỉ có 1 trường hợp duy nhất đó là khi close UI
                 canNextTut = true;
                 break;
-            case TYPE_EVENT_GAME.PIGGY_BANK:
-                // đối với piggy_bank sẽ chỉ có 1 trường hợp duy nhất đó là khi close UI
-                canNextTut = true;
-                break;
+            // case TYPE_EVENT_GAME.PIGGY_BANK:
+            //     // đối với piggy_bank sẽ chỉ có 1 trường hợp duy nhất đó là khi close UI
+            //     canNextTut = true;
+            //     break;
             case TYPE_EVENT_GAME.DASH_RUSH:
                 // đối với dash_rush sẽ có 2 trường hợp 
                 // case 1: User close UIPrepareDashRush
@@ -260,9 +260,9 @@ export class LogicCheckTutInLobby extends Component {
                 // 1: là khi close UISkyLift
                 canNextTut = true;
                 break;
-            case TYPE_EVENT_GAME.SEASON_PASS:
-                canNextTut = true;
-                break;
+            // case TYPE_EVENT_GAME.SEASON_PASS:
+            //     canNextTut = true;
+            //     break;
             case TYPE_EVENT_GAME.CHRISTMAS_EVENT:
                 canNextTut = true;
                 break;

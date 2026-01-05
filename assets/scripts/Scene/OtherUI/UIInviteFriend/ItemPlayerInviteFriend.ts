@@ -17,7 +17,7 @@ export class ItemPlayerInviteFriend extends Component {
         let self = this;
         this.spAvatar.spriteFrame = null;
         try {
-            ResourceUtils.TryLoadImage(this._pathAvatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+            ResourceUtils.TryLoadImageAvatar(this._pathAvatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                 if (pathAvatar == self._pathAvatar && self.node != null && self.node.isValid) {
                     self.spAvatar.spriteFrame = spriteFrame;
                 }

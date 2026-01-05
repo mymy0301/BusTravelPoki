@@ -23,7 +23,8 @@ export class ListOfferET2 extends Component {
     //#region self
     public InitListPack() {
         const dataPack: InfoPackEndlessTreasure[] = DataEndlessTreasureSys.Instance.GetDataPack().filter(pack => !pack.isBought);
-        for (let i = 0; i < 6 && i < dataPack.length; i++) {
+        console.log(dataPack);
+        for (let i = 0; i < 4 && i < dataPack.length; i++) {
             // init pack and set to pos holderPack
             const dataPackSet = dataPack[i];
             const wPosHolderPack = this.listNHolderPack[i].worldPosition;

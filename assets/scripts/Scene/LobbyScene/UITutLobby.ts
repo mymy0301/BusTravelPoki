@@ -14,11 +14,11 @@ const { ccclass, property } = _decorator;
 
 export enum TYPE_TUT_EVENT_LOBBY {
     TUT_SPIN,
-    TUT_INVITE_FRIEND,
-    TUT_SEASON_PASS,
+    // TUT_INVITE_FRIEND,
+    // TUT_SEASON_PASS,
     TUT_LOGIN_REWARD,
     TUT_LEVEL_PASS,
-    TUT_PIGGY_BANK,
+    // TUT_PIGGY_BANK,
     TUT_DASH_RUSH,
     TUT_SPEED_RACE,
     TUT_ENDLESS_TREASURE,
@@ -227,11 +227,11 @@ export class UITutLobby extends Component {
         this._fakeNode.active = true;
 
         switch (typeEvent) {
-            case TYPE_TUT_EVENT_LOBBY.TUT_SEASON_PASS:
-                // đặt anim cho item event
-                this._fakeNode.getComponent(SeasonPassUI).nAnimKey.children[0].getComponent(AnimPrefabsBase).PlayAnim(NameAnimIconHome_Idle.seasonPass, false);
-                // console.log(this._fakeNode.getComponent(SeasonPassUI).nAnimKey.children[0]);
-                break;
+            // case TYPE_TUT_EVENT_LOBBY.TUT_SEASON_PASS:
+            //     // đặt anim cho item event
+            //     this._fakeNode.getComponent(SeasonPassUI).nAnimKey.children[0].getComponent(AnimPrefabsBase).PlayAnim(NameAnimIconHome_Idle.seasonPass, false);
+            //     // console.log(this._fakeNode.getComponent(SeasonPassUI).nAnimKey.children[0]);
+            //     break;
             case TYPE_TUT_EVENT_LOBBY.TUT_LEVEL_PROGRESSION:
                 // đặt anim cho item event
                 this._fakeNode.getComponent(LevelProgressionUI).UpdateSfKey(true);

@@ -122,7 +122,7 @@ export class ItemTournament extends Component {
             this.spAvatar.spriteFrame = this.sfAvatarDefault;
             const self = this;
             try {
-                ResourceUtils.TryLoadImage(this._pathAvatarTop1, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+                ResourceUtils.TryLoadImageAvatar(this._pathAvatarTop1, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                     if (pathAvatar == self._pathAvatarTop1 && self.node != null && self.node.isValid) {
                         self.spAvatar.spriteFrame = spriteFrame;
                     }

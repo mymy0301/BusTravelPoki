@@ -117,7 +117,7 @@ export class UIResultTreasureTrail extends Component {
         this._numCoin = totalPrizePlayerReceive;
         this.lbContent.string = `You are sharing the grand prize\nwith ${listBotRemain.length - 1} other winners!`;
         this.lbReward.string = `x${totalPrizePlayerReceive}`;
-        ResourceUtils.TryLoadImage(infoPlayer.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(infoPlayer.avatar, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (infoPlayer.avatar == pathAvatar && self.node != null && self.node.isValid) {
                 self.spAvatarPlayer.spriteFrame = spriteFrame;
             }

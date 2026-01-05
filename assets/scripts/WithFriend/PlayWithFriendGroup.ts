@@ -30,7 +30,7 @@ export class PlayWithFriendGroup extends Component {
         // console.log("initWithFriendGroup",withFriendDataInfo);
         const self = this;
         this.playerName.string = `${FBInstantManager.Instance.getName()}`;
-        ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+        ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
             if (pathAvatar == MConfigFacebook.Instance.playerPhotoURL && self.playerAvatar != null && self.playerAvatar.isValid) {
                 self.playerAvatar.spriteFrame = spriteFrame;
             }
@@ -53,7 +53,7 @@ export class PlayWithFriendGroup extends Component {
             if(withFriendDataInfo.receiverAvatarURL.length == 0) {
                     
             }else{
-                ResourceUtils.TryLoadImage(withFriendDataInfo.receiverAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+                ResourceUtils.TryLoadImageAvatar(withFriendDataInfo.receiverAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                     if (pathAvatar == withFriendDataInfo.receiverAvatarURL && self.friendAvatar != null && self.friendAvatar.isValid) {
                         self.friendAvatar.spriteFrame = spriteFrame;
                     }
@@ -74,7 +74,7 @@ export class PlayWithFriendGroup extends Component {
             if(withFriendDataInfo.senderAvatarURL.length == 0) {
                     
             }else{
-                ResourceUtils.TryLoadImage(withFriendDataInfo.senderAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
+                ResourceUtils.TryLoadImageAvatar(withFriendDataInfo.senderAvatarURL, (pathAvatar: string, spriteFrame: SpriteFrame) => {
                     if (pathAvatar == withFriendDataInfo.senderAvatarURL && self.friendAvatar != null && self.friendAvatar.isValid) {
                         self.friendAvatar.spriteFrame = spriteFrame;
                     }

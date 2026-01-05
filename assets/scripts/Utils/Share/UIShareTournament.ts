@@ -80,7 +80,7 @@ export class UIShareTournament extends UIShareBase implements IUIShareBase {
         this.spAvatar_top2.spriteFrame = dataShareTour.sfAvatarTop[1];
         this.spAvatar_top3.spriteFrame = dataShareTour.sfAvatarTop[2];
 
-        await ResourceUtils.TryLoadImage(MConfigFacebook.Instance.playerPhotoURL, (path: string, sf: SpriteFrame) => {
+        await ResourceUtils.TryLoadImageAvatar(MConfigFacebook.Instance.playerPhotoURL, (path: string, sf: SpriteFrame) => {
             if (sf != null) {
                 this.spAvatar_player.spriteFrame = sf;
             }
