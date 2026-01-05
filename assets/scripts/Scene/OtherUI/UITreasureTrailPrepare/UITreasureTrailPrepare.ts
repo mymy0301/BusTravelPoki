@@ -39,13 +39,11 @@ export class UITreasureTrailPrepare extends UIBaseSys {
     }
 
     protected onDisable(): void {
-        this.UnRegisterTime();
     }
 
     public async PrepareDataShow(): Promise<void> {
         this.lbContent.string = `Treasure Trail has been started!\nBeat ${CONFIG_TT.LEVEL_PLAY} levels to complete the challenge`;
-        this.UpdateTime();
-        this.RegisterTime();
+        this.lbTime.string = Utils.convertTimeLengthToFormat_ForEvent(CONFIG_TT.TIME_EVENT)
     }
 
     public async UICloseDone(): Promise<void> {
@@ -64,25 +62,6 @@ export class UITreasureTrailPrepare extends UIBaseSys {
     //==========================================
     //#region public
     //#endregion public
-    //==========================================
-
-    //==========================================
-    //#region time
-    private UpdateTime() {
-        let time = -1;
-        time = DataEventsSys.Instance.GetTimeEventWithLoop(TYPE_EVENT_GAME.TREASURE_TRAIL);
-        if (time <= 0) {
-            this.UnRegisterTime();
-            this.lbTime.string = 'FINISHED';
-        } else {
-            const timeString = Utils.convertTimeLengthToFormat_ForEvent(time);
-            this.lbTime.string = timeString;
-        }
-    }
-
-    private UnRegisterTime() { clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateTime, this); }
-    private RegisterTime() { clientEvent.on(EVENT_CLOCK_ON_TICK, this.UpdateTime, this); }
-    //#endregion time
     //==========================================
 
     //==========================================

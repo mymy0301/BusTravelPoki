@@ -411,7 +411,8 @@ export class DataTreasureTrailSys {
         // check is end time of event
         const timeNow: number = Utils.getCurrTime();
         const isEndTimeEvent = PlayerData.Instance.TT_timeEnd <= timeNow;
-        const isEndTimeEventLoop = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1) < 0;
+        // const isEndTimeEventLoop = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1) < 0;
+        const isEndTimeEventLoop = DataTreasureTrailSys.Instance.GetTimeDisplay() < 0;
         if (isEndTimeEvent || isEndTimeEventLoop) {
             clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateTime, this);
             if (this.STATE == STATE_TT.JOINING && PlayerData.Instance.TT_streakPlayer < CONFIG_TT.LEVEL_PLAY && !PlayerData.Instance.TT_isReceivePrizeSummary) {
@@ -424,7 +425,8 @@ export class DataTreasureTrailSys {
         // check is end time of event
         const timeNow: number = Utils.getCurrTime();
         const isEndTimeEventDelay = PlayerData.Instance.TT_timeEnd + CONFIG_TT.TIME_REPEAT_EVENT <= timeNow;
-        const isEndTimeEventLoop = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1) < 0;
+        // const isEndTimeEventLoop = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1) < 0;
+        const isEndTimeEventLoop = DataTreasureTrailSys.Instance.GetTimeDisplay() < 0;
         if (isEndTimeEventDelay || isEndTimeEventLoop) {
             clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateTimeDelay, this);
             if (this.STATE == STATE_TT.DELAY_LOSE) {

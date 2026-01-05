@@ -219,7 +219,8 @@ export class UITreasureTrail extends UIBaseSys {
     }
 
     private UpdateUITime() {
-        const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1);
+        // const time = DataEventsSys.Instance.GetTimeGroupEventRemain(TYPE_EVENT_GAME.TREASURE_TRAIL, 1);
+        const time = DataTreasureTrailSys.Instance.GetTimeDisplay();
         if (this == null || this.lbTime == null) { return; }
         if (time <= 0) {
             // ko lắng nghe sự kiện clock time
