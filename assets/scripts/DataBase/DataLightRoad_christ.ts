@@ -36,10 +36,14 @@ export class DataLightRoad_christ {
         // kiểm tra nếu thời gian từ ngày hiện tại đến hết tháng 4 hàng năm lơn hơn thời gian active thì ta sẽ set theo thời gian active
         // nếu thời gain còn lại đến đến hết tháng 4 hàng năm ít hơn thời gian active thì ta sẽ set là thời gian còn lại của event
         const yearInit = this.GetYearInitEventNow()
-        const timeDayValid = Utils.getTimeByData(1, CONFIG_LR_CHRIST.DATE_VALID_END_EVENT_MONTH, yearInit);
-        const timeNow = Utils.getCurrTime();
-        const timeRemaining = timeDayValid - timeNow < CONFIG_LR_CHRIST.TIME_ACTIVE ? timeDayValid - timeNow : CONFIG_LR_CHRIST.TIME_ACTIVE;
+        // const timeDayValid = Utils.getTimeByData(1, CONFIG_LR_CHRIST.DATE_VALID_END_EVENT_MONTH, yearInit);
+        // const timeNow = Utils.getCurrTime();
+        // const timeRemaining = timeDayValid - timeNow < CONFIG_LR_CHRIST.TIME_ACTIVE ? timeDayValid - timeNow : CONFIG_LR_CHRIST.TIME_ACTIVE;
+        // PlayerData.Instance.XMAX_LR_timeEnd = Utils.getCurrTime() + timeRemaining;
+        
+        const timeRemaining = CONFIG_LR_CHRIST.TIME_ACTIVE;
         PlayerData.Instance.XMAX_LR_timeEnd = Utils.getCurrTime() + timeRemaining;
+        
         PlayerData.Instance.XMAX_LR_progressPlayer_listBoolReceivePrize = new Array(CONFIG_LR_CHRIST.MAX_PRIZE).fill(false);
         PlayerData.Instance.XMAX_LR_year_init = yearInit;
 
@@ -182,10 +186,13 @@ export class DataLightRoad_christ {
     }
 
     public ValidTimeCanReInit(): boolean {
-        const yearCache = PlayerData.Instance.XMAX_LR_year_init
-        if (!this.ValidTimeCanInit()) { return false; }
-        if (yearCache == 0) { return true; }
-        if (yearCache < this.GetYearInitEventNow()) { return true; }
+        const yearCache = PlayerData.Instance.XMAX_LR_year_init;
+        // check year cache để đảm bảo đã từng tạo event rồi nếu không khi user mới chơi sẽ force tạo event liên tục
+        if(yearCache > 0 && this.IsEventEnd()){
+            if (!this.ValidTimeCanInit()) { return false; }
+            if (yearCache == 0) { return true; }
+            if (yearCache <= this.GetYearInitEventNow()) { return true; }
+        }
         return false;
     }
     //#endregion public
