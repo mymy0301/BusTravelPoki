@@ -627,6 +627,9 @@ export class ItemEventSys extends Component {
                     case stateEventDR == STATE_DR.DELAY_WIN:
                         time = -1;
                         break;
+                    case stateEventDR == STATE_DR.WAIT_TO_JOIN:
+                        this.lbTime.string = "Start";
+                        return;
                     default:
                         // time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
                         time = DataDashRush.Instance.GetTimeDisplay();
