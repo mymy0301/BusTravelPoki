@@ -78,11 +78,11 @@ export class LogicTutEventTreasureTrail extends Component {
             DataTreasureTrailSys.Instance.UnlockEventByTut();
             DataEventsSys.Instance.SetPlayedTutorialEvent(TYPE_EVENT_GAME.TREASURE_TRAIL);
             this.nEventName.active = false;
-            if (DataEventsSys.Instance.IsEventShowButLock(TYPE_EVENT_GAME.TREASURE_TRAIL)) {
-                this.nLbStart.active = false;
-            } else {
-                this.nLbStart.active = true;
-            }
+            this.nLbStart.active = true;
+            // if (DataEventsSys.Instance.IsEventShowButLock(TYPE_EVENT_GAME.TREASURE_TRAIL)) {
+            //     this.nLbStart.active = false;
+            // } else {
+            // }
         }
     }
     //#endregion TUT 2
