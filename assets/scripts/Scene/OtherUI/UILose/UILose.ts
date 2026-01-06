@@ -46,16 +46,16 @@ export class UILose extends UIBaseSys {
                 case TYPE_GAME.NORMAL:
                     if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_SHOW_INTER) { 
                         // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { }); 
-                        PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                        // PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
                     }
                     break;
                 case TYPE_GAME.TOURNAMENT:
                     // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
-                    PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    // PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
                     break;
                 case TYPE_GAME.CHRISTMAS:
                     // FBInstantManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
-                    PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
+                    // PokiSDKManager.Instance.Show_InterstitialAdAsync("uilose", (error: Error | null, success: string) => { });
                     break;
 
             }

@@ -12,6 +12,7 @@ import { clientEvent } from '../../../framework/clientEvent';
 import { MConst, TYPE_UI } from '../../../Const/MConst';
 import { IDataUIEventChristmas } from '../UIChristmasEvent/TypeChristmasEvent';
 import { CONFIG_HAT_RACE } from '../UIChristmasEvent/HatRace/TypeHatRace';
+import { PokiSDKManager } from '../../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIWinChristmas')
@@ -102,13 +103,16 @@ export class UIWinChristmas extends UIBaseSys {
         MConfigs.timeClickNextLevel = Date.now();
         LogEventManager.Instance.logButtonClick(`continue`, "UIWinChrist");
 
-        // show UI Event Christmas
-        // gửi kèm 2 node prize => để có thể giữ nguyên chạy anim cho UI mới
-        const dataCustom: IDataUIEventChristmas = {
-            nPrizes: this.listPrizeUIWin._listNItem
-        }
-        clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_CHRISTMAS_EVENT, 1, true, [dataCustom]);
-        clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_WIN_CHIRSTMAS, 1);
+        PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", () => {
+            // show UI Event Christmas
+            // gửi kèm 2 node prize => để có thể giữ nguyên chạy anim cho UI mới
+            const dataCustom: IDataUIEventChristmas = {
+                nPrizes: this.listPrizeUIWin._listNItem
+            }
+            clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_CHRISTMAS_EVENT, 1, true, [dataCustom]);
+            clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_WIN_CHIRSTMAS, 1);
+        });
+        
     }
     //#endregion fun btn
 }

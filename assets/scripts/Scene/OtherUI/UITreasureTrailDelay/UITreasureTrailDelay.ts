@@ -71,13 +71,22 @@ export class UITreasureTrailDelay extends UIBaseSys {
     private UpdateTime() {
         let time = -1;
         const stateEvent = DataTreasureTrailSys.Instance.STATE;
-        const isEventGoingOn = DataEventsSys.Instance.IsEventShowingByLoop(TYPE_EVENT_GAME.TREASURE_TRAIL);
-        switch (true) {
-            case isEventGoingOn && stateEvent == STATE_TT.DELAY_LOSE:
+        // const isEventGoingOn = DataEventsSys.Instance.IsEventShowingByLoop(TYPE_EVENT_GAME.TREASURE_TRAIL);
+        // switch (true) {
+        //     case isEventGoingOn && stateEvent == STATE_TT.DELAY_LOSE:
+        //         time = DataTreasureTrailSys.Instance.GetTimeDisplay_Delay();
+        //         break;
+        //     case (isEventGoingOn && stateEvent == STATE_TT.DELAY_WIN) || !isEventGoingOn:
+        //         time = DataEventsSys.Instance.GetTimeUntilUnlockNextEvent(TYPE_EVENT_GAME.TREASURE_TRAIL);
+        //         break;
+        // }
+
+        switch (stateEvent) {
+            case STATE_TT.DELAY_LOSE:
                 time = DataTreasureTrailSys.Instance.GetTimeDisplay_Delay();
                 break;
-            case (isEventGoingOn && stateEvent == STATE_TT.DELAY_WIN) || !isEventGoingOn:
-                time = DataEventsSys.Instance.GetTimeUntilUnlockNextEvent(TYPE_EVENT_GAME.TREASURE_TRAIL);
+            case STATE_TT.DELAY_WIN:
+                time = DataTreasureTrailSys.Instance.GetTimeDisplay_Delay();
                 break;
         }
 

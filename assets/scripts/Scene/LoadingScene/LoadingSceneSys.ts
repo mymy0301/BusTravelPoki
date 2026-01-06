@@ -759,9 +759,9 @@ export class LoadingSceneSys extends Component {
         //#endregion
 
         // check level player để hiển thị popUpSave data
-        if (GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY) {
-            FBInstantManager.Instance.CreateShortcut();
-        }
+        // if (GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY) {
+        //     FBInstantManager.Instance.CreateShortcut();
+        // }
 
         if (DataInfoPlayer.Instance.currWithFriendDataInfo != null) {
             this.typeSceneMoveTo = TYPE_GAME.WITH_FRIEND;

@@ -33,8 +33,6 @@ export class Shop_ItemCoinAds extends Component {
     @property(CCString) stringColorHexOutlineCoinReceive: string = "#5c5383";
 
     @property(Sprite) icAds: Sprite;
-    @property(SpriteFrame) sfTicket: SpriteFrame;
-    @property(SpriteFrame) sfAds: SpriteFrame;
 
     private _dataPrize: IPrize[] = [new IPrize(TYPE_PRIZE.MONEY, TYPE_RECEIVE.NUMBER, 10)];
 

@@ -23,8 +23,8 @@ enum NAME_ANIM {
 @ccclass('UIUnlockParking')
 export class UIUnlockParking extends UIBaseSys {
     @property(Sprite) icAds: Sprite;
-    @property(SpriteFrame) sfTicket: SpriteFrame;
-    @property(SpriteFrame) sfAds: SpriteFrame;
+    // @property(SpriteFrame) sfTicket: SpriteFrame;
+    // @property(SpriteFrame) sfAds: SpriteFrame;
     @property(Label) lbWatchedAds: Label;
     @property(Label) lbShadowWatchedAds: Label;
     @property(Node) nBtnWatchAds: Node;

@@ -55,11 +55,11 @@ export class UISpeedRace extends UIBaseSys {
     private _isAnimShowingUI: boolean = false;
     private _progressAnim: number = -1;
 
-    private readonly widgetBottomWhenHaveBtn: number = 200;
-    private readonly widgetBottomWhenNoBtn: number = 30;
+    private readonly widgetBottomWhenHaveBtn: number = 150;
+    private readonly widgetBottomWhenNoBtn: number = 150;
 
     private readonly widgetBtmAnchorWhenHaveBtn: number = 0;
-    private readonly widgetBtmAnchorWhenNoBtn: number = 14
+    private readonly widgetBtmAnchorWhenNoBtn: number = 0
 
     //==================================================
     //#region base UI

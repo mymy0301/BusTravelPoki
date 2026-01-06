@@ -1049,6 +1049,7 @@ export class PlayerData {
         if (listData[5] != null && listData[5] != '') { this.DR_cacheOldScore = new Map<string, number>(JSON.parse(listData[5])); }
         if (listData[6] != null && listData[6] != '') { this.DR_timeDelay = parseInt(listData[6]); }
         if (listData[7] != null && listData[7] != '') { this.DR_canInit = readMinimalistBoolean(listData[7]); }
+        console.log("ReadEvent_DashRush",this,this.DR_timeDelay);
     }
     //#endregion DashRush
 
@@ -1242,6 +1243,8 @@ export class PlayerData {
         if (listData[7] != null && listData[7] != '') this.TT_isLose = readMinimalistBoolean(listData[7]);
         if (listData[8] != null && listData[8] != '') this.TT_canInit = readMinimalistBoolean(listData[8]);
         if (listData[9] != null && listData[9] != '') this.TT_numWin = parseInt(listData[9]);
+
+        console.log("ReadEvent_TreasureTrail", this);
     }
     //#endregion Treasure Trail
 

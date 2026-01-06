@@ -27,6 +27,7 @@ export class UIDashRushDelay extends UIBaseSys {
     //==========================================
     //#region base
     public async PrepareDataShow(): Promise<void> {
+        console.log('UIDashRushDelay.PrepareDataShow');
         // content UI
         let content = this.contentDefault;
         const stateEvent = DataDashRush.Instance.GetState();
@@ -72,15 +73,23 @@ export class UIDashRushDelay extends UIBaseSys {
     private UpdateTime() {
         let time = -1;
         const stateEvent = DataDashRush.Instance.GetState();
-        const isEventGoingOn = DataEventsSys.Instance.IsEventShowingByLoop(TYPE_EVENT_GAME.DASH_RUSH);
-        switch (true) {
-            case isEventGoingOn && stateEvent == STATE_DR.DELAY_LOSE:
-                time = DataDashRush.Instance.GetTimeDisplay_Delay();
-                break;
-            case (isEventGoingOn && stateEvent == STATE_DR.DELAY_WIN) || !isEventGoingOn:
-                time = DataEventsSys.Instance.GetTimeUntilUnlockNextEvent(TYPE_EVENT_GAME.DASH_RUSH);
-                break;
+        // const isEventGoingOn = DataEventsSys.Instance.IsEventShowingByLoop(TYPE_EVENT_GAME.DASH_RUSH);
+        // switch (true) {
+        //     case isEventGoingOn && stateEvent == STATE_DR.DELAY_LOSE:
+        //         time = DataDashRush.Instance.GetTimeDisplay_Delay();
+        //         break;
+        //     case (isEventGoingOn && stateEvent == STATE_DR.DELAY_WIN) || !isEventGoingOn:
+        //         // time = DataEventsSys.Instance.GetTimeUntilUnlockNextEvent(TYPE_EVENT_GAME.DASH_RUSH);
+        //         time = DataDashRush.Instance.GetTimeDisplay_Delay();
+        //         break;
+        // }
+
+        console.log('stateEvent', stateEvent);
+        if(stateEvent == STATE_DR.DELAY_WIN || stateEvent == STATE_DR.DELAY_LOSE){
+            time = DataDashRush.Instance.GetTimeDisplay_Delay();
         }
+
+        console.log('UpdateTime', time);
 
         if (time <= 0) {
             this.UnRegisterTime();

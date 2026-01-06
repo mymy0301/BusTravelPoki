@@ -34,8 +34,8 @@ export class UIPopUpBuyItem extends UIBaseSys {
     @property(Node) nBtnWatchAds: Node;
 
     @property(Sprite) spIcAds: Sprite;
-    @property(SpriteFrame) sfAds: SpriteFrame;
-    @property(SpriteFrame) sfTicket: SpriteFrame;
+    // @property(SpriteFrame) sfAds: SpriteFrame;
+    // @property(SpriteFrame) sfTicket: SpriteFrame;
     @property(Label) lbWatchedAds: Label;
     @property(Label) lbShadowWatchedAds: Label;
 

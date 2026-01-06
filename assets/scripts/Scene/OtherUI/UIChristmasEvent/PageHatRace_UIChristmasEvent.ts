@@ -30,8 +30,10 @@ export class PageHatRace_UIChristmasEvent extends PageItem {
     @property(InfoUIBase) infoUIBase: InfoUIBase;
     @property(UIHRListBot) listBot: UIHRListBot;
     @property(HRProgressSys) hrProgressSys: HRProgressSys;
-    @property(BubbleSys) bubbleSys: BubbleSys;
+    @property(BubbleSys) bubbleSys: BubbleSys; 
+    @property(Node) nBtnClose2: Node;
     @property(Node) nBtnClaimPrizeSummery: Node;
+
     // @property(Node) nBtnContinue: Node;
     @property(Label) lbTextBtnClaim: Label;
     @property(Label) lbShadowTextBtnClaim: Label;
@@ -56,11 +58,11 @@ export class PageHatRace_UIChristmasEvent extends PageItem {
     private _isAnimShowingUI: boolean = false;
     private _progressAnim: number = -1;
 
-    private readonly widgetBottomWhenHaveBtn: number = 200;
-    private readonly widgetBottomWhenNoBtn: number = 30;
+    private readonly widgetBottomWhenHaveBtn: number = 150;
+    private readonly widgetBottomWhenNoBtn: number = 150;
 
-    private readonly widgetBtmAnchorWhenHaveBtn: number = 0;
-    private readonly widgetBtmAnchorWhenNoBtn: number = 14
+    private readonly widgetBtmAnchorWhenHaveBtn: number = 30;
+    private readonly widgetBtmAnchorWhenNoBtn: number = 30
 
     private _cbHideSelf: CallableFunction = null;
     private _cbShowSelf: CallableFunction = null;
@@ -132,6 +134,7 @@ export class PageHatRace_UIChristmasEvent extends PageItem {
     //=======================================
     //#region anim
     private PrepareAnim() {
+        this.nBtnClose2.active = false;
         // trong trường hợp user mở đưuọc trang này trong khi vừa thua và chưa xem diễn hoạt thua thì ta sẽ force cho điểm số thua
         if (DataHatRace_christ.Instance.GetIndexOldMutilply() > DataHatRace_christ.Instance.GetIndexMutilply()) {
             DataHatRace_christ.Instance.UpdateIndexMultiply();
@@ -175,6 +178,14 @@ export class PageHatRace_UIChristmasEvent extends PageItem {
         this.listBot.InitData();
 
         this.UpdateWidgetSv();
+
+        if(this.nBtnClaimPrizeSummery.active) {
+            this.nBtnClose2.active = true;
+            this.nBtnClose2.setPosition(new Vec3(-150, -420, 0));
+        }else {
+            this.nBtnClose2.active = true;
+            this.nBtnClose2.setPosition(new Vec3(0, -420, 0));
+        }
     }
 
     private async UpdateWidgetSv() {

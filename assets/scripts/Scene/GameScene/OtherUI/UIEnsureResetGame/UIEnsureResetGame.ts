@@ -149,18 +149,23 @@ export class UIEnsureResetGame extends UIBaseSys {
             case STATE_ANIM.ANIM_PAGE:
                 break;
             case STATE_ANIM.IDLE_LOST_EVENT:
-                switch (GameManager.Instance.TypeGamePlay) {
-                    case TYPE_GAME.CHRISTMAS:
-                        this.pageAreYouSureChrist.SetUp();
-                        this.pageAreYouSureChrist.node.position = Vec3.ZERO.clone();
-                        break;
-                    default:
-                        this.pageAreYouSure.SetUp();
-                        this.pageAreYouSure.node.position = Vec3.ZERO.clone();
-                        break;
-                }
-                this.nPageReplay.position = new Vec3(-this.DIFF_POS_X, 0, 0);
+                this.nPageReplay.position = Vec3.ZERO.clone();
+                this.pageAreYouSure.node.position = new Vec3(this.DIFF_POS_X, 0, 0);
+                this.pageAreYouSureChrist.node.position = new Vec3(this.DIFF_POS_X, 0, 0);
                 break;
+            // case STATE_ANIM.IDLE_LOST_EVENT:
+            //     switch (GameManager.Instance.TypeGamePlay) {
+            //         case TYPE_GAME.CHRISTMAS:
+            //             this.pageAreYouSureChrist.SetUp();
+            //             this.pageAreYouSureChrist.node.position = Vec3.ZERO.clone();
+            //             break;
+            //         default:
+            //             this.pageAreYouSure.SetUp();
+            //             this.pageAreYouSure.node.position = Vec3.ZERO.clone();
+            //             break;
+            //     }
+            //     this.nPageReplay.position = new Vec3(-this.DIFF_POS_X, 0, 0);
+            //     break;
         }
     }
 

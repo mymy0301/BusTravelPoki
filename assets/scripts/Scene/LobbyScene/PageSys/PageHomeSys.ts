@@ -132,11 +132,11 @@ export class PageHomeSys extends PageLobbyBase {
         if (PageHomeSys.Instance == null) return;
 
         //pop up short cut and subcribe bot
-        if (GameManager.Instance.JsonPlayGame.LEVEL > 3 && GameManager.Instance.JsonPlayGame.LEVEL % 3 == 0) {
-            FBInstantManager.Instance.CreateShortcut();
-        } else if (GameManager.Instance.JsonPlayGame.LEVEL >= MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY && GameManager.Instance.JsonPlayGame.LEVEL % MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY == 0) {
-            FBInstantManager.Instance.SubcribeBot();
-        }
+        // if (GameManager.Instance.JsonPlayGame.LEVEL > 3 && GameManager.Instance.JsonPlayGame.LEVEL % 3 == 0) {
+        //     FBInstantManager.Instance.CreateShortcut();
+        // } else if (GameManager.Instance.JsonPlayGame.LEVEL >= MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY && GameManager.Instance.JsonPlayGame.LEVEL % MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY == 0) {
+        //     FBInstantManager.Instance.SubcribeBot();
+        // }
 
         // try update the data player
         DataPackSys.Instance.TryResetAllPackLose(true);

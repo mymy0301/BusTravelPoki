@@ -51,7 +51,7 @@ export class SupCarPolice extends Component {
         const listPathLight: string[] = MConfigResourceUtils.GetListPathLightPolice(directionCar);
 
         MConfigResourceUtils.GetListImgLightPoliceUntilLoad(listPathLight, (path: string[], listSf: SpriteFrame[]) => {
-            if (listPathLight == path) {
+            if (listPathLight == path && this.frameByFrame) {
                 this.frameByFrame.listSf = listSf;
                 this.frameByFrame.ChangeStatePlaying();
             }

@@ -232,7 +232,7 @@ export class DataDashRush {
                     // console.log("🚀🚀", 4)
                     this.UpdateStateEvent(STATE_DR.DELAY_LOSE);
                     break;
-                case PlayerData.Instance.DR_timeDelay == 0 && isPlayerWin:
+                case PlayerData.Instance.DR_timeDelay > 0 && isDelayTime && isPlayerWin:
                     // console.log("🚀🚀", 5)
                     this.UpdateStateEvent(STATE_DR.DELAY_WIN);
                     break;
@@ -472,8 +472,7 @@ export class DataDashRush {
             // chuyển sang wait to join
             // nếu như vẫn đang trong event loop mới có thể chuyển sang
             const stateEventNow = this._stateEvent;
-            if (DataEventsSys.Instance.IsEventShowingByLoop(TYPE_EVENT_GAME.DASH_RUSH)
-                && (stateEventNow == STATE_DR.DELAY_LOSE || stateEventNow == STATE_DR.DELAY_WIN)) {
+            if (stateEventNow == STATE_DR.DELAY_LOSE || stateEventNow == STATE_DR.DELAY_WIN) {
                 this.UpdateStateEvent(STATE_DR.WAIT_TO_JOIN);
             }
 

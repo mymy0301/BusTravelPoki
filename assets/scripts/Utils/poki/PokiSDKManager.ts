@@ -17,12 +17,14 @@ export class PokiSDKManager extends Component {
     }
     
     setGameStart(){
+        console.error("-----------------------------setGameStart");
         if(typeof PokiSDK === 'undefined') return;
         PokiSDK.gameplayStart();
     }
 
     setGameStop(){
-         if(typeof PokiSDK === 'undefined') return;
+        console.error("-----------------------------setGameStop");
+        if(typeof PokiSDK === 'undefined') return;
         PokiSDK.gameplayStop();
     }
 

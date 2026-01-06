@@ -382,9 +382,10 @@ export class ItemEventSys extends Component {
                 }
 
                 const stateEventDR = DataDashRush.Instance.GetState();
+                console.log("stateEventDR", stateEventDR);
                 // case normal
                 switch (true) {
-                    case DataEventsSys.Instance.IsEventShowingByLoop(eventSend) && stateEventDR == STATE_DR.WAIT_TO_JOIN:
+                    case stateEventDR == STATE_DR.WAIT_TO_JOIN:
                         this.lbTime.node.active = false;
                         this.lbNotificationRank.node.active = true;
                         break;
@@ -433,6 +434,8 @@ export class ItemEventSys extends Component {
 
                 // case normal
                 const stateTTNow = DataTreasureTrailSys.Instance.STATE;
+                console.log("stateTTNow", stateTTNow);
+                
                 switch (stateTTNow) {
                     case STATE_TT.JOINING: case STATE_TT.LOSE: case STATE_TT.WIN:
                         this.lbNotificationRank.node.active = false;
@@ -444,9 +447,13 @@ export class ItemEventSys extends Component {
                         }
                         break;
                     case STATE_TT.DELAY_WIN:
-                        this.lbTime.node.active = true;
-                        this.lbTime.string = "FINISHED";
                         this.lbNotificationRank.node.active = false;
+                        clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateUITimeEvent, this);
+                        if (!clientEvent.isOnEvent(EVENT_CLOCK_ON_TICK, this.UpdateUITimeEvent, this)) {
+                            this.UpdateUITimeEvent();
+                            this.lbTime.node.active = true;
+                            clientEvent.on(EVENT_CLOCK_ON_TICK, this.UpdateUITimeEvent, this);
+                        }
                         break;
                     case STATE_TT.DELAY_LOSE:
                         this.lbNotificationRank.node.active = false;
@@ -621,11 +628,11 @@ export class ItemEventSys extends Component {
             case TYPE_EVENT_GAME.DASH_RUSH:
                 const stateEventDR = DataDashRush.Instance.GetState();
                 switch (true) {
-                    case DataEventsSys.Instance.IsEventShowingByLoop(this.typeEvent) && stateEventDR == STATE_DR.DELAY_LOSE:
+                    case stateEventDR == STATE_DR.DELAY_LOSE:
                         time = DataDashRush.Instance.GetTimeDisplay_Delay();
                         break;
                     case stateEventDR == STATE_DR.DELAY_WIN:
-                        time = -1;
+                        time = DataDashRush.Instance.GetTimeDisplay_Delay();
                         break;
                     case stateEventDR == STATE_DR.WAIT_TO_JOIN:
                         this.lbTime.string = "Start";
@@ -644,19 +651,21 @@ export class ItemEventSys extends Component {
                 break;
             case TYPE_EVENT_GAME.TREASURE_TRAIL:
                 const stateEventTT = DataTreasureTrailSys.Instance.STATE;
+                console.log("TYPE_EVENT_GAME.TREASURE_TRAIL", stateEventTT);
                 switch (true) {
-                    case DataEventsSys.Instance.IsEventShowingByLoop(this.typeEvent) && stateEventTT == STATE_TT.DELAY_LOSE:
+                    case stateEventTT == STATE_TT.DELAY_LOSE:
                         time = DataTreasureTrailSys.Instance.GetTimeDisplay_Delay();
                         break;
                     case stateEventTT == STATE_TT.DELAY_WIN:
-                        time = -1;
+                        time = DataTreasureTrailSys.Instance.GetTimeDisplay_Delay();
                         break;
                     default:
                         // time = DataEventsSys.Instance.GetTimeGroupEventRemain(this.typeEvent, 1);
-                        time = DataDashRush.Instance.GetTimeDisplay();
+                        time = DataTreasureTrailSys.Instance.GetTimeDisplay();
                         break;
                 }
 
+                console.log("TREASURE_TRAIL time", time);
                 if (time <= 0) {
                     this.lbTime.string = "FINISHED";
                     clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateUITimeEvent, this);
@@ -755,7 +764,7 @@ export class ItemEventSys extends Component {
     }
 
     public CheckSelfEventIsLockOrNot() {
-        // console.log("check type event ", this.typeEvent, "|", DataEventsSys.Instance.IsLockEvent(this.typeEvent));
+        console.log("check type event ", this.typeEvent, "|", DataEventsSys.Instance.IsLockEvent(this.typeEvent));
 
         const eventSend = this.GetTypeEventEmit(this.typeEvent);
 

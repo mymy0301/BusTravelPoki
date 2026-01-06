@@ -71,7 +71,9 @@ export class LayerPlayerTTPrepare extends Component {
             this._listBot.push(nAvatarPlayer);
             const avaCom = nAvatarPlayer.getComponent(AvatarTT);
             const pathBot = listInfoBot[LIST_POS_AVATAR_UI_TREASURE_TRAIL_PREPARE.length - 1 - index].avatar;
-            avaCom.SetUp(((index == this.numPlayer - 1) ? this.sfBgAvatar_gold : this.sfBgAvatar_red), pathBot);
+            // avaCom.SetUp(((index == this.numPlayer - 1) ? this.sfBgAvatar_gold : this.sfBgAvatar_red), pathBot);
+            //Tất cả đều là bot
+            avaCom.SetUp(this.sfBgAvatar_red, pathBot);
             nAvatarPlayer.parent = this.node;
             nAvatarPlayer.position = posSet;
             if (index == this.numPlayer - 1) {

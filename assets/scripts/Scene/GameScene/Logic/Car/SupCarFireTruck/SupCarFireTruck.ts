@@ -46,7 +46,7 @@ export class SupCarFireTruck extends Component {
         const pathLight = MConfigResourceUtils.GetPathFireTruckLight();
         MConfigResourceUtils.GetImgLightFireTruckUntilLoad(pathLight, (path: string, sf: SpriteFrame) => {
             try {
-                if (path == pathLight) {
+                if (path == pathLight && self != null && self.nLight != null && self.nLight_2 != null) {
                     self.nLight.getComponent(Sprite).spriteFrame = self.nLight_2.getComponent(Sprite).spriteFrame = sf;
                 }
             } catch (e) {

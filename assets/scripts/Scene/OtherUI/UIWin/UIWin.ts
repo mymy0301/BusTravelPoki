@@ -26,8 +26,8 @@ export class UIWin extends UIBaseSys {
     @property(Node) nBtnContinue: Node;
     @property(Node) nBtnShare: Node;
     @property(Sprite) icX2: Sprite;
-    @property(SpriteFrame) sfTicket: SpriteFrame
-    @property(SpriteFrame) sfAds: SpriteFrame
+    // @property(SpriteFrame) sfTicket: SpriteFrame
+    // @property(SpriteFrame) sfAds: SpriteFrame
     @property(Label) lbLevel: Label;
     @property(Label) lbLevelShadow: Label;
     @property(Label) lbCoinCotinue: Label;
@@ -78,7 +78,7 @@ export class UIWin extends UIBaseSys {
         //         this.nBtnClaimx2.active = false;
         //         break;
         // }
-        if (levelPlayer <= MConfigs.LEVEL_CAN_CHANGE_SCENE_TO_LOBBY) {
+        if (levelPlayer <= MConfigs.LEVEL_CAN_SHOW_X2_REWARD) {
             this.nBtnClaimx2.active = false;
         }
 
@@ -131,51 +131,51 @@ export class UIWin extends UIBaseSys {
 
     private async TryShowInter() {
         const self = this;
-        const valid2 = (!MConfigs.isMobile && GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER_PC) || (MConfigs.isMobile);
+        // const valid2 = (!MConfigs.isMobile && GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER_PC) || (MConfigs.isMobile);
 
-        switch (true) {
-            case GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL && GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER && valid2:
-                self._isWatchAdsDone = false;
-                // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
-                //     if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
-                //         // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
-                //         // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
-                //         //     // hiển thị gói no ads
-                //         //     const dataCustom: IUIPopUpRemoveAds = {
-                //         //         isEmitContinue: false
-                //         //     }
-                //         //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_REMOVE_ADS, 1, true, dataCustom);
-                //         // }
-                //     }
-                //     self._isWatchAdsDone = true;
-                // });
+        // switch (true) {
+        //     case GameManager.Instance.TypeGamePlay == TYPE_GAME.NORMAL && GameManager.Instance.levelPlayerNow > MConfigs.LEVEL_CAN_SHOW_INTER && valid2:
+        //         self._isWatchAdsDone = false;
+        //         // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+        //         //     if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
+        //         //         // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
+        //         //         // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
+        //         //         //     // hiển thị gói no ads
+        //         //         //     const dataCustom: IUIPopUpRemoveAds = {
+        //         //         //         isEmitContinue: false
+        //         //         //     }
+        //         //         //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_REMOVE_ADS, 1, true, dataCustom);
+        //         //         // }
+        //         //     }
+        //         //     self._isWatchAdsDone = true;
+        //         // });
 
-                PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
-                    if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
-                        // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
-                        // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
-                        //     // hiển thị gói no ads
-                        //     const dataCustom: IUIPopUpRemoveAds = {
-                        //         isEmitContinue: false
-                        //     }
-                        //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_REMOVE_ADS, 1, true, dataCustom);
-                        // }
-                    }
-                    self._isWatchAdsDone = true;
-                });    
-                break;
-            case (GameManager.Instance.TypeGamePlay == TYPE_GAME.WITH_FRIEND || GameManager.Instance.TypeGamePlay == TYPE_GAME.TOURNAMENT) && valid2:
-                self._isWatchAdsDone = false;
-                // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
-                //     self._isWatchAdsDone = true;
-                // });
+        //         PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+        //             if (GameManager.Instance.levelPlayerNow == MConfigs.LEVEL_CAN_SHOW_INTER) {
+        //                 // // khi win ở level 3 => sẽ tự động hiển thị gói ko mua quảng cáo
+        //                 // if (FBInstantManager.Instance.checkHaveIAPPack_byProductID(MConfigs.IAP_NO_ADS)) {
+        //                 //     // hiển thị gói no ads
+        //                 //     const dataCustom: IUIPopUpRemoveAds = {
+        //                 //         isEmitContinue: false
+        //                 //     }
+        //                 //     clientEvent.dispatchEvent(MConst.EVENT.SHOW_UI, TYPE_UI.UI_POPUP_REMOVE_ADS, 1, true, dataCustom);
+        //                 // }
+        //             }
+        //             self._isWatchAdsDone = true;
+        //         });    
+        //         break;
+        //     case (GameManager.Instance.TypeGamePlay == TYPE_GAME.WITH_FRIEND || GameManager.Instance.TypeGamePlay == TYPE_GAME.TOURNAMENT) && valid2:
+        //         self._isWatchAdsDone = false;
+        //         // FBInstantManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+        //         //     self._isWatchAdsDone = true;
+        //         // });
 
-                PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
-                    self._isWatchAdsDone = true;
-                });
-                break;
-        }
-
+        //         PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+        //             self._isWatchAdsDone = true;
+        //         });
+        //         break;
+        // }
+        self._isWatchAdsDone = true;
         await Utils.WaitReceivingDone(() => self._isWatchAdsDone);
     }
 
@@ -251,13 +251,25 @@ export class UIWin extends UIBaseSys {
     private ContinueNextLevel() {
         // not to worry because we will auto move to next scene in here
         clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_GAME);
+        if (GameManager.Instance.levelPlayerNow >= MConfigs.LEVEL_CAN_SHOW_INTER) {
+            PokiSDKManager.Instance.Show_InterstitialAdAsync("uiwin", (error: Error | null, success: string) => {
+                // send totalCoin and buidling
+                let totalCoin = this.coin + this.plusCoin;
+                let buidling = this.buidling;
 
-        // send totalCoin and buidling
-        let totalCoin = this.coin + this.plusCoin;
-        let buidling = this.buidling;
+                // move to next level 
+                clientEvent.dispatchEvent(MConst.EVENT.NEXT_LEVEL, totalCoin, buidling);
+            });
+        }else{
+            // send totalCoin and buidling
+            let totalCoin = this.coin + this.plusCoin;
+            let buidling = this.buidling;
 
-        // move to next level 
-        clientEvent.dispatchEvent(MConst.EVENT.NEXT_LEVEL, totalCoin, buidling);
+            // move to next level 
+            clientEvent.dispatchEvent(MConst.EVENT.NEXT_LEVEL, totalCoin, buidling);
+        }
+        
+        
     }
 
     //#endregion self

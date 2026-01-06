@@ -43,6 +43,7 @@ import { DataChristmasSys } from '../../DataBase/DataChristmasSys';
 import { DataLightRoad_christ } from '../../DataBase/DataLightRoad_christ';
 import { DataHatRace_christ } from '../../DataBase/DataHatRace_christ';
 import { GetLevelChristGame } from '../OtherUI/UIChristmasEvent/TypeChristmasEvent';
+import { PokiSDKManager } from '../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameSys')
@@ -147,6 +148,7 @@ export class GameSys extends Component {
     }
 
     protected start(): void {
+        PokiSDKManager.Instance.setGameStart();
         this.animOpeningGame.InitPosition();
 
         // you can use this line code below if you want load game when it ready , not wait the anim change screen
@@ -265,9 +267,12 @@ export class GameSys extends Component {
 
         // load map again
         this.ChangeStateGame(STATE_GAME.PREPARE);
+
+        PokiSDKManager.Instance.setGameStart();
     }
 
     private ResumeGame() {
+        PokiSDKManager.Instance.setGameStart();
         clientEvent.dispatchEvent(MConst.EVENT_CAR.CAR_RESUME_COOLDOWN);
         this.ChangeStateGame(STATE_GAME.PLAYING);
         // check lose game
@@ -276,6 +281,7 @@ export class GameSys extends Component {
     }
 
     private PauseGame() {
+        PokiSDKManager.Instance.setGameStop();
         this.ChangeStateGame(STATE_GAME.PAUSE);
     }
 
@@ -335,6 +341,7 @@ export class GameSys extends Component {
         // console.log("check case win game", isNoMorePassenger, isAllPassengerPickedUp, this.listPassengerSys.GetNumPassengerPickedUp(), this.listPassengerSys.GetTotalPassenger());
 
         if (isNoMorePassenger && isAllPassengerPickedUp) {
+            PokiSDKManager.Instance.setGameStop();
             this.ChangeStateGame(STATE_GAME.WIN_GAME);
         }
     }
@@ -767,15 +774,18 @@ export class GameSys extends Component {
     }
 
     private LoseGame(typeLose: TYPE_LOSE_GAME, forceLose: boolean = false) {
+        PokiSDKManager.Instance.setGameStop();
         if (forceLose) {
             this.ChangeStateGame(STATE_GAME.LOSE_GAME, [typeLose]);
             return;
         }
         if (this._stateGame != STATE_GAME.PLAYING) { return; }
         this.ChangeStateGame(STATE_GAME.LOSE_GAME, [typeLose]);
+
     }
 
     private WinGame(forceWin: boolean = false) {
+        PokiSDKManager.Instance.setGameStop();
         if (forceWin) {
             this.ChangeStateGame(STATE_GAME.WIN_GAME);
             return;

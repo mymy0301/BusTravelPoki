@@ -209,6 +209,7 @@ export class DataTreasureTrailSys {
         const isLosing: boolean = PlayerData.Instance.TT_isLose;
         const canReInit: boolean = PlayerData.Instance.TT_canInit;
 
+        console.log("🚀", "isEndTime", isEndTime, "isDelayTime", isDelayTime, "isReceiveReward", isReceiveReward, "streakWinPlayer", streakWinPlayer, "isLosing", isLosing, "canReInit", canReInit);
         switch (true) {
             // case event đang lock <VD chưa unlock>
             case !isEventUnlocked:
@@ -228,14 +229,14 @@ export class DataTreasureTrailSys {
                 // console.log("🚀", 2)
                 break;
             // case event đang delay win
-            case isReceiveReward && !isLosing && !canReInit:
+            case isDelayTime && isReceiveReward && !isLosing && !canReInit:
                 this.UpdateState(STATE_TT.DELAY_WIN);
                 // console.log("🚀", 3)
                 break;
             // case đợi để join
             // kiểm tra đã nhận thưởng thì là đợi join again
             case !isDelayTime && isReceiveReward:
-                this.UpdateState(STATE_TT.WAIT_TO_JOIN);
+                this.ForceWaitToJoin(true);
                 // console.log("🚀", 4)
                 break;
             // case lose
@@ -253,6 +254,8 @@ export class DataTreasureTrailSys {
                 PlayerData.Instance.TT_infoBot = this.InitBots(PlayerData.Instance.TT_listAvatar);
                 break;
         }
+
+        console.log("DataTreasureTrailSys.UpdateStateEventFromLoad", this.STATE);
     }
 
     public GetTimeDisplay(): number {
@@ -430,7 +433,7 @@ export class DataTreasureTrailSys {
         if (isEndTimeEventDelay || isEndTimeEventLoop) {
             clientEvent.off(EVENT_CLOCK_ON_TICK, this.UpdateTimeDelay, this);
             if (this.STATE == STATE_TT.DELAY_LOSE) {
-                this.UpdateState(STATE_TT.WAIT_TO_JOIN);
+                this.ForceWaitToJoin(true);
             }
         }
     }

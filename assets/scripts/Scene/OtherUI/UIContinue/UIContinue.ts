@@ -44,8 +44,8 @@ export class UIContinue extends UIBaseSys {
     // @property(UIContinue_PagePack) pagePack: UIContinue_PagePack;
     @property(Node) nUnlockParking: Node;
     @property(Sprite) spIc: Sprite;
-    @property(SpriteFrame) sfAds: SpriteFrame;
-    @property(SpriteFrame) sfTicket: SpriteFrame;
+    // @property(SpriteFrame) sfAds: SpriteFrame;
+    // @property(SpriteFrame) sfTicket: SpriteFrame;
     @property(Label) lbWatchedAds: Label;
     @property(Label) lbShadowWatchedAds: Label;
     @property(PageAreYourSure) pageAreYouSure: PageAreYourSure;

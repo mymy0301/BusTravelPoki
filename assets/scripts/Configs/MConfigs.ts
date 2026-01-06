@@ -54,7 +54,8 @@ class MConfigs {
 
     // level
     public static readonly LEVEL_CAN_SHOW_UI: number = 3;
-    public static readonly LEVEL_CAN_CHANGE_SCENE_TO_LOBBY: number = 5;
+    public static readonly LEVEL_CAN_CHANGE_SCENE_TO_LOBBY: number = 999999;
+    public static readonly LEVEL_CAN_SHOW_X2_REWARD: number = 3;
     public static readonly MAX_LEVEL_NORMAL: number = 258;    // 258
     public static readonly MIN_LEVEL_LOOP: number = 20;
     public static readonly TIME_LEVEL_HARD: number = 60 * 10;
@@ -336,7 +337,7 @@ class MConfigs {
     public static readonly LEVEL_CAN_RECEIVE_PRIZE_WEEKLY = 8;
 
     public static readonly LEVEL_CAN_SHOW_INTER = 3;
-    public static readonly LEVEL_CAN_SHOW_INTER_PC = 10;
+    public static readonly LEVEL_CAN_SHOW_INTER_PC = 3;
 
 
     //#region FUNC shader
@@ -548,11 +549,15 @@ class MConfigs {
     public static dataBotFriend = [];
     public static getTempListFriends() {
         let tempList = [];
+        let arrTempAvatars: string[] = [];
+        for (let i = 1; i < 24; i++) {
+            arrTempAvatars.push("avatars/"+i);
+        }
 
         for (let i = 0; i < 100; i++) {
             let tempFriend: IDataPlayer_LEADERBOARD = {
                 rank: i + 1,
-                avatar: this.AvatarBot[i % 81],
+                avatar: arrTempAvatars[i % 23 + 1],
                 name: this.NameBot[i],
                 playerId: null,
                 score: 0

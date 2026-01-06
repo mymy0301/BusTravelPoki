@@ -216,7 +216,7 @@ export class ParkingCarSys extends Component {
         await Utils.WaitReceivingDone(() => canRunLogic);
 
         if (this._state == STATE_PARKING_CAR.LOCK_NORMAL && canShowUIUnlockParking) {
-            clientEvent.dispatchEvent(MConst.EVENT.PAUSE_GAME);
+            // clientEvent.dispatchEvent(MConst.EVENT.PAUSE_GAME);
             // get the parking car can unlock
             let wPosParkingCarCanUnlock = null;
             if (this._cbGetWPosParkingCarCanUnlock) {

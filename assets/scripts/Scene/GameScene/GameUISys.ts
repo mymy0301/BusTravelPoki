@@ -28,6 +28,7 @@ import { ResourceUtils } from '../../Utils/ResourceUtils';
 import { UICooldownTimeCar } from './OtherUI/UICooldownTimeCar/UICooldownTimeCar';
 import SupLogEvent from '../../LogEvent/SupLogEvent';
 import { CurrencySys } from '../CurrencySys';
+import { PokiSDKManager } from '../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameUISys')
@@ -508,6 +509,7 @@ export class GameUISys extends UISceneSysBase {
 
     private BtnWinGame(event: CustomEvent) {
         // if (!CheatingSys.Instance.canCheatCode) return;
+        PokiSDKManager.Instance.setGameStop();
         GameSys.Instance.ChangeStateGame(STATE_GAME.WIN_GAME);
     }
 

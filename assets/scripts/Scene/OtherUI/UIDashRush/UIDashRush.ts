@@ -271,6 +271,7 @@ export class UIDashRush extends UIBaseSys {
         // }
 
         // close UI + show Ui prepare
+        DataDashRush.Instance.UpdateTimeDelay();
         DataDashRush.Instance.UpdateStateEvent(STATE_DR.DELAY_WIN);
         clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_DASH_RUSH, 1);
         isContinueLogicPageHome && clientEvent.dispatchEvent(MConst.EVENT.PAGE_HOME_CONTINUE);

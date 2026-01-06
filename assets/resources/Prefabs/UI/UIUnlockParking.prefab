@@ -3596,7 +3596,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "dbdde93b-c362-41c5-b014-cfb1f856b67d@f9941",
+      "__uuid__": "a5b90cd9-b919-4596-91cd-0f28201c87a7@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -3731,7 +3731,7 @@
       "b": 162,
       "a": 255
     },
-    "_string": "Free(1)",
+    "_string": "Free",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 38,
@@ -3893,7 +3893,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Free(1)",
+    "_string": "Free",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 38,
@@ -8812,7 +8812,7 @@
     "_prewarm": false,
     "_capacity": 100,
     "_simulationSpace": 1,
-    "_id": "deLFJOhMpFGoQXmhCYMqi+"
+    "_id": "ebtseGzSdK7ZjIkW0PfXJ1"
   },
   {
     "__type__": "cc.CompPrefabInfo",
@@ -11198,14 +11198,6 @@
     },
     "icAds": {
       "__id__": 153
-    },
-    "sfTicket": {
-      "__uuid__": "6e5179a9-a30f-475c-958d-1920f4ccf417@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
-    "sfAds": {
-      "__uuid__": "dbdde93b-c362-41c5-b014-cfb1f856b67d@f9941",
-      "__expectedType__": "cc.SpriteFrame"
     },
     "lbWatchedAds": {
       "__id__": 165

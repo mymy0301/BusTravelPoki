@@ -189,33 +189,33 @@ export class UIPause extends UIBaseSys {
         LogEventManager.Instance.logButtonClick(`home`, "UIPause");
 
         SoundSys.Instance.playSoundEffectOneShot(GameSoundEffect.CLICK);
-
-        switch (GameManager.Instance.TypeGamePlay) {
-            case TYPE_GAME.NORMAL:
-                // check logic trong PageAreYourSure func CanShowSelf và cóp sang đây
-                const validSR = DataSpeedRace.Instance.GetState == STATE_SPEED_RACE.JOINING && GameManager.Instance.JsonAllTypeGame.SPEED_RACE_CACHE != null && GameManager.Instance.JsonAllTypeGame.SPEED_RACE_CACHE > 0;
-                const validTT = DataTreasureTrailSys.Instance.STATE == STATE_TT.JOINING;
-                const progressNowSL = DataSkyLiftSys.Instance.ProgressNow;
-                const validSL = DataSkyLiftSys.Instance.STATE == STATE_SL.JOINING
-                    && progressNowSL > 0
-                    && !DataSkyLiftSys.Instance.IsIndexIsSavePoint(progressNowSL);
-                if (validSL || validSR || validTT) {
-                    this.logicShowUIQuit();
-                } else {
-                    this.logicBackHome();
-                }
-                break;
-            case TYPE_GAME.CHRISTMAS:
-                if (DataHatRace_christ.Instance.GetIndexMutilply() > 0) {
-                    this.logicShowUIQuitChristmas();
-                } else {
-                    this.logicBackHome();
-                }
-                break;
-            default:
-                this.logicBackHome();
-                break;
-        }
+        this.logicBackHome();
+        // switch (GameManager.Instance.TypeGamePlay) {
+        //     case TYPE_GAME.NORMAL:
+        //         // check logic trong PageAreYourSure func CanShowSelf và cóp sang đây
+        //         const validSR = DataSpeedRace.Instance.GetState == STATE_SPEED_RACE.JOINING && GameManager.Instance.JsonAllTypeGame.SPEED_RACE_CACHE != null && GameManager.Instance.JsonAllTypeGame.SPEED_RACE_CACHE > 0;
+        //         const validTT = DataTreasureTrailSys.Instance.STATE == STATE_TT.JOINING;
+        //         const progressNowSL = DataSkyLiftSys.Instance.ProgressNow;
+        //         const validSL = DataSkyLiftSys.Instance.STATE == STATE_SL.JOINING
+        //             && progressNowSL > 0
+        //             && !DataSkyLiftSys.Instance.IsIndexIsSavePoint(progressNowSL);
+        //         if (validSL || validSR || validTT) {
+        //             this.logicShowUIQuit();
+        //         } else {
+        //             this.logicBackHome();
+        //         }
+        //         break;
+        //     case TYPE_GAME.CHRISTMAS:
+        //         if (DataHatRace_christ.Instance.GetIndexMutilply() > 0) {
+        //             this.logicShowUIQuitChristmas();
+        //         } else {
+        //             this.logicBackHome();
+        //         }
+        //         break;
+        //     default:
+        //         this.logicBackHome();
+        //         break;
+        // }
     }
 
     private async onBtnJoinGroup() {
