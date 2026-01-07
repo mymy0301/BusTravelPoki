@@ -55,6 +55,7 @@ import { DataChristmasSys } from '../../DataBase/DataChristmasSys';
 import { DataLightRoad_christ } from '../../DataBase/DataLightRoad_christ';
 import { DataHatRace_christ } from '../../DataBase/DataHatRace_christ';
 import { GlobalErrorHandler } from '../../BuildGame/Utils/CatchBug';
+import { PokiSDKManager } from '../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoadingSceneSys')
@@ -152,13 +153,13 @@ export class LoadingSceneSys extends Component {
 
         // clientEvent.on(MConst.PLAYFAB_REMOTE_CONFIG_SUCCESS, this.Config_Playfab_Success, this);
         clientEvent.on(MConst.FB_NOT_FOUND_DATA_SAVE, this.CheckCaseNeverPlayGame, this);           // this event will call first fb_ready_load
-        clientEvent.on(MConst.FB_READY_LOAD, this.FBLoadDone, this);                                // this event call after fb not found data save
+        clientEvent.on(MConst.POKI_INIT_SUCCESS, this.FBLoadDone, this);                                // this event call after fb not found data save
     }
 
 
     protected onDisable(): void {
         // clientEvent.off(MConst.PLAYFAB_REMOTE_CONFIG_SUCCESS, this.Config_Playfab_Success, this);
-        clientEvent.off(MConst.FB_READY_LOAD, this.FBLoadDone, this);
+        clientEvent.off(MConst.POKI_INIT_SUCCESS, this.FBLoadDone, this);
         clientEvent.off(MConst.FB_NOT_FOUND_DATA_SAVE, this.CheckCaseNeverPlayGame, this);
     }
 
@@ -204,9 +205,10 @@ export class LoadingSceneSys extends Component {
 
         // #region load local or server base on test server or not
         //==============================================================
-        if (ServerPegasus.Instance.isTest) {
-            PlayerData.Instance.ReadDataLocal();
-        }
+        // if (ServerPegasus.Instance.isTest) {
+        //     PlayerData.Instance.ReadDataLocal();
+        // }
+        PlayerData.Instance.ReadDataLocal();
         //==============================================================
         // #endregion load local or server base on test server or not
 
@@ -282,25 +284,25 @@ export class LoadingSceneSys extends Component {
         });
     }
 
-    private preloadUI() {
-        // console.log("preloadUIpreloadUIpreloadUIpreloadUIpreloadUI");
-        let arrPromises = [];
-        for (let i = 0; i < MConst.PATH.DIRECT_UI.length; i++) {
+    // private preloadUI() {
+    //     // console.log("preloadUIpreloadUIpreloadUIpreloadUIpreloadUI");
+    //     let arrPromises = [];
+    //     for (let i = 0; i < MConst.PATH.DIRECT_UI.length; i++) {
 
-            let typeUI = MConst.PATH.DIRECT_UI[i];
-            // console.log("Start:",typeUI.toString())
-            arrPromises.push(ResourceUtils.loadPrefabUI(MConst.PATH.ROOT_PATH_UI + typeUI, (prefab) => {
-                //    console.log("Finished:",typeUI.toString());                
-            }));
-        }
+    //         let typeUI = MConst.PATH.DIRECT_UI[i];
+    //         // console.log("Start:",typeUI.toString())
+    //         arrPromises.push(ResourceUtils.loadPrefabUI(MConst.PATH.ROOT_PATH_UI + typeUI, (prefab) => {
+    //             //    console.log("Finished:",typeUI.toString());                
+    //         }));
+    //     }
 
-        arrPromises.push(MConfigResourceUtils.PreloadItemBig());
-        arrPromises.push(MConfigResourceUtils.PreloadItemSmall());
+    //     arrPromises.push(MConfigResourceUtils.PreloadItemBig());
+    //     arrPromises.push(MConfigResourceUtils.PreloadItemSmall());
 
-        Promise.all(arrPromises).then((content) => {
-            console.log(content);
-        });
-    }
+    //     Promise.all(arrPromises).then((content) => {
+    //         console.log(content);
+    //     });
+    // }
 
     private preloadScenes() {
         let arrPromises = [];
@@ -562,7 +564,7 @@ export class LoadingSceneSys extends Component {
 
             // =================================================================
             // #region call server
-            this.RunServer();
+            // this.RunServer();
             // #endregion call server
             // ================================================================
 
@@ -604,70 +606,70 @@ export class LoadingSceneSys extends Component {
     // #region func check context
     typeSceneMoveTo: TYPE_GAME = null;
     private async CheckCurrentContextTournament() {
-        if (FBInstantManager.Instance.tournamentID == "" || FBInstantManager.Instance.tournamentID == null) {
-            MConsolLog.Log("case not join from tournament");
-        } else {
-            // console.log("check tournament ID", FBInstantManager.Instance.tournamentID);
+        // if (FBInstantManager.Instance.tournamentID == "" || FBInstantManager.Instance.tournamentID == null) {
+        //     MConsolLog.Log("case not join from tournament");
+        // } else {
+        //     // console.log("check tournament ID", FBInstantManager.Instance.tournamentID);
 
-            let tournamentJoined: IDataTourFromServer = DataLeaderboardSys.Instance.GetTournamentDataJsonContinuing(FBInstantManager.Instance.tournamentID);
+        //     let tournamentJoined: IDataTourFromServer = DataLeaderboardSys.Instance.GetTournamentDataJsonContinuing(FBInstantManager.Instance.tournamentID);
 
-            this.typeSceneMoveTo = TYPE_GAME.NORMAL;
+        //     this.typeSceneMoveTo = TYPE_GAME.NORMAL;
 
-            // just only check case tour of system
-            if (tournamentJoined != null) {
-                // case join tournament game
-                // MConsolLog.Log("case join from tournament game");
+        //     // just only check case tour of system
+        //     if (tournamentJoined != null) {
+        //         // case join tournament game
+        //         // MConsolLog.Log("case join from tournament game");
 
-                // console.log("check in case pass tournament", tournamentJoined);
+        //         // console.log("check in case pass tournament", tournamentJoined);
 
-                // await call leaderboard to get data
-                let dataTournamentJoined: IDataLeaderboardByContextIds = await ServerPegasus.Instance.GetLeaderboardByContextIds([tournamentJoined.contextID]);
-                if (dataTournamentJoined != null && dataTournamentJoined.success && dataTournamentJoined.data != null) { }
-                const result: IInfoLeaderboardByContextId = dataTournamentJoined.data[0];
-                const jsonData = JSON.parse(result.data);
-                const listPrize = [];
-                for (let i = 0; i < jsonData.rewards.length; i++) {
-                    const element = jsonData.rewards[i];
-                    let listPrizeCheck = ReadJsonOptimized(element);
-                    listPrize.push(listPrizeCheck);
-                }
-                console.warn("check result from server", result, jsonData, listPrize);
+        //         // await call leaderboard to get data
+        //         let dataTournamentJoined: IDataLeaderboardByContextIds = await ServerPegasus.Instance.GetLeaderboardByContextIds([tournamentJoined.contextID]);
+        //         if (dataTournamentJoined != null && dataTournamentJoined.success && dataTournamentJoined.data != null) { }
+        //         const result: IInfoLeaderboardByContextId = dataTournamentJoined.data[0];
+        //         const jsonData = JSON.parse(result.data);
+        //         const listPrize = [];
+        //         for (let i = 0; i < jsonData.rewards.length; i++) {
+        //             const element = jsonData.rewards[i];
+        //             let listPrizeCheck = ReadJsonOptimized(element);
+        //             listPrize.push(listPrizeCheck);
+        //         }
+        //         console.warn("check result from server", result, jsonData, listPrize);
 
 
-                // set config for that tournament
-                this._jsonTourManager = new JSON_GAME_MANAGER_TOUR();
-                this._jsonTourManager.id_leaderboard = result._id;
-                this._jsonTourManager.context_tournament = result.contextId;
-                this._jsonTourManager.tournament_id = result.tournamentId;
-                this._jsonTourManager.name_leaderboard = result.name;
-                this._jsonTourManager.levels = jsonData.levels;
-                this._jsonTourManager.rewards = listPrize;
+        //         // set config for that tournament
+        //         this._jsonTourManager = new JSON_GAME_MANAGER_TOUR();
+        //         this._jsonTourManager.id_leaderboard = result._id;
+        //         this._jsonTourManager.context_tournament = result.contextId;
+        //         this._jsonTourManager.tournament_id = result.tournamentId;
+        //         this._jsonTourManager.name_leaderboard = result.name;
+        //         this._jsonTourManager.levels = jsonData.levels;
+        //         this._jsonTourManager.rewards = listPrize;
 
-                this.typeSceneMoveTo = TYPE_GAME.TOURNAMENT;
-                // console.log("check in case pass tournament", this.typeSceneMoveTo);
-            }
-        }
+        //         this.typeSceneMoveTo = TYPE_GAME.TOURNAMENT;
+        //         // console.log("check in case pass tournament", this.typeSceneMoveTo);
+        //     }
+        // }
 
-        this.checkTournamentDone = true;
-        this.MoveToNextScene();
+        // this.checkTournamentDone = true;
+        // this.MoveToNextScene();
     }
 
     private async CheckCurrentContextPlayWithFriend() {
-        const dataCheckFromMessage = FBInstantManager.Instance.getEntryPointData();
+        // const dataCheckFromMessage = FBInstantManager.Instance.getEntryPointData();
 
-        if (dataCheckFromMessage != null) {
-            try {
+        // if (dataCheckFromMessage != null) {
+        //     try {
 
-            } catch (e) {
-                // MConsolLog.Error(e);
-                MConsolLog.Log("case not join from friend");
-            }
-        } else {
-            MConsolLog.Log("case not join from friend");
-        }
+        //     } catch (e) {
+        //         // MConsolLog.Error(e);
+        //         MConsolLog.Log("case not join from friend");
+        //     }
+        // } else {
+        //     MConsolLog.Log("case not join from friend");
+        // }
 
-        this.checkPlayWithFriendDone = true;
-        this.MoveToNextScene();
+        // this.checkPlayWithFriendDone = true;
+        // this.MoveToNextScene();
     }
     // #endregion func check context
 
@@ -693,6 +695,7 @@ export class LoadingSceneSys extends Component {
 
         if (this._canInvokeMoveToNextScene) { this._canInvokeMoveToNextScene = false; }
 
+        PokiSDKManager.Instance.setGameLoadingFinished();
         // load bundle
         const indexMapNow = DataBuildingSys.Instance.GetIndexMapNow();
         MConfigResourceUtils.LoadMapBgGame(indexMapNow, 'Normal');
@@ -815,25 +818,25 @@ export class LoadingSceneSys extends Component {
 
     //#region FUNC SERVER
     private async RunServer() {
-        ServerPegasus.Instance.SetUp(MConfigFacebook.Instance.playerID);
-        // call leaderboard tour is running
-        await DataLeaderboardSys.Instance.GetDataGameServer();
-        this.CheckCurrentContextTournament();
+        // ServerPegasus.Instance.SetUp(MConfigFacebook.Instance.playerID);
+        // // call leaderboard tour is running
+        // await DataLeaderboardSys.Instance.GetDataGameServer();
+        // // this.CheckCurrentContextTournament();
 
-        (async () => {
-            // just call in init player only for new player
-            // if (GameManager.Instance.IsNewPlayer || !PlayerData.Instance._isJoinedServer) {
-            let result = await ServerPegasus.Instance.InitPlayerInfo(MConfigFacebook.Instance.playerID,
-                MConfigFacebook.Instance.playerName, MConfigFacebook.Instance.playerPhotoURL,
-                MConfigFacebook.Instance.asId, PlayerData.Instance._levelPlayer > 0 ? PlayerData.Instance._levelPlayer : 1);
-            // MConsolLog.Warn("Init player result: ", result == null ? null : result.valueOf());
-            // call leaderboard
-            DataLeaderboardSys.Instance.CallGetLeaderboardWeekly_Global();
-            // get pre weekly
-            DataWeeklySys.Instance.UpdateDirtyData();
-        })();
+        // (async () => {
+        //     // just call in init player only for new player
+        //     // if (GameManager.Instance.IsNewPlayer || !PlayerData.Instance._isJoinedServer) {
+        //     let result = await ServerPegasus.Instance.InitPlayerInfo(MConfigFacebook.Instance.playerID,
+        //         MConfigFacebook.Instance.playerName, MConfigFacebook.Instance.playerPhotoURL,
+        //         MConfigFacebook.Instance.asId, PlayerData.Instance._levelPlayer > 0 ? PlayerData.Instance._levelPlayer : 1);
+        //     // MConsolLog.Warn("Init player result: ", result == null ? null : result.valueOf());
+        //     // call leaderboard
+        //     DataLeaderboardSys.Instance.CallGetLeaderboardWeekly_Global();
+        //     // get pre weekly
+        //     DataWeeklySys.Instance.UpdateDirtyData();
+        // })();
 
-        DataLeaderboardSys.Instance.CallGetLeaderboardTournaments();
+        // DataLeaderboardSys.Instance.CallGetLeaderboardTournaments();
     }
     //#endregion FUNC SERVER
 }

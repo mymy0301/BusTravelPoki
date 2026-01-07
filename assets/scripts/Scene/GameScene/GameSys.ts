@@ -148,7 +148,9 @@ export class GameSys extends Component {
     }
 
     protected start(): void {
-        PokiSDKManager.Instance.setGameStart();
+        if(PokiSDKManager.Instance.isFirstUserInteraction){
+            PokiSDKManager.Instance.setGameStart();
+        }
         this.animOpeningGame.InitPosition();
 
         // you can use this line code below if you want load game when it ready , not wait the anim change screen
@@ -495,7 +497,7 @@ export class GameSys extends Component {
                 break;
             case STATE_GAME.PLAYING:
                 // preload all ui need  
-                GameUISys.Instance.PreloadAllUINeed();
+                // GameUISys.Instance.PreloadAllUINeed();
 
                 // this.groundCarSys.TryStartTimeAllCars();
                 this.groundCarSys.TryCallTimeCooldown();

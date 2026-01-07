@@ -4,6 +4,7 @@ import { MConst } from '../../Const/MConst';
 import { SoundSys } from '../../Common/SoundSys';
 import { GameSoundEffect, STATE_GAME } from '../../Utils/Types';
 import { GameSys } from './GameSys';
+import { PokiSDKManager } from '../../Utils/poki/PokiSDKManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('ClickEffect')
@@ -30,6 +31,10 @@ export class ClickEffect extends Component {
 
     private onTouchInputStart(touch: EventTouch) {
         if (this.isGame) {
+            if(!PokiSDKManager.Instance.isFirstUserInteraction){
+                PokiSDKManager.Instance.isFirstUserInteraction = true;
+                PokiSDKManager.Instance.setGameStart();
+            }
             const stateGameNow = GameSys.Instance.GetStateGame();
             // console.log("stateGameNow", stateGameNow);
             

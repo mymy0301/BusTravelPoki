@@ -273,18 +273,18 @@ export class GameUISys extends UISceneSysBase {
                 break;
         }
 
-        clientEvent.dispatchEvent(MConst.EVENT.PRELOAD_UI_QUEUE, [
-            TYPE_UI.UI_TUTORIAL_IN_GAME,
-            TYPE_UI.UI_ENSURE_RESET_GAME,
-            TYPE_UI.UI_PAUSE,
-            TYPE_UI.UI_LOSE,
-            TYPE_UI.UI_UNLOCK_PARKING,
-            TYPE_UI.UI_CONTINUE,
-            TYPE_UI.UI_POPUP_BUY_ITEM,
-            TYPE_UI.UI_POPUP_REMOVE_ADS,
-            TYPE_UI.UI_SHOP,
-            ...listTypeUISuitTypeGame
-        ]);
+        // clientEvent.dispatchEvent(MConst.EVENT.PRELOAD_UI_QUEUE, [
+        //     TYPE_UI.UI_TUTORIAL_IN_GAME,
+        //     TYPE_UI.UI_ENSURE_RESET_GAME,
+        //     TYPE_UI.UI_PAUSE,
+        //     TYPE_UI.UI_LOSE,
+        //     TYPE_UI.UI_UNLOCK_PARKING,
+        //     TYPE_UI.UI_CONTINUE,
+        //     TYPE_UI.UI_POPUP_BUY_ITEM,
+        //     TYPE_UI.UI_POPUP_REMOVE_ADS,
+        //     TYPE_UI.UI_SHOP,
+        //     ...listTypeUISuitTypeGame
+        // ]);
     }
     //#endregion self func
     //=======================================================================

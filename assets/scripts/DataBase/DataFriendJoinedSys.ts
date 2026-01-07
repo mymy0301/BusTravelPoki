@@ -57,11 +57,13 @@ export class DataFriendJoinedSys {
     }
 
     public GetNumberFriendNow(): number {
-        if (CheatingSys.Instance.IsAutoResetDataInviteFriend) {
-            return CheatingSys.Instance.numFriendHave;
-        }
-        let numPlayerJoined = DataLeaderboardSys.Instance.GetNumFriend();
-        return numPlayerJoined;
+        // if (CheatingSys.Instance.IsAutoResetDataInviteFriend) {
+        //     return CheatingSys.Instance.numFriendHave;
+        // }
+        // let numPlayerJoined = DataLeaderboardSys.Instance.GetNumFriend();
+        // return numPlayerJoined;
+
+        return 0;
     }
 
     public GetNumberFriendLocal(): number {

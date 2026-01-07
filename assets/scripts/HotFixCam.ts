@@ -26,10 +26,10 @@ export class HotFixCam extends Component {
     }
 
     updateCameraOrthoHeight(): void {
-        if (!MConfigs.isMobile) {
-            if (this.camera) {
-                this.camera.orthoHeight = 640;
-            }
-        }
+        // if (!MConfigs.isMobile) {
+        //     if (this.camera) {
+        //         this.camera.orthoHeight = 640;
+        //     }
+        // }
     }
 }

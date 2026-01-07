@@ -72,36 +72,36 @@ export class UILobbySys extends UISceneSysBase {
             });
 
             //preload UI
-            clientEvent.dispatchEvent(MConst.EVENT.PRELOAD_UI_QUEUE, [
-                TYPE_UI.UI_SPIN,
-                TYPE_UI.UI_SETTING,
-                TYPE_UI.UI_PACK_STARTER,
-                TYPE_UI.UI_PACK_GREATE_DEALS_1,
-                TYPE_UI.UI_PACK_GREATE_DEALS_2,
-                TYPE_UI.UI_INVITE_FRIEND,
-                TYPE_UI.UI_SEASON_PASS,
-                TYPE_UI.UI_LOGIN_REWARD,
-                // TYPE_UI.UI_POPUP_BUY_LEVEL_PASS,
-                // TYPE_UI.UI_POPUP_BUY_SEASON_PASS,
-                TYPE_UI.UI_LEVEL_PASS,
-                TYPE_UI.UI_RANK,
-                TYPE_UI.UI_TOURNAMENT,
-                TYPE_UI.UI_RANK_TOURNAMENT,
-                TYPE_UI.UI_CUSTOM_INVITE,
-                TYPE_UI.UI_TUTOIRAL_IN_LOBBY,
-                TYPE_UI.UI_WIN_WITHFRIEND,
-                TYPE_UI.UI_FRIENDS,
-                TYPE_UI.UI_PIGGY_BANK,
-                TYPE_UI.UI_DASH_RUSH,
-                TYPE_UI.UI_DASH_RUSH_PREPARE,
-                TYPE_UI.UI_INFO_PLAYER,
-                TYPE_UI.UI_LEVEL_PROGRESSION,
-                TYPE_UI.UI_ENLESSTREASURE,
-                TYPE_UI.UI_SPEED_RACE_PREPARE,
-                TYPE_UI.UI_SPEED_RACE,
-                TYPE_UI.UI_SKY_LIFT_DELAY,
-                TYPE_UI.UI_SKY_LIFT
-            ]);
+            // clientEvent.dispatchEvent(MConst.EVENT.PRELOAD_UI_QUEUE, [
+            //     TYPE_UI.UI_SPIN,
+            //     TYPE_UI.UI_SETTING,
+            //     TYPE_UI.UI_PACK_STARTER,
+            //     TYPE_UI.UI_PACK_GREATE_DEALS_1,
+            //     TYPE_UI.UI_PACK_GREATE_DEALS_2,
+            //     TYPE_UI.UI_INVITE_FRIEND,
+            //     TYPE_UI.UI_SEASON_PASS,
+            //     TYPE_UI.UI_LOGIN_REWARD,
+            //     // TYPE_UI.UI_POPUP_BUY_LEVEL_PASS,
+            //     // TYPE_UI.UI_POPUP_BUY_SEASON_PASS,
+            //     TYPE_UI.UI_LEVEL_PASS,
+            //     TYPE_UI.UI_RANK,
+            //     TYPE_UI.UI_TOURNAMENT,
+            //     TYPE_UI.UI_RANK_TOURNAMENT,
+            //     TYPE_UI.UI_CUSTOM_INVITE,
+            //     TYPE_UI.UI_TUTOIRAL_IN_LOBBY,
+            //     TYPE_UI.UI_WIN_WITHFRIEND,
+            //     TYPE_UI.UI_FRIENDS,
+            //     TYPE_UI.UI_PIGGY_BANK,
+            //     TYPE_UI.UI_DASH_RUSH,
+            //     TYPE_UI.UI_DASH_RUSH_PREPARE,
+            //     TYPE_UI.UI_INFO_PLAYER,
+            //     TYPE_UI.UI_LEVEL_PROGRESSION,
+            //     TYPE_UI.UI_ENLESSTREASURE,
+            //     TYPE_UI.UI_SPEED_RACE_PREPARE,
+            //     TYPE_UI.UI_SPEED_RACE,
+            //     TYPE_UI.UI_SKY_LIFT_DELAY,
+            //     TYPE_UI.UI_SKY_LIFT
+            // ]);
 
             MConfigs.wasPreloadUIHome = true;
         }

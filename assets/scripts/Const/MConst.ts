@@ -4,11 +4,11 @@ const { ccclass, property } = _decorator;
 @ccclass('MConst')
 export class MConst {
     //#region Facebook
-    public static FB_GAME_ID = "927009789420421";
+    public static FB_GAME_ID = "";
 
-    public static FB_BANNER_PLACEMENT_ID = "927009789420421_932543738867026";
-    public static FB_INTERSTITIAL_PLACEMENT_ID = "927009789420421_932543768867023";
-    public static FB_REWARDED_PLACEMENT_ID = "927009789420421_932543875533679";
+    public static FB_BANNER_PLACEMENT_ID = "";
+    public static FB_INTERSTITIAL_PLACEMENT_ID = "";
+    public static FB_REWARDED_PLACEMENT_ID = "";
 
     public static SHOW_LOADING_AD_POPUP = "SHOW_LOADING_AD_POPUP";
     public static FB_INTERSTITIAL_CALLBACK_SUCCESS = "FB_INTERSTITIAL_CALLBACK_SUCCESS";
@@ -27,26 +27,28 @@ export class MConst {
     public static FB_UPDATE_DATA_PLAYER = "FB_UPDATE_DATA_PLAYER";
     public static FB_GET_ASID_DONE = "FB_GET_ASID_DONE";
 
+    public static POKI_INIT_SUCCESS = "POKI_INIT_SUCCESS";
+
     public static FB_PLAY_WITH_FRIEND = {
         SUCCESS: "FB_PLAY_WITH_FRIEND_SUCCESS",
         SAME_CONTEXT: "FB_PLAY_WITH_FRIEND_SAME_CONTEXT",
         FAILED: "FB_PLAY_WITH_FRIEND_FAILED",
     };
 
-    public static GAME_NAME_TITLE = "Bus Travel"; // NOTE you need to fix this name when public real facebook
+    public static GAME_NAME_TITLE = "Bus Travel Poki"; // NOTE you need to fix this name when public real facebook
     //#endregion
 
     //#region SERVER
     public static INFO_TEST_PLAYER = {
-        signature: "3jr5v6SbTSY0wLKfMznlng3m3JYgbOa5wCOpcnWQyPU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTcyOTIxNzIwNCwicGxheWVyX2lkIjoiNzc3MDE4NzcxOTc0NTk2OSIsInJlcXVlc3RfcGF5bG9hZCI6Im1ldGFkYXRhIn0",
-        playerId: "7770187719745969",
-        name: "Bibibla",
-        avatar: "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=122147824436251097&gaming_photo_type=unified_picture&ext=1729907548&hash=AbZdpZCUmvlahGzRKZQlGice",
-        asid: "122147824436251097"
+        signature: "",
+        playerId: "",
+        name: "",
+        avatar: "",
+        asid: ""
     }
 
-    public static readonly URL_SERVER = "https://playinstant.playgameo.com/api";
-    public static SERVER_GAME_ID = "67b29a45b175796f7e599a83";
+    public static readonly URL_SERVER = "";
+    public static SERVER_GAME_ID = "";
 
     public static readonly TOURNAMENT_GETTOPPLAYERS_UPDATE = "tournament_getTopPlayers_update";
 

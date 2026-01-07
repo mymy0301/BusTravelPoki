@@ -23,9 +23,9 @@ export class UISceneSysBase extends Component {
         clientEvent.on(MConst.EVENT.CLOSE_ALL_UI_SHOWING, this.CloseAllUIShowing, this);
         clientEvent.on(MConst.EVENT.SHOW_UI_SPECIAL, this.ShowUISpecial, this);
         clientEvent.on(MConst.EVENT.CLOSE_UI, this.CloseUI, this);
-        clientEvent.on(MConst.EVENT.PRE_INIT_UI, this.PreInitUI, this);
-        clientEvent.on(MConst.EVENT.PRELOAD_UI, this.PreloadUI, this);
-        clientEvent.on(MConst.EVENT.PRELOAD_UI_QUEUE, this.PreloadUIQueue, this);
+        // clientEvent.on(MConst.EVENT.PRE_INIT_UI, this.PreInitUI, this);
+        // clientEvent.on(MConst.EVENT.PRELOAD_UI, this.PreloadUI, this);
+        // clientEvent.on(MConst.EVENT.PRELOAD_UI_QUEUE, this.PreloadUIQueue, this);
         clientEvent.on(MConst.EVENT.SET_INDEX, this.SetSiblingIndex, this);
         clientEvent.on(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, this.CloseUIWithoutTurnOffShadow, this);
         this.MOnEnable();
@@ -40,9 +40,9 @@ export class UISceneSysBase extends Component {
         clientEvent.off(MConst.EVENT.SHOW_UI_SPECIAL, this.ShowUISpecial, this);
         clientEvent.off(MConst.EVENT.CLOSE_ALL_UI_SHOWING, this.CloseAllUIShowing, this);
         clientEvent.off(MConst.EVENT.CLOSE_UI, this.CloseUI, this);
-        clientEvent.off(MConst.EVENT.PRE_INIT_UI, this.PreInitUI, this);
-        clientEvent.off(MConst.EVENT.PRELOAD_UI, this.PreloadUI, this);
-        clientEvent.off(MConst.EVENT.PRELOAD_UI_QUEUE, this.PreloadUIQueue, this);
+        // clientEvent.off(MConst.EVENT.PRE_INIT_UI, this.PreInitUI, this);
+        // clientEvent.off(MConst.EVENT.PRELOAD_UI, this.PreloadUI, this);
+        // clientEvent.off(MConst.EVENT.PRELOAD_UI_QUEUE, this.PreloadUIQueue, this);
         clientEvent.off(MConst.EVENT.SET_INDEX, this.SetSiblingIndex, this);
         clientEvent.off(MConst.EVENT.CLOSE_UI_WITHOUT_TURN_OFF_SHADOW, this.CloseUIWithoutTurnOffShadow, this);
         this.MOnDisable();
@@ -195,44 +195,45 @@ export class UISceneSysBase extends Component {
     private _queuePreloadUI: TYPE_UI[] = [];
     private _isLoadingQueue: boolean = false;
     protected async PreloadUIQueue(listTypeUI: TYPE_UI[]) {
-        const self = this;
+        console.log("PreloadUIQueuePreloadUIQueuePreloadUIQueuePreloadUIQueuePreloadUIQueue");
+        // const self = this;
 
-        listTypeUI.forEach(uiPreload => {
-            // no preload if it already load
-            if (this.listUI[uiPreload] == null) {
-                this._queuePreloadUI.push(uiPreload);
-            }
-        })
+        // listTypeUI.forEach(uiPreload => {
+        //     // no preload if it already load
+        //     if (this.listUI[uiPreload] == null) {
+        //         this._queuePreloadUI.push(uiPreload);
+        //     }
+        // })
 
-        // check is loading queue => if not preload => load with the loop
-        if (!this._isLoadingQueue) {
-            this._isLoadingQueue = true;
-            async function preLoadUI(typeUIPreload: TYPE_UI) {
-                return new Promise<void>(resolve => {
-                    resources.preload(MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload], Prefab, (err, prefab) => {
-                        resources.load(MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload], Prefab, (err, prefab) => {
-                            MConfigs.list_prefab_preloal[typeUIPreload] = prefab;
-                            // console.log("PreloadUIQueue FINISHED", MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload]);
-                            resolve();
-                        })
-                        resolve()
-                    });
-                })
-            }
+        // // check is loading queue => if not preload => load with the loop
+        // if (!this._isLoadingQueue) {
+        //     this._isLoadingQueue = true;
+        //     async function preLoadUI(typeUIPreload: TYPE_UI) {
+        //         return new Promise<void>(resolve => {
+        //             resources.preload(MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload], Prefab, (err, prefab) => {
+        //                 resources.load(MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload], Prefab, (err, prefab) => {
+        //                     MConfigs.list_prefab_preloal[typeUIPreload] = prefab;
+        //                     // console.log("PreloadUIQueue FINISHED", MConst.PATH.ROOT_PATH_UI + MConst.PATH.DIRECT_UI[typeUIPreload]);
+        //                     resolve();
+        //                 })
+        //                 resolve()
+        //             });
+        //         })
+        //     }
 
-            // loop until queue is empty or this was destroy
-            while (this._queuePreloadUI.length > 0 && this.node != null) {
-                let typeUILoad = this._queuePreloadUI.shift();
-                await preLoadUI(typeUILoad);
-                if (this.node == null || this.node == undefined) {
-                    return;
-                }
-            }
+        //     // loop until queue is empty or this was destroy
+        //     while (this._queuePreloadUI.length > 0 && this.node != null) {
+        //         let typeUILoad = this._queuePreloadUI.shift();
+        //         await preLoadUI(typeUILoad);
+        //         if (this.node == null || this.node == undefined) {
+        //             return;
+        //         }
+        //     }
 
-            if (this.node != null) {
-                this._isLoadingQueue = false;
-            }
-        }
+        //     if (this.node != null) {
+        //         this._isLoadingQueue = false;
+        //     }
+        // }
     }
     //#endregion queue preload UI
 

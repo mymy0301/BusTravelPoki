@@ -9,6 +9,7 @@ export class GameElasticSys {
     public elasticGame() {
         // cacul the width and height of scene and choice what type to elastic 
         let sizeScene: Size = Utils.getSizeWindow();
+        console.log("sizeScene", sizeScene, "isMobile", MConfigs.isMobile);
         if(MConfigs.isMobile){
             View.instance.setDesignResolutionSize(sizeScene.width , sizeScene.height , 3);
         }else{

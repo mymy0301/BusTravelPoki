@@ -4,6 +4,8 @@ import { MConfigFacebook } from '../../Configs/MConfigFacebook';
 import { SoundSys } from '../../Common/SoundSys';
 import { clientEvent } from '../../framework/clientEvent';
 import { MConst } from '../../Const/MConst';
+import { MConfigs } from '../../Configs/MConfigs';
+import { Utils } from '../Utils';
 const { ccclass, property } = _decorator;
 
 @ccclass('PokiSDKManager')
@@ -14,8 +16,45 @@ export class PokiSDKManager extends Component {
             PokiSDKManager.Instance = this;
         }
         director.addPersistRootNode(this.node);
+
+        if (window.mobileCheck() == 1) {
+            MConfigs.isMobile = true;
+        } else {
+            MConfigs.isMobile = false;
+            if (!Utils.checkIsDesktopSize()) {
+                MConfigs.isMobile = true;
+                console.log("isMobile", MConfigs.isMobile);
+            }
+        }
     }
-    
+
+    isInitializeAsync = false;
+    update (deltaTime: number) {
+        if(typeof PokiSDK === 'undefined') return;
+        if (!this.isInitializeAsync) {
+            ////console.log("isInitializeAsync:" + this.isInitializeAsync);
+            // [4]
+            if (window["phase"] === "poki_init_success") {
+                this.isInitializeAsync = true;
+                ////console.log("isInitializeAsync:" + this.isInitializeAsync);
+
+                clientEvent.dispatchEvent(MConst.POKI_INIT_SUCCESS);
+            }
+        }
+    }
+
+    protected start(): void {
+        // clientEvent.dispatchEvent(MConst.POKI_INIT_SUCCESS);
+    }
+
+
+    setGameLoadingFinished(){
+        console.error("-----------------------------gameLoadingFinished");
+        if(typeof PokiSDK === 'undefined') return;
+        PokiSDK.gameLoadingFinished();
+    }
+
+    isFirstUserInteraction:boolean = false;
     setGameStart(){
         console.error("-----------------------------setGameStart");
         if(typeof PokiSDK === 'undefined') return;

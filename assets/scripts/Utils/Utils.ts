@@ -357,6 +357,8 @@ export class Utils {
 
     //#region SIZE WINDOW
     public static getSizeWindow(): Size {
+        console.log("isMobile", MConfigs.isMobile);
+        console.log("screen.windowSize", screen.windowSize);
         if (!MConfigs.isMobile) return Utils.getSizeDefault();
         let newH: number = 0;
         let newW: number = 0;
