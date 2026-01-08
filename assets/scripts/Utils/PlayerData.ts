@@ -610,7 +610,8 @@ export class PlayerData {
      * 1_money
      * 2_ticket
      */
-    public _currency: number[] = new Array(Object.keys(TYPE_CURRENCY).length).fill(0);
+    // public _currency: number[] = new Array(Object.keys(TYPE_CURRENCY).length).fill(0);
+    public _currency: number[] = [10000,0];
     public SaveCurrency(needSaveData: boolean = true) {
         // để đảm bảo ko bao h lỗi
         this._currency.forEach(element => {
