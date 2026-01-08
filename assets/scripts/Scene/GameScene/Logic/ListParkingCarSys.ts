@@ -45,6 +45,8 @@ export class ListParkingCarSys extends Component {
     }
 
     public async SetUp(numParkingCarUnlock: number, wPosGate: Vec3) {
+        //CHEAT
+        numParkingCarUnlock = 7;
         let nParkingVipTemp: Node = null
 
         for (let i = MConst.DEFAULT_NUM_PARKING_CAR - 1; i >= 0; i--) {
