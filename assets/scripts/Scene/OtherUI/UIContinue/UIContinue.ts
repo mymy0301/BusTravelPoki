@@ -147,20 +147,24 @@ export class UIContinue extends UIBaseSys {
         SupLogEvent.SetIsInWayLogLoseNormal = false;
 
         //play anim
-        switch (this.State) {
-            case STATE_UI_CONTINUE.SHOW_LOST_EVENT:
-                this.animationComponent.play(NAME_ANIM.UNLOCK_2);
-                await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK_2) * 1000);
-                break;
-            case STATE_UI_CONTINUE.SHOW_UNLOCK_PARKING:
-                this.animationComponent.play(NAME_ANIM.UNLOCK);
-                await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK) * 1000);
-                break;
-            case STATE_UI_CONTINUE.SHOW_LOST_EVENT_CHRIST:
-                this.animationComponent.play(NAME_ANIM.UNLOCK_2);
-                await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK_2) * 1000);
-                break;
-        }
+        // switch (this.State) {
+        //     case STATE_UI_CONTINUE.SHOW_LOST_EVENT:
+        //         this.animationComponent.play(NAME_ANIM.UNLOCK_2);
+        //         await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK_2) * 1000);
+        //         break;
+        //     case STATE_UI_CONTINUE.SHOW_UNLOCK_PARKING:
+        //         this.animationComponent.play(NAME_ANIM.UNLOCK);
+        //         await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK) * 1000);
+        //         break;
+        //     case STATE_UI_CONTINUE.SHOW_LOST_EVENT_CHRIST:
+        //         this.animationComponent.play(NAME_ANIM.UNLOCK_2);
+        //         await Utils.delay(this.GetTimeAnim(NAME_ANIM.UNLOCK_2) * 1000);
+        //         break;
+        // }
+
+        clientEvent.dispatchEvent(MConst.EVENT_PARKING.REVIVE_SUCCESS);
+        clientEvent.dispatchEvent(MConst.EVENT.CLOSE_UI, TYPE_UI.UI_CONTINUE, 2);
+        clientEvent.dispatchEvent(MConst.EVENT.RESUME_GAME_REVIVE);
     }
 
     private UpdateBtnAds() {

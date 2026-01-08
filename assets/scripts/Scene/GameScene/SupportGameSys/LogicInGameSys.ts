@@ -45,6 +45,8 @@ export class LogicInGameSys extends Component {
         clientEvent.on(MConst.EVENT.USE_ITEM_WHEN_BUY_SUCCESS, this.UseItemWhenBuySuccess, this);
         clientEvent.on(MConst.EVENT_ITEM_IN_GAME.CHECK_CAN_USE_BTN_SHUFFLE, this.CheckCanUseBtnShuffle, this);
         clientEvent.on(MConst.EVENT_ITEM_IN_GAME.CHECK_CAN_USE_BTN_VIP, this.CheckCanUseBtnVipSlot, this);
+
+        clientEvent.on(MConst.EVENT_PARKING.REVIVE_SUCCESS, this.ReviveSuccess, this);
     }
 
     protected onDisable(): void {
@@ -52,6 +54,8 @@ export class LogicInGameSys extends Component {
         clientEvent.off(MConst.EVENT.USE_ITEM_WHEN_BUY_SUCCESS, this.UseItemWhenBuySuccess, this);
         clientEvent.off(MConst.EVENT_ITEM_IN_GAME.CHECK_CAN_USE_BTN_SHUFFLE, this.CheckCanUseBtnShuffle, this);
         clientEvent.off(MConst.EVENT_ITEM_IN_GAME.CHECK_CAN_USE_BTN_VIP, this.CheckCanUseBtnVipSlot, this);
+
+        clientEvent.off(MConst.EVENT_PARKING.REVIVE_SUCCESS, this.ReviveSuccess, this);
     }
 
     public ResetData() {
@@ -332,6 +336,60 @@ export class LogicInGameSys extends Component {
     }
     //#endregion func btn
 
+    async ReviveSuccess(isSoundClick: boolean = true) {
+        if (this.logicItemInGame.GetItemTypeUsing() == null) {
+            if (isSoundClick) {
+                SoundSys.Instance.playSoundEffectOneShot(GameSoundEffect.SOUND_USE_BOOSTER);
+            }
+            clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.SHOW_BLOCK_GAME);
+            SoundSys.Instance.playSoundEffectOneShot(GameSoundEffect.SOUND_BOOSTER_SORT);
+            await this.logicItemInGame.UseItem(TYPE_ITEM.SORT);
+            // logic get list car Parking then sort the passenger stading suit with list car send
+
+            const listCarAreParking: Node[] = this.listParkingCarSys.GetListNCarParkingCanSort();
+
+            // prioritize car vip
+            let listMColor: M_COLOR[] = [];
+            listCarAreParking.forEach((nCar: Node) => {
+                let numPassengerCarNeedToMoveOn: number = nCar.getComponent(CarSys).InfoCar.GetNumberPassengerRemainingToMoveCar();
+                let colorCar: M_COLOR = nCar.getComponent(CarSys).InfoCar.colorByMColor;
+                listMColor.push(...new Array(numPassengerCarNeedToMoveOn).fill(colorCar));
+            });
+
+            // listCarAreParkingNormal.forEach((nCar: Node) => {
+            //     let numPassengerCarNeedToMoveOn: number = nCar.getComponent(CarSys).InfoCar.GetNumberPassengerRemainingToMoveCar();
+            //     let colorCar: M_COLOR = nCar.getComponent(CarSys).InfoCar.colorByMColor;
+            //     listMColor.push(...new Array(numPassengerCarNeedToMoveOn).fill(colorCar));
+            // });
+
+            // emit call play anim in here
+            clientEvent.dispatchEvent(MConst.EVENT.PASSENGER_BACK_WARD
+                , async () => {
+                    //=======================================================================
+                    //====================== cb when anim backward done =====================
+                    //=======================================================================
+
+                    // sort the passenger standing suit with list car send
+                    await this.listPassengerSys.SortPassenger(listMColor);
+                }
+                , () => {
+                    //=======================================================================
+                    //====================== cb when all anim done ==========================
+                    //=======================================================================
+                    // console.error("Hide Block Sort");
+
+                    clientEvent.dispatchEvent(MConst.EVENT.BLOCK_UI.HIDE_BLOCK_GAME);
+                    clientEvent.dispatchEvent(MConst.EVENT_ITEM_IN_GAME.USE_DONE_ITEM, TYPE_ITEM.SORT);
+
+                    // clientEvent.dispatchEvent(MConst.EVENT.RESUME_GAME);
+
+                    // get id 0 car vip or car normal 
+                    let nCarVip: Node = listCarAreParking[0];
+                    this.CallPickUpPassengerWhenHadNewCar();
+                });
+        }
+    }
+
     //#region func game
     private HasAnyCarCanShuffle(): boolean {
         const isHaveCarCanChangeColor: boolean = this.groundCarSys.CheckHaveCarCanChangeColor();
@@ -535,7 +593,11 @@ export class LogicInGameSys extends Component {
             // console.log("log pass can move on car", passengerCheck != null, !PasssengerCanJoinAnyCar(passengerCheck, listCarParking));
 
             if (passengerCheck != null && !PasssengerCanJoinAnyCar(passengerCheck, listCarParking)) {
-                clientEvent.dispatchEvent(MConst.EVENT.LOSE_GAME, TYPE_LOSE_GAME.NO_MORE_MOVES);
+                console.log("TYPE",this.logicItemInGame.GetItemTypeUsing() == null);
+                if(this.logicItemInGame.GetItemTypeUsing() == null){
+                    clientEvent.dispatchEvent(MConst.EVENT.LOSE_GAME, TYPE_LOSE_GAME.NO_MORE_MOVES);
+                }
+                
                 // b = Number.parseFloat(performance.now().toString());
             }
         }

@@ -92,6 +92,7 @@ export class GameSys extends Component {
     protected onEnable(): void {
         clientEvent.on(MConst.EVENT.RESET_GAME, this.setResetGame_From_ConfirmEnsurePopup, this);
         clientEvent.on(MConst.EVENT.RESUME_GAME, this.ResumeGame, this);
+        clientEvent.on(MConst.EVENT.RESUME_GAME_REVIVE, this.ResumeGame_Revive, this);
         clientEvent.on(MConst.EVENT.PAUSE_GAME, this.PauseGame, this);
         clientEvent.on(MConst.EVENT.NEXT_LEVEL, this.NextLevel, this);
         clientEvent.on(MConst.EVENT.CHECK_WIN_GAME, this.CheckWinGame, this);
@@ -122,6 +123,7 @@ export class GameSys extends Component {
         director.off("DONE_TRANSITIONS_TURN_OFF", this.DoneAnimTurnOffLoadScene, this);
         clientEvent.off(MConst.EVENT.RESET_GAME, this.setResetGame_From_ConfirmEnsurePopup, this);
         clientEvent.off(MConst.EVENT.RESUME_GAME, this.ResumeGame, this);
+        clientEvent.off(MConst.EVENT.RESUME_GAME_REVIVE, this.ResumeGame_Revive, this);
         clientEvent.off(MConst.EVENT.PAUSE_GAME, this.PauseGame, this);
         clientEvent.off(MConst.EVENT.NEXT_LEVEL, this.NextLevel, this);
         clientEvent.off(MConst.EVENT.CHECK_WIN_GAME, this.CheckWinGame, this);
@@ -279,6 +281,15 @@ export class GameSys extends Component {
         this.ChangeStateGame(STATE_GAME.PLAYING);
         // check lose game
         this.logicInGameSys.CheckLoseGame();
+        this.logicInGameSys.CallPickUpPassengerWhenHadNewCar();
+    }
+
+    private ResumeGame_Revive() {
+        PokiSDKManager.Instance.setGameStart();
+        clientEvent.dispatchEvent(MConst.EVENT_CAR.CAR_RESUME_COOLDOWN);
+        this.ChangeStateGame(STATE_GAME.PLAYING);
+        // check lose game
+        // this.logicInGameSys.CheckLoseGame();
         this.logicInGameSys.CallPickUpPassengerWhenHadNewCar();
     }
 
@@ -536,18 +547,24 @@ export class GameSys extends Component {
                             await this.ShowUILose();
                             break;
                         case TYPE_LOSE_GAME.NO_MORE_MOVES:
-                            let nParkingCarLockNormal = this.listParkingCarSys.GetNParkingCarByStateParking(STATE_PARKING_CAR.LOCK_NORMAL);
-                            if (nParkingCarLockNormal != null) {
-                                clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.NO_PLACE_PARKING);
-                                await Utils.delay(timeWaitNoti_noParking * 1000);
+                            // let nParkingCarLockNormal = this.listParkingCarSys.GetNParkingCarByStateParking(STATE_PARKING_CAR.LOCK_NORMAL);
+                            // if (nParkingCarLockNormal != null) {
+                            //     clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.NO_PLACE_PARKING);
+                            //     await Utils.delay(timeWaitNoti_noParking * 1000);
 
-                                // emit để pause 
-                                this.ShowLoseGame();
-                            } else {
-                                clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.NO_PLACE_PARKING);
-                                await Utils.delay(timeWaitNoti_noParking * 1000);
-                                await this.ShowUILose();
-                            }
+                            //     // emit để pause 
+                            //     this.ShowLoseGame();
+                            // } else {
+                            //     clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.NO_PLACE_PARKING);
+                            //     await Utils.delay(timeWaitNoti_noParking * 1000);
+                            //     await this.ShowUILose();
+                            // }
+
+                            clientEvent.dispatchEvent(MConst.NOTIFICATION_IN_GAME.NO_PLACE_PARKING);
+                            await Utils.delay(timeWaitNoti_noParking * 1000);
+
+                            // emit để pause 
+                            this.ShowLoseGame();
                             break;
                     }
                 }
