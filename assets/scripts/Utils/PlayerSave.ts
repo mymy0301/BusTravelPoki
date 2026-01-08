@@ -4,7 +4,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('PlayerSave')
 export class PlayerSave {
-    public static GAME_ID = "BusTravelPoki";
+    public static GAME_ID = "BusTravelPoki_002";
     public static dataJson = {};
 
     //#region FUNC SAVE GAME
